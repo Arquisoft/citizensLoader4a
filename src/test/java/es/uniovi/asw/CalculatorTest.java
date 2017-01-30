@@ -10,6 +10,9 @@ public void evalAdd() {
 	Calculator calc = new Calculator();
 	Integer expected = 5;
 	assertEquals(calc.add(3, 2), expected);
+	assertEquals(calc.substract(7, 2), expected);
+	assertEquals(calc.divide(20, 4), expected);
+	assertEquals(calc.multiply(5, 1), expected);
 }
 
 
