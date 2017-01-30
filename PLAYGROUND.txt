@@ -5,3 +5,5 @@ Prueba Javi
 Lista de comandos de git porsiaca
 
 https://github.com/susannalles/MinimalEditions/wiki/Lista-Comandos-Git
+
+Prueba hecha desde la linea de comandos (Javi)
