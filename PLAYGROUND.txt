@@ -1,3 +1,7 @@
 Prueba
 Hola 
 Prueba Javi
+
+Lista de comandos de git porsiaca
+
+https://github.com/susannalles/MinimalEditions/wiki/Lista-Comandos-Git
