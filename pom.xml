@@ -80,11 +80,17 @@
 			<artifactId>poi</artifactId>
 			<version>3.15</version>
 		</dependency>
+
+		<!--Apache Poi -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.15</version>
 		</dependency>
+
+
+
+
 	</dependencies>
 	<!--Build plugins -->
 	<build>
@@ -290,6 +296,18 @@
 			<organizationUrl>http://www.uniovi.es</organizationUrl>
 			<roles>
 				<role>Project Admin</role>
+				<role>Developer</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>
+		<developer>
+			<id>pelayolartategui</id>
+			<name>Pelayo Garcia Lartategui</name>
+			<email>uo245274@uniovi.es</email>
+			<organization>WESO-University of Oviedo</organization>
+			<organizationUrl>http://www.uniovi.es</organizationUrl>
+			<roles>
 				<role>Developer</role>
 			</roles>
 			<timezone>2</timezone>
