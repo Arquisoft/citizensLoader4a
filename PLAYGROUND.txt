@@ -6,4 +6,5 @@ Lista de comandos de git porsiaca
 
 https://github.com/susannalles/MinimalEditions/wiki/Lista-Comandos-Git
 
-Prueba hecha desde la linea de comandos (Javi)
+
+Prueba hecha desde la linea de comandos (Javi) - esto desde casa
