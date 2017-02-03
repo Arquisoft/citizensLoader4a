@@ -40,10 +40,13 @@ public class RList implements ReadList{
 			while (rowIterator.hasNext()) {
 				row = rowIterator.next();
 				ciudadano=new Citizen();
-				ciudadano.setBirthdate(row.getCell(0) != null ? row.getCell(0).getDateCellValue() : null);
-				ciudadano.setAddress(row.getCell(1) != null ? row.getCell(1).getStringCellValue() : null);
-				ciudadano.setNationality(row.getCell(2) != null ? row.getCell(2).getStringCellValue() : null);
-				ciudadano.setNif(row.getCell(3) != null ? row.getCell(3).getStringCellValue() : null);
+				ciudadano.setName(row.getCell(0) != null ? row.getCell(0).getStringCellValue() : null);
+				ciudadano.setSurname(row.getCell(1) != null ? row.getCell(1).getStringCellValue() : null);
+				ciudadano.setEmail(row.getCell(2) != null ? row.getCell(2).getStringCellValue() : null);
+				ciudadano.setBirthdate(row.getCell(3) != null ? row.getCell(3).getDateCellValue() : null);
+				ciudadano.setAddress(row.getCell(4) != null ? row.getCell(4).getStringCellValue() : null);
+				ciudadano.setNationality(row.getCell(5) != null ? row.getCell(5).getStringCellValue() : null);
+				ciudadano.setNif(row.getCell(6) != null ? row.getCell(6).getStringCellValue() : null);
 				ciudadanos.add(ciudadano);
 				//Luego lo hago
 			}

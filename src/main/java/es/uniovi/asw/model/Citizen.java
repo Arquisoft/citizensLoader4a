@@ -68,7 +68,19 @@ public class Citizen {
         this.password = password;
     }
 
-    public Long getId() {
+    public Citizen(String name, String surname, String email, Date birthdate, String address, String nationality,
+			String nif) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.birthdate = birthdate;
+		this.address = address;
+		this.nationality = nationality;
+		this.nif = nif;
+	}
+
+	public Long getId() {
         return id;
     }
 
