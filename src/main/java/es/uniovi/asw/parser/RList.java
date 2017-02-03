@@ -1,6 +1,7 @@
 package es.uniovi.asw.parser;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -24,18 +25,26 @@ public class RList implements ReadList{
 	private List<Citizen> readFile(String path) {
 		XSSFWorkbook wb;
 		XSSFSheet sheet;
-		Iterator<Row> rows;
+		Iterator<Row> rowIterator;
 		Row row = null;
 		Citizen ciudadano;
+		List<Citizen> ciudadanos = new ArrayList<Citizen>();
 		
 		try {
 			wb = new XSSFWorkbook(new File(path));
-			sheet = wb.getSheetAt(0);
-			rows = sheet.iterator();
+			sheet = wb.getSheetAt(0); 
+			rowIterator = sheet.iterator();
 			
-			rows.next();
+			rowIterator.next();
 			
-			while (rows.hasNext()) {
+			while (rowIterator.hasNext()) {
+				row = rowIterator.next();
+				ciudadano=new Citizen();
+				ciudadano.setBirthdate(row.getCell(0) != null ? row.getCell(0).getDateCellValue() : null);
+				ciudadano.setAddress(row.getCell(1) != null ? row.getCell(1).getStringCellValue() : null);
+				ciudadano.setNationality(row.getCell(2) != null ? row.getCell(2).getStringCellValue() : null);
+				ciudadano.setNif(row.getCell(3) != null ? row.getCell(3).getStringCellValue() : null);
+				ciudadanos.add(ciudadano);
 				//Luego lo hago
 			}
 								
@@ -46,6 +55,6 @@ public class RList implements ReadList{
 			System.out.println("El fichero " + fileName[fileName.length - 1] + " no existe");
 		}
 		
-		return null;
+		return ciudadanos;
 	}
 }

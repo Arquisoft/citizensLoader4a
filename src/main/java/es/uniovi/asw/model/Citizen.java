@@ -15,9 +15,37 @@ public class Citizen {
     private String nif; //Clave natural
     private String password;
 
-    Citizen(){}
+    public Citizen(){}
 
-    public Citizen(Long id, String name, String surname, String email, Date birthdate, String address, String nationality, String nif) {
+    public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+
+	public void setNif(String nif) {
+		this.nif = nif;
+	}
+
+	public Citizen(Long id, String name, String surname, String email, Date birthdate, String address, String nationality, String nif) {
         this.id = id;
         this.name = name;
         this.surname = surname;
