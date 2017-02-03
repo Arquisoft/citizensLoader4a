@@ -21,5 +21,15 @@ public class LeerExcelTest {
 		assertEquals(ciudadanos.get(0).getSurname(), "Torres Pardo");
 		assertEquals(ciudadanos.get(1).getSurname(), "López Fernando");
 		assertEquals(ciudadanos.get(2).getSurname(), "Torres Pardo");
+		
+		assertEquals(ciudadanos.get(0).getName(), "Juan");
+		assertEquals(ciudadanos.get(1).getName(), "Luis");
+		assertEquals(ciudadanos.get(2).getName(), "Ana");
+		
+		assertEquals(ciudadanos.get(2).getEmail(), "ana@example.com");
+		assertEquals(ciudadanos.get(2).getNationality(), "Español");
+		assertEquals(ciudadanos.get(2).getNif(), "09940449X");
+		assertEquals(ciudadanos.get(2).getAddress(), "Av. De la Constitución 8");
+
 	}
 }
