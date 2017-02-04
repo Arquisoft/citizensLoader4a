@@ -2,22 +2,31 @@ package es.uniovi.asw.model;
 
 import java.util.Date;
 
-
 public class Citizen {
 
-    private Long id; //JPA
-    private String name;
-    private String surname;
-    private String email;
-    private Date birthdate;
-    private String address;
-    private String nationality;
-    private String nif; //Clave natural
-    private String password;
+	private Long id; // JPA
+	private String name;
+	private String surname;
+	private String email;
+	private Date birthdate;
+	private String address;
+	private String nationality;
+	private String nif; // Clave natural
+	private String password;
+	private String user;
 
-    public Citizen(){}
+	public Citizen() {
+	}
 
-    public void setName(String name) {
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -45,30 +54,32 @@ public class Citizen {
 		this.nif = nif;
 	}
 
-	public Citizen(Long id, String name, String surname, String email, Date birthdate, String address, String nationality, String nif) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.birthdate = birthdate;
-        this.address = address;
-        this.nationality = nationality;
-        this.nif = nif;
-    }
+	public Citizen(Long id, String name, String surname, String email, Date birthdate, String address,
+			String nationality, String nif) {
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.birthdate = birthdate;
+		this.address = address;
+		this.nationality = nationality;
+		this.nif = nif;
+	}
 
-    public Citizen(Long id, String name, String surname, String email, Date birthdate, String address, String nationality, String nif, String password) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.birthdate = birthdate;
-        this.address = address;
-        this.nationality = nationality;
-        this.nif = nif;
-        this.password = password;
-    }
+	public Citizen(Long id, String name, String surname, String email, Date birthdate, String address,
+			String nationality, String nif, String password) {
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.email = email;
+		this.birthdate = birthdate;
+		this.address = address;
+		this.nationality = nationality;
+		this.nif = nif;
+		this.password = password;
+	}
 
-    public Citizen(String name, String surname, String email, Date birthdate, String address, String nationality,
+	public Citizen(String name, String surname, String email, Date birthdate, String address, String nationality,
 			String nif) {
 		super();
 		this.name = name;
@@ -81,72 +92,66 @@ public class Citizen {
 	}
 
 	public Long getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getSurname() {
-        return surname;
-    }
+	public String getSurname() {
+		return surname;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public Date getBirthdate() {
-        return birthdate;
-    }
+	public Date getBirthdate() {
+		return birthdate;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public String getNationality() {
-        return nationality;
-    }
+	public String getNationality() {
+		return nationality;
+	}
 
-    public String getNif() {
-        return nif;
-    }
+	public String getNif() {
+		return nif;
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
 
-        Citizen citizen = (Citizen) o;
+		Citizen citizen = (Citizen) o;
 
-        return nif.equals(citizen.nif);
-    }
+		return nif.equals(citizen.nif);
+	}
 
-    @Override
-    public int hashCode() {
-        return nif.hashCode();
-    }
+	@Override
+	public int hashCode() {
+		return nif.hashCode();
+	}
 
-    @Override
-    public String toString() {
-        return "Citizen{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", birthdate=" + birthdate +
-                ", address='" + address + '\'' +
-                ", nationality='" + nationality + '\'' +
-                ", nif='" + nif + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Citizen{" + "id=" + id + ", name='" + name + '\'' + ", surname='" + surname + '\'' + ", email='" + email
+				+ '\'' + ", birthdate=" + birthdate + ", address='" + address + '\'' + ", nationality='" + nationality
+				+ '\'' + ", nif='" + nif + '\'' + ", password='" + password + '\'' + '}';
+	}
 }
