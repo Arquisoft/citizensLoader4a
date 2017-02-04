@@ -1,6 +1,8 @@
 package es.uniovi.asw.parser;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -33,6 +35,8 @@ public class RList implements ReadList {
 		Row row = null;
 		Citizen ciudadano;
 		List<Citizen> ciudadanos = new ArrayList<Citizen>();
+		
+		StringBuilder logger = new StringBuilder();
 
 		try {
 			wb = new XSSFWorkbook(new File(path));
@@ -51,23 +55,24 @@ public class RList implements ReadList {
 				ciudadano.setAddress(row.getCell(4) != null ? row.getCell(4).getStringCellValue() : null);
 				ciudadano.setNationality(row.getCell(5) != null ? row.getCell(5).getStringCellValue() : null);
 				ciudadano.setNif(row.getCell(6) != null ? row.getCell(6).getStringCellValue() : null);
-				
 
 				// Crea un usuario y contraseña aleatorio
-				String us=getCadenaAlfanumAleatoria(5);
-				String con= getCadenaAlfanumAleatoria(4);
+				String us = getCadenaAlfanumAleatoria(5);
+				String con = getCadenaAlfanumAleatoria(4);
 				ciudadano.setPassword(con);
 				ciudadano.setUser(us);
 				ciudadanos.add(ciudadano);
 			}
 
 		} catch (InvalidFormatException e) {
-            Console.print("El fichero no es un .xlsx");
+			Console.print("El fichero no es un .xlsx");
 		} catch (Exception e) {
 			String[] fileName = path.split("/");
 			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
 		}
-
+		
+		//Crear el fichero log
+		createErrorLogFile(path, logger);
 		return ciudadanos;
 	}
 
@@ -84,5 +89,22 @@ public class RList implements ReadList {
 			}
 		}
 		return cadenaAleatoria;
+	}
+
+	private void createErrorLogFile(String ruta, StringBuilder contenido) {
+		String[] cachos = ruta.split("/");
+		String nombreFich = cachos[cachos.length-1];
+		String[] cachosNombre = nombreFich.split(".");
+		String newName = cachosNombre[0];
+		try {
+			File logFile = new File("src/test/resources/" + newName + ".log");
+			FileWriter fileWriter = new FileWriter(logFile);
+			fileWriter.write(contenido.toString());
+			fileWriter.flush();
+			fileWriter.close();
+		} catch (IOException e) {
+
+		}
+
 	}
 }
