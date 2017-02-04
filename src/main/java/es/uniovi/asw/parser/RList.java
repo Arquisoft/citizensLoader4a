@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+import es.uniovi.asw.util.Console;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -61,10 +62,10 @@ public class RList implements ReadList {
 			}
 
 		} catch (InvalidFormatException e) {
-			System.out.println("El fichero no es un .xlsx");
+            Console.print("El fichero no es un .xlsx");
 		} catch (Exception e) {
 			String[] fileName = path.split("/");
-			System.out.println("El fichero " + fileName[fileName.length - 1] + " no existe");
+			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
 		}
 
 		return ciudadanos;
