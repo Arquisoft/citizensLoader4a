@@ -12,4 +12,5 @@ public class ErrorTypes {
 	static String DATE_ERROR = "DATE_ERROR";
 	static String NIF_ERROR = "NIF_ERROR";
 	static String NATIONALITY_ERROR = "NATIONALITY_ERROR";
+	static String OK = "OK";
 }

@@ -63,46 +63,53 @@ public class RList implements ReadList {
 			boolean addressResult;
 			boolean nationalityResult;
 			boolean nifResult;
-			
+
 			int actualrow = 0;
 			while (rowIterator.hasNext()) {
 				actualrow++;
 				row = rowIterator.next();
-				ciudadano = new Citizen();
 				name = row.getCell(0) != null ? row.getCell(0).getStringCellValue() : null;
 				nameResult = Comprobador.esTodoTexto(name);
 				surname = row.getCell(1) != null ? row.getCell(1).getStringCellValue() : null;
 				surnameResult = Comprobador.esTodoTexto(surname);
 				email = row.getCell(2) != null ? row.getCell(2).getStringCellValue() : null;
 				emailResult = Comprobador.esEmailCorrecto(email);
-				//birthResult = Comprobador.fechaCorrecta(row.getCell(3).getStringCellValue()); // Orden
-																								// importante
+				// birthResult =
+				// Comprobador.fechaCorrecta(row.getCell(3).getStringCellValue());
+				// // Orden
+				// importante
 				birthResult = true;
 				birth = row.getCell(3) != null && birthResult ? row.getCell(3).getDateCellValue() : null;
 				address = row.getCell(4) != null ? row.getCell(4).getStringCellValue() : null;
-				//addressResult = Comprobador.esTodoTexto(address);
+				// addressResult = Comprobador.esTodoTexto(address);
 				addressResult = true;
 				nationality = row.getCell(5) != null ? row.getCell(5).getStringCellValue() : null;
 				nationalityResult = Comprobador.esTodoTexto(nationality);
 				nif = row.getCell(6) != null ? row.getCell(6).getStringCellValue() : null;
 				nifResult = nif != null ? true : false;
 
-				ciudadano.setName(name);
-				ciudadano.setSurname(surname);
-				ciudadano.setEmail(email);
-				ciudadano.setBirthdate(birth);
-				ciudadano.setAddress(address);
-				ciudadano.setNationality(nationality);
-				ciudadano.setNif(nif);
+				// Se carga mas info al logger.
+				boolean todoOK = completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult,
+						addressResult, nationalityResult, nifResult, actualrow);
 
-				// Crea un usuario y contraseña aleatorio
-				String us = getCadenaAlfanumAleatoria(5);
-				String con = getCadenaAlfanumAleatoria(4);
-				ciudadano.setPassword(con);
-				ciudadano.setUser(us);
-				ciudadanos.add(ciudadano);
-				//Se carga mas info al logger.
-				completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult, addressResult, nationalityResult, nifResult, actualrow);
+				if (todoOK) {
+					ciudadano = new Citizen();
+					ciudadano.setName(name);
+					ciudadano.setSurname(surname);
+					ciudadano.setEmail(email);
+					ciudadano.setBirthdate(birth);
+					ciudadano.setAddress(address);
+					ciudadano.setNationality(nationality);
+					ciudadano.setNif(nif);
+
+					// Crea un usuario y contraseña aleatorio
+					String us = getCadenaAlfanumAleatoria(5);
+					String con = getCadenaAlfanumAleatoria(4);
+					ciudadano.setPassword(con);
+					ciudadano.setUser(us);
+					ciudadanos.add(ciudadano);
+				}
+
 			}
 
 		} catch (InvalidFormatException e) {
@@ -114,9 +121,9 @@ public class RList implements ReadList {
 
 		// Crear el fichero log
 		String[] cachos = path.split("/");
-		String nombreFich1 = cachos[cachos.length -1];
+		String nombreFich1 = cachos[cachos.length - 1];
 		String nombreFich = nombreFich1.replace(".xlsx", "");
-		
+
 		WreportP reporter = new WreportP(nombreFich, logger.toString());
 		reporter.createErrorLogFile();
 		//
@@ -138,31 +145,46 @@ public class RList implements ReadList {
 		return cadenaAleatoria;
 	}
 
-	private void completeTextForLog(StringBuilder actualLoggingText, boolean name, boolean surname, boolean email,
+	private boolean completeTextForLog(StringBuilder actualLoggingText, boolean name, boolean surname, boolean email,
 			boolean birth, boolean address, boolean nationality, boolean nif, int actualrow) {
-		actualLoggingText.append("Ciudadano líena -> " + actualrow+"\n");
+
+		boolean todoOK = true;
+		actualLoggingText.append("Ciudadano líena -> " + actualrow + "\n");
 		if (!name) {
-			actualLoggingText.append("\t"+ErrorTypes.NAME_ERROR +" column "+0+"\n");
+			actualLoggingText.append("\t" + ErrorTypes.NAME_ERROR + " column " + 0 + "\n");
+			todoOK = false;
 		}
 		if (!surname) {
-			actualLoggingText.append("\t"+ErrorTypes.SURNAME_ERROR +" column "+1+"\n");
+			actualLoggingText.append("\t" + ErrorTypes.SURNAME_ERROR + " column " + 1 + "\n");
+			todoOK = false;
 		}
 		if (!email) {
-			actualLoggingText.append("\t"+ErrorTypes.EMAIL_ERROR +" column "+2+"\n");
+			actualLoggingText.append("\t" + ErrorTypes.EMAIL_ERROR + " column " + 2 + "\n");
+			todoOK = false;
 		}
 		if (!address) {
-			actualLoggingText.append("\t"+ErrorTypes.ADDRESS_ERROR +" column "+4+"\n");
+			actualLoggingText.append("\t" + ErrorTypes.ADDRESS_ERROR + " column " + 4 + "\n");
+			todoOK = false;
 		}
 		if (!birth) {
-			actualLoggingText.append("\t"+ErrorTypes.DATE_ERROR +" column "+3+"\n");
+			actualLoggingText.append("\t" + ErrorTypes.DATE_ERROR + " column " + 3 + "\n");
+			todoOK = false;
 		}
 		if (!nationality) {
-			actualLoggingText.append("\t"+ErrorTypes.NATIONALITY_ERROR +" column "+5+"\n");
+			actualLoggingText.append("\t" + ErrorTypes.NATIONALITY_ERROR + " column " + 5 + "\n");
+			todoOK = false;
 		}
 		if (!nif) {
-			actualLoggingText.append("\t"+ErrorTypes.NIF_ERROR +"column "+6+"\n");
+			actualLoggingText.append("\t" + ErrorTypes.NIF_ERROR + "column " + 6 + "\n");
+			todoOK = false;
+		}
+		if (!todoOK) {
+			actualLoggingText.append("\tCiudadano no creado, por favor, arregle los errores.");
+		} else {
+			actualLoggingText.append("\t" + ErrorTypes.OK);
 		}
 		actualLoggingText.append("\n");
+		return todoOK;
 	}
 
 }
