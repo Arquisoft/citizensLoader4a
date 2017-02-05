@@ -32,4 +32,12 @@ public class LeerExcelTest {
 		assertEquals(ciudadanos.get(2).getAddress(), "Av. De la Constitución 8");
 
 	}
+	
+	@Test
+	public void leerConErrores(){
+		String fileName = "testErrors.xlsx";
+		List<Citizen> ciudadanos;
+		ReadList rl = new RList();
+		ciudadanos = rl.read("src/test/resources/"+fileName);
+	}
 }

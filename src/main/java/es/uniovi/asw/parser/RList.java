@@ -64,8 +64,9 @@ public class RList implements ReadList {
 			boolean nationalityResult;
 			boolean nifResult;
 			
-	
+			int actualrow = 0;
 			while (rowIterator.hasNext()) {
+				actualrow++;
 				row = rowIterator.next();
 				ciudadano = new Citizen();
 				name = row.getCell(0) != null ? row.getCell(0).getStringCellValue() : null;
@@ -101,7 +102,7 @@ public class RList implements ReadList {
 				ciudadano.setUser(us);
 				ciudadanos.add(ciudadano);
 				//Se carga mas info al logger.
-				//completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult, addressResult, nationalityResult, nifResult, row.getRowNum());
+				completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult, addressResult, nationalityResult, nifResult, actualrow);
 			}
 
 		} catch (InvalidFormatException e) {
@@ -139,27 +140,27 @@ public class RList implements ReadList {
 
 	private void completeTextForLog(StringBuilder actualLoggingText, boolean name, boolean surname, boolean email,
 			boolean birth, boolean address, boolean nationality, boolean nif, int actualrow) {
-		actualLoggingText.append("Ciudadano líena - " + actualrow);
+		actualLoggingText.append("Ciudadano líena -> " + actualrow+"\n");
 		if (!name) {
-			actualLoggingText.append("\t"+ErrorTypes.NAME_ERROR +"column "+0);
+			actualLoggingText.append("\t"+ErrorTypes.NAME_ERROR +" column "+0+"\n");
 		}
 		if (!surname) {
-			actualLoggingText.append("\t"+ErrorTypes.SURNAME_ERROR +"column "+1);
+			actualLoggingText.append("\t"+ErrorTypes.SURNAME_ERROR +" column "+1+"\n");
 		}
 		if (!email) {
-			actualLoggingText.append("\t"+ErrorTypes.EMAIL_ERROR +"column "+2);
+			actualLoggingText.append("\t"+ErrorTypes.EMAIL_ERROR +" column "+2+"\n");
 		}
 		if (!address) {
-			actualLoggingText.append("\t"+ErrorTypes.ADDRESS_ERROR +"column "+4);
+			actualLoggingText.append("\t"+ErrorTypes.ADDRESS_ERROR +" column "+4+"\n");
 		}
 		if (!birth) {
-			actualLoggingText.append("\t"+ErrorTypes.DATE_ERROR +"column "+3);
+			actualLoggingText.append("\t"+ErrorTypes.DATE_ERROR +" column "+3+"\n");
 		}
 		if (!nationality) {
-			actualLoggingText.append("\t"+ErrorTypes.NATIONALITY_ERROR +"column "+5);
+			actualLoggingText.append("\t"+ErrorTypes.NATIONALITY_ERROR +" column "+5+"\n");
 		}
 		if (!nif) {
-			actualLoggingText.append("\t"+ErrorTypes.NIF_ERROR +"column "+6);
+			actualLoggingText.append("\t"+ErrorTypes.NIF_ERROR +"column "+6+"\n");
 		}
 		actualLoggingText.append("\n");
 	}
