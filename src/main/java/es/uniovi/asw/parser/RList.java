@@ -101,7 +101,7 @@ public class RList implements ReadList {
 				ciudadano.setUser(us);
 				ciudadanos.add(ciudadano);
 				//Se carga mas info al logger.
-				completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult, addressResult, nationalityResult, nifResult, row.getRowNum());
+				//completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult, addressResult, nationalityResult, nifResult, row.getRowNum());
 			}
 
 		} catch (InvalidFormatException e) {
