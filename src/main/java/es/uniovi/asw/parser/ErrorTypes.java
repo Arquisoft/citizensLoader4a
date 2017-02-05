@@ -1,5 +1,9 @@
 package es.uniovi.asw.parser;
 
+/**
+ * Tipos de errores al leer de un fichero excel los datos necesarios
+ *
+ */
 public class ErrorTypes {
 	static String NAME_ERROR = "NAME_ERROR";
 	static String SURNAME_ERROR = "SURNAME_ERROR";

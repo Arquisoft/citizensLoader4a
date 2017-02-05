@@ -1,8 +1,6 @@
 package es.uniovi.asw.parser;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -75,12 +73,14 @@ public class RList implements ReadList {
 				surname = row.getCell(1) != null ? row.getCell(1).getStringCellValue() : null;
 				surnameResult = Comprobador.esTodoTexto(surname);
 				email = row.getCell(2) != null ? row.getCell(2).getStringCellValue() : null;
-				emailResult = Comprobador.esTodoTexto(email);
-				birthResult = Comprobador.fechaCorrecta(row.getCell(3).getStringCellValue()); // Orden
+				emailResult = Comprobador.esEmailCorrecto(email);
+				//birthResult = Comprobador.fechaCorrecta(row.getCell(3).getStringCellValue()); // Orden
 																								// importante
+				birthResult = true;
 				birth = row.getCell(3) != null && birthResult ? row.getCell(3).getDateCellValue() : null;
 				address = row.getCell(4) != null ? row.getCell(4).getStringCellValue() : null;
-				addressResult = Comprobador.esTodoTexto(address);
+				//addressResult = Comprobador.esTodoTexto(address);
+				addressResult = true;
 				nationality = row.getCell(5) != null ? row.getCell(5).getStringCellValue() : null;
 				nationalityResult = Comprobador.esTodoTexto(nationality);
 				nif = row.getCell(6) != null ? row.getCell(6).getStringCellValue() : null;
@@ -113,7 +113,8 @@ public class RList implements ReadList {
 
 		// Crear el fichero log
 		String[] cachos = path.split("/");
-		String nombreFich = cachos[(cachos.length - 1)].split(".")[0];
+		String nombreFich1 = cachos[cachos.length -1];
+		String nombreFich = nombreFich1.replace(".xlsx", "");
 		
 		WreportP reporter = new WreportP(nombreFich, logger.toString());
 		reporter.createErrorLogFile();

@@ -14,7 +14,7 @@ public class Comprobador {
 		}
 		char[] caracteres = prueba.toCharArray();
 		for (char c : caracteres) {
-			if (!Character.isLetter(c))
+			if (!Character.isLetter(c) && !Character.isWhitespace(c))
 				return false;
 		}
 		return true;
@@ -31,7 +31,34 @@ public class Comprobador {
 		}
 		return true;
 	}
+	public static boolean esEmailCorrecto(String prueba){
+		if (prueba == null) {
+			return false;
+		}
+		String[] nombreYmail = prueba.split("@");
+		if(nombreYmail.length != 2){ //Correo incorrecto, no cumple xxx@xxx
+			return false;
+		}
+		String parteMail = nombreYmail[1];
+		/*
+		String[] mail = parteMail.split(".");
+		if(mail.length != 2){ //Mail incorrecto, no cumple ...@xxx.xxx
+			return false;
+		}
+		*/
+		if(!parteMail.contains(".")){
+			return false;
+		}
+			
+		return true;
+		
+	}
 	
+	/**
+	 * Este método hace que salte la excepcion en el parser, asi que no va
+	 * @param prueba
+	 * @return
+	 */
 	public static boolean fechaCorrecta(String prueba){
 		if(prueba == null){
 			return false;
