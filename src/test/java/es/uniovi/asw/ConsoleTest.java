@@ -65,8 +65,8 @@ public class ConsoleTest {
     @Test
     public void printf() throws Exception {
 
-        Console.printf("%.2f", 12.3698);
-        assertEquals("12,37",outContent.toString());
+        Console.printf("the %s jumped over the %s, %d times", "cow", "moon", 2);
+        assertEquals("the cow jumped over the moon, 2 times",outContent.toString());
 
     }
 
