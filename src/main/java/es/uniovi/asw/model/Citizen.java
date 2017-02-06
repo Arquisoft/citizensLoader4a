@@ -1,9 +1,13 @@
 package es.uniovi.asw.model;
 
+
+import javax.persistence.*;
 import java.util.Date;
-
+@Entity
+@Table(name="citizen")
 public class Citizen {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; // JPA
 	private String name;
 	private String surname;

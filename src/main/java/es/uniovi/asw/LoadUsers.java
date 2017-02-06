@@ -1,8 +1,7 @@
 package es.uniovi.asw;
 
-import es.uniovi.asw.util.Console;
-
-import java.util.logging.Logger;
+import es.uniovi.asw.util.HibernateUtility;
+import org.hibernate.SessionFactory;
 
 /**
  * Main application
@@ -19,6 +18,8 @@ public class LoadUsers {
 
 	// TODO
 	void run(String... args) {
-		Console.print("TODO");
+		SessionFactory sessionFactory = HibernateUtility.getSessionFactory();
+		System.out.println("Session Factory : " + sessionFactory.hashCode());
 	}
-}
+	}
+
