@@ -10,7 +10,6 @@ import java.util.Random;
 import es.uniovi.asw.util.Comprobador;
 import es.uniovi.asw.util.Console;
 
-import org.apache.maven.artifact.repository.metadata.RepositoryMetadataResolutionException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;

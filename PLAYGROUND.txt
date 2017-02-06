@@ -8,3 +8,5 @@ https://github.com/susannalles/MinimalEditions/wiki/Lista-Comandos-Git
 
 
 Prueba hecha desde la linea de comandos (Javi) - esto desde casa
+
+A ver con que cuenta me sube esto
