@@ -129,6 +129,11 @@ public class RList implements ReadList {
 		return ciudadanos;
 	}
 
+	/**
+	 * Crea la cadena aleatoria de caracteres para generar la contraseña
+	 * @param longitud
+	 * @return
+	 */
 	private String getCadenaAlfanumAleatoria(int longitud) {
 		String cadenaAleatoria = "";
 		long milis = new java.util.GregorianCalendar().getTimeInMillis();
