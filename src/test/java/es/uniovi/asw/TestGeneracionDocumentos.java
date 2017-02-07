@@ -22,7 +22,7 @@ public class TestGeneracionDocumentos {
 	@Test
 	public void generarPlainTextBasico(){
 		TextWritter generadorPlainText = SingletonTextWritter.getInstance().getPlainTextWritter();
-		generadorPlainText.createDocument("PruebaPlainText", "Esto es un txt muy básico");
+		generadorPlainText.createDocument("PruebaPlainText_Basico", "Esto es un txt muy básico");
 		File myFile = new File("src/test/resources/PruebaPlainText_Basico.txt");
 		boolean existe = false;
 		if (myFile.exists())
@@ -32,8 +32,8 @@ public class TestGeneracionDocumentos {
 	@Test
 	public void generarWordBasico(){
 		TextWritter generadorWord = SingletonTextWritter.getInstance().getWordTextWritter();
-		generadorWord.createDocument("PruebaWord", "Esto es un Wrod muy básico");
-		File myFile = new File("src/test/resources/PruebaPlainText_Basico.doc");
+		generadorWord.createDocument("PruebaWord_Basico", "Esto es un Wrod muy básico");
+		File myFile = new File("src/test/resources/PruebaWord_Basico.doc");
 		boolean existe = false;
 		if (myFile.exists())
 			existe = true;
