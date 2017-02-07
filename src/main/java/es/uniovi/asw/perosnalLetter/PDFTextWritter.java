@@ -1,34 +1,21 @@
 package es.uniovi.asw.perosnalLetter;
 
-import java.awt.GraphicsEnvironment;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.util.Date;
-
-import com.lowagie.text.Anchor;
-import com.lowagie.text.BadElementException;
-import com.lowagie.text.Chapter;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
-import com.lowagie.text.Element;
 import com.lowagie.text.Font;
-import com.lowagie.text.List;
-import com.lowagie.text.ListItem;
 import com.lowagie.text.Paragraph;
-import com.lowagie.text.Phrase;
-import com.lowagie.text.Section;
-import com.lowagie.text.pdf.PdfPCell;
-import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
 class PDFTextWritter implements TextWritter {
 
 	private static String FILE_PATH = "src/test/resources/";
 	private static Font catFont = new Font(Font.TIMES_ROMAN, 18, Font.BOLD);
-	private static Font redFont = new Font(Font.TIMES_ROMAN, 12, Font.NORMAL);
+	/*private static Font redFont = new Font(Font.TIMES_ROMAN, 12, Font.NORMAL);
 	private static Font subFont = new Font(Font.TIMES_ROMAN, 16, Font.BOLD);
 	private static Font smallBold = new Font(Font.TIMES_ROMAN, 12, Font.BOLD);
-
+*/
 	@Override
 	public void createDocument(String documentName, String content) {
 		String realPath = FILE_PATH + documentName + ".pdf";

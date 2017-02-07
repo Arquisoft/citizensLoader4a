@@ -40,24 +40,15 @@ public class RList implements ReadList {
 		XSSFSheet sheet;
 		Iterator<Row> rowIterator;
 		Row row = null;
-		Citizen ciudadano;
 		List<Citizen> ciudadanos = new ArrayList<Citizen>();
 
-		String name;
-		String surname;
-		String email;
+		String name, surname, email;
 		Date birth;
 		String address;
 		String nationality;
 		String nif;
 
-		boolean nameResult;
-		boolean surnameResult;
-		boolean emailResult;
-		boolean birthResult;
-		boolean addressResult;
-		boolean nationalityResult;
-		boolean nifResult;
+		boolean nameResult, surnameResult, emailResult, birthResult, addressResult, nationalityResult, nifResult;
 
 		StringBuilder logger = new StringBuilder();
 
@@ -145,23 +136,11 @@ public class RList implements ReadList {
 
 		List<Citizen> ciudadanos = new ArrayList<Citizen>();
 
-		String name = "";
-		String surname;
-		String email;
-		String birth = "";
-		String address;
-		String nationality;
-		String nif;
+		String name = "", surname, email, birth = "", address, nationality, nif;
 		int row = 0;
 		StringBuilder logger = new StringBuilder();
 
-		boolean nameResult;
-		boolean surnameResult;
-		boolean emailResult;
-		boolean birthResult = true;
-		boolean addressResult = true;
-		boolean nationalityResult;
-		boolean nifResult;
+		boolean nameResult, surnameResult, emailResult, birthResult=true, addressResult=true, nationalityResult, nifResult=true;
 		String cadena;
 
 		try {
