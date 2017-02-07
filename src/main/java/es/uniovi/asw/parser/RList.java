@@ -1,6 +1,8 @@
 package es.uniovi.asw.parser;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -25,18 +27,34 @@ import es.uniovi.asw.reportWritter.WreportP;
 public class RList implements ReadList {
 
 	@Override
-	public List<Citizen> read(String path) {
-		List<Citizen> ciudadanos = readFile(path);
+	public List<Citizen> readExcel(String path) {
+		List<Citizen> ciudadanos = readFileExcel(path);
 		return ciudadanos;
 	}
 
-	private List<Citizen> readFile(String path) {
+	private List<Citizen> readFileExcel(String path) {
 		XSSFWorkbook wb;
 		XSSFSheet sheet;
 		Iterator<Row> rowIterator;
 		Row row = null;
 		Citizen ciudadano;
 		List<Citizen> ciudadanos = new ArrayList<Citizen>();
+
+		String name;
+		String surname;
+		String email;
+		Date birth;
+		String address;
+		String nationality;
+		String nif;
+
+		boolean nameResult;
+		boolean surnameResult;
+		boolean emailResult;
+		boolean birthResult;
+		boolean addressResult;
+		boolean nationalityResult;
+		boolean nifResult;
 
 		StringBuilder logger = new StringBuilder();
 
@@ -46,22 +64,6 @@ public class RList implements ReadList {
 			rowIterator = sheet.iterator();
 
 			rowIterator.next();
-
-			String name;
-			String surname;
-			String email;
-			Date birth;
-			String address;
-			String nationality;
-			String nif;
-
-			boolean nameResult;
-			boolean surnameResult;
-			boolean emailResult;
-			boolean birthResult;
-			boolean addressResult;
-			boolean nationalityResult;
-			boolean nifResult;
 
 			int actualrow = 0;
 			while (rowIterator.hasNext()) {
@@ -108,7 +110,6 @@ public class RList implements ReadList {
 					ciudadano.setUser(us);
 					ciudadanos.add(ciudadano);
 				}
-
 			}
 
 		} catch (InvalidFormatException e) {
@@ -131,6 +132,7 @@ public class RList implements ReadList {
 
 	/**
 	 * Crea la cadena aleatoria de caracteres para generar la contraseña
+	 * 
 	 * @param longitud
 	 * @return
 	 */
@@ -153,7 +155,7 @@ public class RList implements ReadList {
 			boolean birth, boolean address, boolean nationality, boolean nif, int actualrow) {
 
 		boolean todoOK = true;
-		actualLoggingText.append("Ciudadano líena -> " + actualrow + "\n");
+		actualLoggingText.append("Ciudadano línea -> " + actualrow + "\n");
 		if (!name) {
 			actualLoggingText.append("\t" + ErrorTypes.NAME_ERROR + " column " + 0 + "\n");
 			todoOK = false;
@@ -189,6 +191,89 @@ public class RList implements ReadList {
 		}
 		actualLoggingText.append("\n");
 		return todoOK;
+	}
+
+	@Override
+	public List<Citizen> readTXT(String path) {
+		Citizen ciudadano;
+		List<Citizen> ciudadanos = new ArrayList<Citizen>();
+
+		String name="";
+		String surname;
+		String email;
+		Date birth = null;
+		String address;
+		String nationality;
+		String nif;
+		int row = 0;
+		StringBuilder logger = new StringBuilder();
+
+		boolean nameResult;
+		boolean surnameResult;
+		boolean emailResult;
+		boolean birthResult = true;
+		boolean addressResult = true;
+		boolean nationalityResult;
+		boolean nifResult;
+		String cadena;
+
+		try {
+			FileReader f = new FileReader(path);
+			BufferedReader b = new BufferedReader(f);
+
+			while ((cadena = b.readLine()) != null) {
+				row++;
+				String[] datos = cadena.split(";");
+				if (datos.length != 7)
+					// comprobar
+					name = datos[0];
+				nameResult = Comprobador.esTodoTexto(name);
+				surname = datos[1];
+				surnameResult = Comprobador.esTodoTexto(name);
+				email = datos[2];
+				emailResult = Comprobador.esEmailCorrecto(email);
+				// birth=Date(datos[3]);
+				address = datos[4];
+				nationality = datos[5];
+				nationalityResult = Comprobador.esTodoTexto(nationality);
+				nif = datos[6];
+				nifResult = nif != null ? true : false;
+				boolean todoOK = completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult,
+						addressResult, nationalityResult, nifResult, row);
+				if (todoOK) {
+					ciudadano = new Citizen();
+					ciudadano.setName(name);
+					ciudadano.setSurname(surname);
+					ciudadano.setEmail(email);
+					ciudadano.setBirthdate(birth);
+					ciudadano.setAddress(address);
+					ciudadano.setNationality(nationality);
+					ciudadano.setNif(nif);
+
+					// Crea un usuario y contraseña aleatorio
+					String us = getCadenaAlfanumAleatoria(5);
+					String con = getCadenaAlfanumAleatoria(4);
+					ciudadano.setPassword(con);
+					ciudadano.setUser(us);
+					ciudadanos.add(ciudadano);
+				}
+			}
+			b.close();
+
+		} catch (Exception e) {
+			String[] fileName = path.split("/");
+			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
+		}
+		
+		// Crear el fichero log
+				String[] cachos = path.split("/");
+				String nombreFich1 = cachos[cachos.length - 1];
+				String nombreFich = nombreFich1.replace(".xlsx", "");
+
+				WreportP reporter = new WreportP(nombreFich, logger.toString());
+				reporter.createErrorLogFile();
+				//
+				return ciudadanos;
 	}
 
 }
