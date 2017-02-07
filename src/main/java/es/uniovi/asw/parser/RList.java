@@ -3,6 +3,8 @@ package es.uniovi.asw.parser;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -91,25 +93,11 @@ public class RList implements ReadList {
 				nifResult = nif != null ? true : false;
 
 				// Se carga mas info al logger.
-				boolean todoOK = GenerateLogText.completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult,
-						addressResult, nationalityResult, nifResult, actualrow);
+				boolean todoOK = GenerateLogText.completeTextForLog(logger, nameResult, surnameResult, emailResult,
+						birthResult, addressResult, nationalityResult, nifResult, actualrow);
 
 				if (todoOK) {
-					ciudadano = new Citizen();
-					ciudadano.setName(name);
-					ciudadano.setSurname(surname);
-					ciudadano.setEmail(email);
-					ciudadano.setBirthdate(birth);
-					ciudadano.setAddress(address);
-					ciudadano.setNationality(nationality);
-					ciudadano.setNif(nif);
-
-					// Crea un usuario y contraseña aleatorio
-					String us = getCadenaAlfanumAleatoria(5);
-					String con = getCadenaAlfanumAleatoria(4);
-					ciudadano.setPassword(con);
-					ciudadano.setUser(us);
-					ciudadanos.add(ciudadano);
+					ciudadanos.add(anadirCitizen(name, surname, email, birth, address, nationality, nif));
 				}
 			}
 
@@ -154,13 +142,13 @@ public class RList implements ReadList {
 
 	@Override
 	public List<Citizen> readTXT(String path) {
-		Citizen ciudadano;
+
 		List<Citizen> ciudadanos = new ArrayList<Citizen>();
 
-		String name="";
+		String name = "";
 		String surname;
 		String email;
-		Date birth = null;
+		String birth = "";
 		String address;
 		String nationality;
 		String nif;
@@ -184,8 +172,8 @@ public class RList implements ReadList {
 				row++;
 				String[] datos = cadena.split(";");
 				if (datos.length != 7)
-					// comprobar
-					name = datos[0];
+					throw new Exception("No están todos los datos en el txt");// comprobar
+				name = datos[0];
 				nameResult = Comprobador.esTodoTexto(name);
 				surname = datos[1];
 				surnameResult = Comprobador.esTodoTexto(name);
@@ -197,42 +185,48 @@ public class RList implements ReadList {
 				nationalityResult = Comprobador.esTodoTexto(nationality);
 				nif = datos[6];
 				nifResult = nif != null ? true : false;
-				boolean todoOK = GenerateLogText.completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult,
-						addressResult, nationalityResult, nifResult, row);
+				boolean todoOK = GenerateLogText.completeTextForLog(logger, nameResult, surnameResult, emailResult,
+						birthResult, addressResult, nationalityResult, nifResult, row);
 				if (todoOK) {
-					ciudadano = new Citizen();
-					ciudadano.setName(name);
-					ciudadano.setSurname(surname);
-					ciudadano.setEmail(email);
-					ciudadano.setBirthdate(birth);
-					ciudadano.setAddress(address);
-					ciudadano.setNationality(nationality);
-					ciudadano.setNif(nif);
-
-					// Crea un usuario y contraseña aleatorio
-					String us = getCadenaAlfanumAleatoria(5);
-					String con = getCadenaAlfanumAleatoria(4);
-					ciudadano.setPassword(con);
-					ciudadano.setUser(us);
-					ciudadanos.add(ciudadano);
+					ciudadanos.add(anadirCitizen(name, surname, email, new SimpleDateFormat("dd/MM/yyyy").parse(birth),
+							address, nationality, nif));
 				}
 			}
 			b.close();
-
+		} catch (ParseException e) {
+			Console.print("La fecha de nacimiento no tiene el formato correcto");
 		} catch (Exception e) {
 			String[] fileName = path.split("/");
 			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
 		}
-		
-		// Crear el fichero log
-				String[] cachos = path.split("/");
-				String nombreFich1 = cachos[cachos.length - 1];
-				String nombreFich = nombreFich1.replace(".xlsx", "");
 
-				WreportP reporter = new WreportP(nombreFich, logger.toString());
-				reporter.createErrorLogFile();
-				//
-				return ciudadanos;
+		// Crear el fichero log
+		String[] cachos = path.split("/");
+		String nombreFich1 = cachos[cachos.length - 1];
+		String nombreFich = nombreFich1.replace(".xlsx", "");
+
+		WreportP reporter = new WreportP(nombreFich, logger.toString());
+		reporter.createErrorLogFile();
+		//
+		return ciudadanos;
 	}
 
+	private Citizen anadirCitizen(String name, String surname, String email, Date birth, String address,
+			String nationality, String nif) {
+		Citizen ciudadano;
+		ciudadano = new Citizen();
+		ciudadano.setName(name);
+		ciudadano.setSurname(surname);
+		ciudadano.setEmail(email);
+		ciudadano.setBirthdate(birth);
+		ciudadano.setAddress(address);
+		ciudadano.setNationality(nationality);
+		ciudadano.setNif(nif);
+		// Crea un usuario y contraseña aleatorio
+		String us = getCadenaAlfanumAleatoria(5);
+		String con = getCadenaAlfanumAleatoria(4);
+		ciudadano.setPassword(con);
+		ciudadano.setUser(us);
+		return ciudadano;
+	}
 }
