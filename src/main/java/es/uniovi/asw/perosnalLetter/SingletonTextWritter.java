@@ -30,7 +30,7 @@ public class SingletonTextWritter {
 		}
 		return generadorDocumentoWord;
 	}
-	public TextWritter getPlaibnTextWritter(){
+	public TextWritter getPlainTextWritter(){
 		if(this.generadorDocumentoPlainText == null){
 			this.generadorDocumentoPlainText = new PlainTextWritter();
 		}
