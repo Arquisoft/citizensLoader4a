@@ -1,14 +1,13 @@
 package es.uniovi.asw;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.List;
-
-import org.junit.Test;
-
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RList;
 import es.uniovi.asw.parser.ReadList;
+import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class LeerArchivoTest {
 
@@ -47,7 +46,7 @@ public class LeerArchivoTest {
 	public void leerTXT() {
 		List<Citizen> ciudadanos;
 		ReadList rl = new RList();
-		ciudadanos = rl.readExcel("src/test/resources/test.txt");
+		ciudadanos = rl.readTXT("src/test/resources/test.txt");
 
 		assertEquals(ciudadanos.get(0).getSurname(), "Torres Pardo");
 		assertEquals(ciudadanos.get(0).getName(), "Juan");

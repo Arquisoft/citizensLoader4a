@@ -1,27 +1,22 @@
 package es.uniovi.asw.parser;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
+import es.uniovi.asw.model.Citizen;
+import es.uniovi.asw.reportWritter.GenerateLogText;
+import es.uniovi.asw.reportWritter.WreportP;
 import es.uniovi.asw.util.Comprobador;
 import es.uniovi.asw.util.Console;
-
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.reportWritter.GenerateLogText;
-import es.uniovi.asw.reportWritter.WreportP;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Crea los subcomponentes del parser necesarios para procesar el fichero de
@@ -149,7 +144,7 @@ public class RList implements ReadList {
 
 			while ((cadena = b.readLine()) != null) {
 				row++;
-				String[] datos = cadena.split(";");
+				String[] datos = cadena.split(",");
 				if (datos.length != 7)
 					throw new Exception("No están todos los datos en el txt");// comprobar
 				name = datos[0];
@@ -158,7 +153,7 @@ public class RList implements ReadList {
 				surnameResult = Comprobador.esTodoTexto(name);
 				email = datos[2];
 				emailResult = Comprobador.esEmailCorrecto(email);
-				// birth=Date(datos[3]);
+				birth=datos[3];
 				address = datos[4];
 				nationality = datos[5];
 				nationalityResult = Comprobador.esTodoTexto(nationality);
@@ -173,10 +168,16 @@ public class RList implements ReadList {
 			}
 			b.close();
 		} catch (ParseException e) {
+			e.printStackTrace();
+
 			Console.print("La fecha de nacimiento no tiene el formato correcto");
-		} catch (Exception e) {
+		}catch (IOException e){
 			String[] fileName = path.split("/");
 			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+
 		}
 
 		// Crear el fichero log
