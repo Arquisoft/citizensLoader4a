@@ -1,0 +1,11 @@
+Ciudadano líena -> 1
+	NAME_ERROR column 0
+	Ciudadano no creado, por favor, arregle los errores.
+Ciudadano líena -> 2
+	SURNAME_ERROR column 1
+	Ciudadano no creado, por favor, arregle los errores.
+Ciudadano líena -> 3
+	NAME_ERROR column 0
+	SURNAME_ERROR column 1
+	NATIONALITY_ERROR column 5
+	Ciudadano no creado, por favor, arregle los errores.

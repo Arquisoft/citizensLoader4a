@@ -13,6 +13,8 @@
 		<java.version>1.8</java.version>
 	</properties>
 
+
+
 	<dependencies>
 
 		<!--Logging -->
@@ -80,11 +82,29 @@
 			<artifactId>poi</artifactId>
 			<version>3.15</version>
 		</dependency>
+
+		<!--Apache Poi -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.15</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.7.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.39</version>
+		</dependency>
+
+
+
+
 	</dependencies>
 	<!--Build plugins -->
 	<build>
@@ -290,6 +310,18 @@
 			<organizationUrl>http://www.uniovi.es</organizationUrl>
 			<roles>
 				<role>Project Admin</role>
+				<role>Developer</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>
+		<developer>
+			<id>pelayolartategui</id>
+			<name>Pelayo Garcia Lartategui</name>
+			<email>uo245274@uniovi.es</email>
+			<organization>WESO-University of Oviedo</organization>
+			<organizationUrl>http://www.uniovi.es</organizationUrl>
+			<roles>
 				<role>Developer</role>
 			</roles>
 			<timezone>2</timezone>
