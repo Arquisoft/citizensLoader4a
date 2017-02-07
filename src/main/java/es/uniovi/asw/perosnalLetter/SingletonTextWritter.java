@@ -17,19 +17,19 @@ public class SingletonTextWritter {
 	}
 	
 	public TextWritter getPDFTextWritter(){
-		if(this.generadorDocumento == null || this.generadorDocumento.getClass().equals(PDFTextWritter.class)){
+		if(this.generadorDocumento == null || !this.generadorDocumento.getClass().equals(PDFTextWritter.class)){
 			this.generadorDocumento = new PDFTextWritter();
 		}
 		return generadorDocumento;
 	}
 	public TextWritter getWordTextWritter(){
-		if(this.generadorDocumento == null || this.generadorDocumento.getClass().equals(WordTextWritter.class)){
+		if(this.generadorDocumento == null || !this.generadorDocumento.getClass().equals(WordTextWritter.class)){
 			this.generadorDocumento = new PlainTextWritter();
 		}
 		return generadorDocumento;
 	}
 	public TextWritter getPlaibnTextWritter(){
-		if(this.generadorDocumento == null || this.generadorDocumento.getClass().equals(PlainTextWritter.class)){
+		if(this.generadorDocumento == null || !this.generadorDocumento.getClass().equals(PlainTextWritter.class)){
 			this.generadorDocumento = new PlainTextWritter();
 		}
 		return generadorDocumento;

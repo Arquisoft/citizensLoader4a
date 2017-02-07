@@ -1,23 +1,41 @@
 package es.uniovi.asw.reportWritter;
 
-
 public class GenerateLogText {
-	
+
 	/**
+	 * Metodo sobre cargado que comprueba los siguientes atributos del Citizen y
+	 * genera un mensaje para un Logger.
+	 * 
+	 * Éste método se puede utilizar en un Excel o similar ya que pide la fila
+	 * en la que se está leyendo el ciudadano.
+	 * 
+	 * Los parámetro para su correcto funcionamiento siguen este orden en el
+	 * docuemnto:
+	 * 
+	 * Nombre, apellidos, email, birth, address, nationality, nif
 	 * 
 	 * @param actualLoggingText
+	 *            StringBuilder en el que se carga el mensaje.
 	 * @param name
+	 *            Nombre del ciudadano
 	 * @param surname
+	 *            Apellido del ciudadano
 	 * @param email
+	 *            Email del ciudadano
 	 * @param birth
+	 *            Fecha de nacimiento del ciudadano
 	 * @param address
+	 *            Dirección del ciudadano
 	 * @param nationality
+	 *            Nacionalidad del ciudadano
 	 * @param nif
+	 *            Número de identificacion del ciudadano
 	 * @param actualrow
+	 *            Columna actual del documento.
 	 * @return
 	 */
-	public static boolean completeTextForLog(StringBuilder actualLoggingText, boolean name, boolean surname, boolean email,
-			boolean birth, boolean address, boolean nationality, boolean nif, int actualrow) {
+	public static boolean completeTextForLog(StringBuilder actualLoggingText, boolean name, boolean surname,
+			boolean email, boolean birth, boolean address, boolean nationality, boolean nif, int actualrow) {
 
 		boolean todoOK = true;
 		actualLoggingText.append("Ciudadano línea -> " + actualrow + "\n");
@@ -50,7 +68,7 @@ public class GenerateLogText {
 			todoOK = false;
 		}
 		if (!todoOK) {
-			actualLoggingText.append("\tCiudadano no creado, por favor, arregle los errores.");
+			actualLoggingText.append("\t" + ErrorTypes.NOT_ADDED_CITIZEN);
 		} else {
 			actualLoggingText.append("\t" + ErrorTypes.OK);
 		}

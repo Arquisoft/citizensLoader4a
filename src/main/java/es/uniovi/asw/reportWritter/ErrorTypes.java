@@ -13,4 +13,5 @@ public class ErrorTypes {
 	static String NIF_ERROR = "NIF_ERROR";
 	static String NATIONALITY_ERROR = "NATIONALITY_ERROR";
 	static String OK = "OK";
+	static String NOT_ADDED_CITIZEN = "Ciudadano no añadido.";
 }
