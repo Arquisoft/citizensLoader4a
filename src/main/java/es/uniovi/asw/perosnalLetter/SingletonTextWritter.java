@@ -26,7 +26,7 @@ public class SingletonTextWritter {
 	}
 	public TextWritter getWordTextWritter(){
 		if(this.generadorDocumentoWord == null){
-			this.generadorDocumentoWord = new PlainTextWritter();
+			this.generadorDocumentoWord = new WordTextWritter();
 		}
 		return generadorDocumentoWord;
 	}

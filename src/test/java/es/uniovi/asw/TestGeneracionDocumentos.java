@@ -1,12 +1,12 @@
 package es.uniovi.asw;
 
+import es.uniovi.asw.perosnalLetter.SingletonTextWritter;
+import es.uniovi.asw.perosnalLetter.TextWritter;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 
-import es.uniovi.asw.perosnalLetter.SingletonTextWritter;
-import es.uniovi.asw.perosnalLetter.TextWritter;
+import static org.junit.Assert.assertEquals;
 
 public class TestGeneracionDocumentos {
 	@Test
@@ -33,7 +33,7 @@ public class TestGeneracionDocumentos {
 	public void generarWordBasico(){
 		TextWritter generadorWord = SingletonTextWritter.getInstance().getWordTextWritter();
 		generadorWord.createDocument("PruebaWord_Basico", "Esto es un Wrod muy básico");
-		File myFile = new File("src/test/resources/PruebaWord_Basico.doc");
+		File myFile = new File("src/test/resources/PruebaWord_Basico.docx");
 		boolean existe = false;
 		if (myFile.exists())
 			existe = true;
