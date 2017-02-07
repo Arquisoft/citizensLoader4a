@@ -1,4 +1,4 @@
-package es.uniovi.asw.parser;
+package es.uniovi.asw.reportWritter;
 
 /**
  * Tipos de errores al leer de un fichero excel los datos necesarios

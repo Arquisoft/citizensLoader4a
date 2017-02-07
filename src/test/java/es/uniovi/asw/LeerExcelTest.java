@@ -16,7 +16,7 @@ public class LeerExcelTest {
 	public void leerExcel() {
 		List<Citizen> ciudadanos;
 		ReadList rl = new RList();
-		ciudadanos = rl.read("src/test/resources/test.xlsx");
+		ciudadanos = rl.readExcel("src/test/resources/test.xlsx");
 
 		assertEquals(ciudadanos.get(0).getSurname(), "Torres Pardo");
 		assertEquals(ciudadanos.get(1).getSurname(), "López Fernando");
@@ -38,7 +38,7 @@ public class LeerExcelTest {
 		String fileName = "testErrors.xlsx";
 		List<Citizen> ciudadanos;
 		ReadList rl = new RList();
-		ciudadanos = rl.read("src/test/resources/" + fileName);
+		ciudadanos = rl.readExcel("src/test/resources/" + fileName);
 		
 		assertEquals(0,	ciudadanos.size());
 	}

@@ -18,6 +18,7 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uniovi.asw.model.Citizen;
+import es.uniovi.asw.reportWritter.GenerateLogText;
 import es.uniovi.asw.reportWritter.WreportP;
 
 /**
@@ -90,7 +91,7 @@ public class RList implements ReadList {
 				nifResult = nif != null ? true : false;
 
 				// Se carga mas info al logger.
-				boolean todoOK = completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult,
+				boolean todoOK = GenerateLogText.completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult,
 						addressResult, nationalityResult, nifResult, actualrow);
 
 				if (todoOK) {
@@ -151,48 +152,6 @@ public class RList implements ReadList {
 		return cadenaAleatoria;
 	}
 
-	private boolean completeTextForLog(StringBuilder actualLoggingText, boolean name, boolean surname, boolean email,
-			boolean birth, boolean address, boolean nationality, boolean nif, int actualrow) {
-
-		boolean todoOK = true;
-		actualLoggingText.append("Ciudadano línea -> " + actualrow + "\n");
-		if (!name) {
-			actualLoggingText.append("\t" + ErrorTypes.NAME_ERROR + " column " + 0 + "\n");
-			todoOK = false;
-		}
-		if (!surname) {
-			actualLoggingText.append("\t" + ErrorTypes.SURNAME_ERROR + " column " + 1 + "\n");
-			todoOK = false;
-		}
-		if (!email) {
-			actualLoggingText.append("\t" + ErrorTypes.EMAIL_ERROR + " column " + 2 + "\n");
-			todoOK = false;
-		}
-		if (!address) {
-			actualLoggingText.append("\t" + ErrorTypes.ADDRESS_ERROR + " column " + 4 + "\n");
-			todoOK = false;
-		}
-		if (!birth) {
-			actualLoggingText.append("\t" + ErrorTypes.DATE_ERROR + " column " + 3 + "\n");
-			todoOK = false;
-		}
-		if (!nationality) {
-			actualLoggingText.append("\t" + ErrorTypes.NATIONALITY_ERROR + " column " + 5 + "\n");
-			todoOK = false;
-		}
-		if (!nif) {
-			actualLoggingText.append("\t" + ErrorTypes.NIF_ERROR + "column " + 6 + "\n");
-			todoOK = false;
-		}
-		if (!todoOK) {
-			actualLoggingText.append("\tCiudadano no creado, por favor, arregle los errores.");
-		} else {
-			actualLoggingText.append("\t" + ErrorTypes.OK);
-		}
-		actualLoggingText.append("\n");
-		return todoOK;
-	}
-
 	@Override
 	public List<Citizen> readTXT(String path) {
 		Citizen ciudadano;
@@ -238,7 +197,7 @@ public class RList implements ReadList {
 				nationalityResult = Comprobador.esTodoTexto(nationality);
 				nif = datos[6];
 				nifResult = nif != null ? true : false;
-				boolean todoOK = completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult,
+				boolean todoOK = GenerateLogText.completeTextForLog(logger, nameResult, surnameResult, emailResult, birthResult,
 						addressResult, nationalityResult, nifResult, row);
 				if (todoOK) {
 					ciudadano = new Citizen();
