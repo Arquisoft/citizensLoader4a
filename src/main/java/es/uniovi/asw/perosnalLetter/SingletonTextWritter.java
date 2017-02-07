@@ -2,7 +2,9 @@ package es.uniovi.asw.perosnalLetter;
 
 public class SingletonTextWritter {
 	SingletonTextWritter instance;
-	private TextWritter generadorDocumento;
+	private TextWritter generadorDocumentoPDF;
+	private TextWritter generadorDocumentoWord;
+	private TextWritter generadorDocumentoPlainText;
 	
 	private SingletonTextWritter(){
 		
@@ -16,22 +18,22 @@ public class SingletonTextWritter {
 		return this.instance;
 	}
 	
-	public TextWritter getPDFTextWritter(){
-		if(this.generadorDocumento == null || !this.generadorDocumento.getClass().equals(PDFTextWritter.class)){
-			this.generadorDocumento = new PDFTextWritter();
+	public TextWritter getPDFTextrWitter(){
+		if(this.generadorDocumentoPDF == null){
+			this.generadorDocumentoPDF = new PDFTextWritter();
 		}
-		return generadorDocumento;
+		return generadorDocumentoPDF;
 	}
 	public TextWritter getWordTextWritter(){
-		if(this.generadorDocumento == null || !this.generadorDocumento.getClass().equals(WordTextWritter.class)){
-			this.generadorDocumento = new PlainTextWritter();
+		if(this.generadorDocumentoWord == null){
+			this.generadorDocumentoWord = new PlainTextWritter();
 		}
-		return generadorDocumento;
+		return generadorDocumentoWord;
 	}
 	public TextWritter getPlaibnTextWritter(){
-		if(this.generadorDocumento == null || !this.generadorDocumento.getClass().equals(PlainTextWritter.class)){
-			this.generadorDocumento = new PlainTextWritter();
+		if(this.generadorDocumentoPlainText == null){
+			this.generadorDocumentoPlainText = new PlainTextWritter();
 		}
-		return generadorDocumento;
+		return generadorDocumentoPlainText;
 	}
 }
