@@ -1,7 +1,7 @@
 package es.uniovi.asw.perosnalLetter;
 
 public class SingletonTextWritter {
-	SingletonTextWritter instance;
+	static SingletonTextWritter instance;
 	private TextWritter generadorDocumentoPDF;
 	private TextWritter generadorDocumentoWord;
 	private TextWritter generadorDocumentoPlainText;
@@ -11,11 +11,11 @@ public class SingletonTextWritter {
 	}
 	
 	
-	public SingletonTextWritter getInstance(){
-		if(this.instance == null){
-			this.instance = new SingletonTextWritter();
+	public static SingletonTextWritter getInstance(){
+		if(instance == null){
+			instance = new SingletonTextWritter();
 		}
-		return this.instance;
+		return instance;
 	}
 	
 	public TextWritter getPDFTextrWitter(){
