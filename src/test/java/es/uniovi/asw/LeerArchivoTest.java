@@ -1,7 +1,8 @@
 package es.uniovi.asw;
 
 import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.parser.RList;
+import es.uniovi.asw.parser.RListExcel;
+import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.parser.ReadList;
 import org.junit.Test;
 
@@ -14,21 +15,24 @@ public class LeerArchivoTest {
 	@Test
 	public void leerExcel() {
 		List<Citizen> ciudadanos;
-		ReadList rl = new RList();
-		ciudadanos = rl.readExcel("src/test/resources/test.xlsx");
+		ReadList rl = new RListExcel();
+		ciudadanos = rl.read("src/test/resources/test.xlsx");
 
-		assertEquals(ciudadanos.get(0).getSurname(), "Torres Pardo");
-		assertEquals(ciudadanos.get(1).getSurname(), "López Fernando");
-		assertEquals(ciudadanos.get(2).getSurname(), "Torres Pardo");
+		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
+		assertEquals(ciudadanos.get(1).getApellidos(), "López Fernando");
+		assertEquals(ciudadanos.get(2).getApellidos(), "Torres Pardo");
 
-		assertEquals(ciudadanos.get(0).getName(), "Juan");
-		assertEquals(ciudadanos.get(1).getName(), "Luis");
-		assertEquals(ciudadanos.get(2).getName(), "Ana");
+		assertEquals(ciudadanos.get(0).getNombre(), "Juan");
+		assertEquals(ciudadanos.get(1).getNombre(), "Luis");
+		assertEquals(ciudadanos.get(2).getNombre(), "Ana");
 
 		assertEquals(ciudadanos.get(2).getEmail(), "ana@example.com");
-		assertEquals(ciudadanos.get(2).getNationality(), "Español");
-		assertEquals(ciudadanos.get(2).getNif(), "09940449X");
-		assertEquals(ciudadanos.get(2).getAddress(), "Av. De la Constitución 8");
+		assertEquals(ciudadanos.get(2).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(2).getNumero_identificativo(), "09940449X");
+		assertEquals(ciudadanos.get(2).getDireccion_postal(), "Av. De la Constitución 8");
+
+
+
 
 	}
 
@@ -36,23 +40,24 @@ public class LeerArchivoTest {
 	public void leerConErrores() {
 		String fileName = "testErrors.xlsx";
 		List<Citizen> ciudadanos;
-		ReadList rl = new RList();
-		ciudadanos = rl.readExcel("src/test/resources/" + fileName);
+		ReadList rl = new RListExcel();
+		ciudadanos = rl.read("src/test/resources/" + fileName);
 		
 		assertEquals(0,	ciudadanos.size());
 	}
 	
 	@Test
 	public void leerTXT() {
+		String fileName = "test.txt";
 		List<Citizen> ciudadanos;
-		ReadList rl = new RList();
-		ciudadanos = rl.readTXT("src/test/resources/test.txt");
+		ReadList rl = new RListTXT();
+		ciudadanos = rl.read("src/test/resources/" + fileName);
 
-		assertEquals(ciudadanos.get(0).getSurname(), "Torres Pardo");
-		assertEquals(ciudadanos.get(0).getName(), "Juan");
+		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
+		assertEquals(ciudadanos.get(0).getNombre(), "Juan");
 		assertEquals(ciudadanos.get(0).getEmail(), "j@h.es");
-		assertEquals(ciudadanos.get(0).getNationality(), "Español");
-		assertEquals(ciudadanos.get(0).getNif(), "9876543S");
+		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(0).getNumero_identificativo(), "9876543S");
 		assertEquals(ciudadanos.size(), 1);
 		}
 }
