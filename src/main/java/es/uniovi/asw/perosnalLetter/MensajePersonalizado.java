@@ -4,22 +4,31 @@ import es.uniovi.asw.model.Citizen;
 
 public class MensajePersonalizado {
 	
-	String message;
+	public final static String SALUDO = "Bienvenido, ";
+	public final static String CONTENIDO1 = "\nLe comunicamos que ha sido correctamente introducido en el sistema.";
+	public final static String CONTENIDO2 = "\nSus datos de usuario son los siguientes: ";
+	public final static String USUARIO = "\n\t\t-USUARIO : ";
+	public final static String CONTRASEÑA = "\n\t\t-CONTRASEÑA : ";
+	public final static String DESPEDIDA = "\n\tUn saludo, el Ayuntamiento.";
+	static String message;
 	
-	public MensajePersonalizado(){
-		
-	}
-	
-	public String getMessage(Citizen c){
+
+	public static String getMessage(Citizen c){
 		generateMessage(c);
 		
-		return this.message;
+		return message;
 	}
-	private void generateMessage(Citizen c){
+	private static void generateMessage(Citizen c){
 		/*
 		 * Hacer el mensaje con los datos del citizen
 		 */
-		
-		this.message = "Lo que sea";
+		StringBuilder sb = new StringBuilder();
+		sb.append(SALUDO + c.getNombre() + " "+ c.getApellidos());
+		sb.append(CONTENIDO1);
+		sb.append(CONTENIDO2);
+		sb.append(USUARIO+c.getEmail());
+		sb.append(CONTRASEÑA+c.getContrasena());
+		sb.append(DESPEDIDA);
+		message = sb.toString();
 	}
 }

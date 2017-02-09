@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-public class RListExcel extends RList  {
+public class RListExcel extends RList  implements ReadList{
 
     @Override
     public List<Citizen> readFile(String path) {
