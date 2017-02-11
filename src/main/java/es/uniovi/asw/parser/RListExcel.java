@@ -61,7 +61,7 @@ public class RListExcel extends RList  implements ReadList{
                     birthResult = true;
                     birth = row.getCell(3) != null && birthResult ? row.getCell(3).getDateCellValue() : null;
                     address = row.getCell(4) != null ? row.getCell(4).getStringCellValue() : null;
-                    // addressResult = Comprobador.esTodoTexto(address);
+                    addressResult = Comprobador.esAddressCorrecto(address);
                     addressResult = true;
                     nationality = row.getCell(5) != null ? row.getCell(5).getStringCellValue() : null;
                     nationalityResult = Comprobador.esTodoTexto(nationality);

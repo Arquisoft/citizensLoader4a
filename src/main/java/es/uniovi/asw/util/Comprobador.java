@@ -54,6 +54,18 @@ public class Comprobador {
 		
 	}
 	
+	public static boolean esAddressCorrecto(String prueba){
+		if (prueba == null) {
+			return false;
+		}
+		String[] ad = prueba.split(" ");
+		if(ad.length < 2){ //Correo incorrecto, no cumple xxx@xxx
+			return false;
+		}
+		return true;
+		
+	}
+	
 	/**
 	 * Este método hace que salte la excepcion en el parser, asi que no va
 	 * @param prueba
