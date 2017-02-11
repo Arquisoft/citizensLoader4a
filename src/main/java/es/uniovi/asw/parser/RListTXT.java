@@ -24,7 +24,7 @@ public class RListTXT extends RList implements ReadList{
         int row = 0;
         StringBuilder logger = new StringBuilder();
 
-        boolean nameResult, surnameResult, emailResult, birthResult=true, addressResult=true, nationalityResult, nifResult=true;
+        boolean nameResult, surnameResult, emailResult, birthResult=true, addressResult, nationalityResult, nifResult=true;
         String cadena;
 
         try {
@@ -44,6 +44,7 @@ public class RListTXT extends RList implements ReadList{
                 emailResult = Comprobador.esEmailCorrecto(email);
                 birth=datos[3];
                 address = datos[4];
+                addressResult = Comprobador.esAddressCorrecto(address);
                 nationality = datos[5];
                 nationalityResult = Comprobador.esTodoTexto(nationality);
                 nif = datos[6];

@@ -54,6 +54,23 @@ public class Comprobador {
 		
 	}
 	
+	public static boolean esAddressCorrecto(String prueba){
+		if (prueba == null) {
+			return false;
+		}
+		String[] ad = prueba.split(" ");
+		if(ad.length < 2){ //Correo incorrecto, no cumple xxx@xxx
+			return false;
+		}
+		String via = ad[0];
+		
+		if(via.equals("Calle") || via.equals("Avenida") ||via.equals("Plaza") || via.equals("Carretera") || via.equals("C/") || via.equals("Av."))
+			return true;
+			
+		return false;
+		
+	}
+	
 	/**
 	 * Este método hace que salte la excepcion en el parser, asi que no va
 	 * @param prueba

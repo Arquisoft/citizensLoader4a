@@ -47,6 +47,16 @@ public class LeerArchivoTest {
 	}
 	
 	@Test
+	public void leerConErroresEnParametrosDeEntrada() {
+		String fileName = "testErrorsParametros.xlsx";
+		List<Citizen> ciudadanos;
+		ReadList rl = new RListExcel();
+		ciudadanos = rl.read("src/test/resources/" + fileName);
+		
+		assertEquals(0,	ciudadanos.size());
+	}
+	
+	@Test
 	public void leerTXT() {
 		String fileName = "test.txt";
 		List<Citizen> ciudadanos;
