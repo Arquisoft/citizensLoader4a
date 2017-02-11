@@ -62,12 +62,7 @@ public class Comprobador {
 		if(ad.length < 2){ //Correo incorrecto, no cumple xxx@xxx
 			return false;
 		}
-		String via = ad[0];
-		
-		if(via.equals("Calle") || via.equals("Avenida") ||via.equals("Plaza") || via.equals("Carretera") || via.equals("C/") || via.equals("Av."))
-			return true;
-			
-		return false;
+		return true;
 		
 	}
 	
