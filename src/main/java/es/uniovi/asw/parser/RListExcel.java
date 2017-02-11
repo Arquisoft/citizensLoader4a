@@ -3,7 +3,6 @@ package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.reportWritter.GenerateLogText;
-import es.uniovi.asw.reportWritter.WreportP;
 import es.uniovi.asw.util.Comprobador;
 import es.uniovi.asw.util.Console;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -84,7 +83,7 @@ public class RListExcel extends RList  implements ReadList{
                 String[] fileName = path.split("/");
                 Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
             }
-
+/*
             // Crear el fichero log
             String[] cachos = path.split("/");
             String nombreFich1 = cachos[cachos.length - 1];
@@ -92,7 +91,7 @@ public class RListExcel extends RList  implements ReadList{
 
             WreportP reporter = new WreportP(nombreFich, logger.toString());
             reporter.createErrorLogFile();
-            //
+            //*/
             return ciudadanos;
         }
 

@@ -1,11 +1,11 @@
-Ciudadano lÃ­nea -> 1
+Ciudadano línea -> 1
 	NAME_ERROR column 0
-	Ciudadano no aÃ±adido.
-Ciudadano lÃ­nea -> 2
+	Ciudadano no añadido.
+Ciudadano línea -> 2
 	SURNAME_ERROR column 1
-	Ciudadano no aÃ±adido.
-Ciudadano lÃ­nea -> 3
+	Ciudadano no añadido.
+Ciudadano línea -> 3
 	NAME_ERROR column 0
 	SURNAME_ERROR column 1
 	NATIONALITY_ERROR column 5
-	Ciudadano no aÃ±adido.
+	Ciudadano no añadido.

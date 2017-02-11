@@ -5,6 +5,7 @@ package es.uniovi.asw.reportWritter;
  */
 public interface WriteReport {
 	
-	public void createErrorLogFile();
+
+	public void report(String... problemas);
 	
 }

@@ -1,7 +1,7 @@
 package es.uniovi.asw.reportWritter;
 
 /**
- * Tipos de errores al leer de un fichero excel los datos necesarios
+ * Tipos de errores al leer de un fichero los datos necesarios
  *
  */
 public class ErrorTypes {

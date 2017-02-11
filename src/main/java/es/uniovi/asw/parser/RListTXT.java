@@ -2,7 +2,6 @@ package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.reportWritter.GenerateLogText;
-import es.uniovi.asw.reportWritter.WreportP;
 import es.uniovi.asw.util.Comprobador;
 import es.uniovi.asw.util.Console;
 
@@ -69,7 +68,7 @@ public class RListTXT extends RList implements ReadList{
             e.printStackTrace();
 
         }
-
+/*
         // Crear el fichero log
         String[] cachos = path.split("/");
         String nombreFich1 = cachos[cachos.length - 1];
@@ -77,7 +76,7 @@ public class RListTXT extends RList implements ReadList{
 
         WreportP reporter = new WreportP(nombreFich, logger.toString());
         reporter.createErrorLogFile();
-        //
+        //*/
         return ciudadanos;
     }
 }

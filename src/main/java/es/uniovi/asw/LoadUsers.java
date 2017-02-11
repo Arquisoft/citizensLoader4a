@@ -10,6 +10,7 @@ public class LoadUsers {
 
 	public static void main(String... args) {
 		final LoadUsers runner = new LoadUsers();
+
 		runner.run(args);
 	}
 

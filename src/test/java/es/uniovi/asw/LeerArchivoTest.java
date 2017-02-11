@@ -4,8 +4,10 @@ import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.parser.ReadList;
+import es.uniovi.asw.util.CLLogger;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -14,6 +16,11 @@ public class LeerArchivoTest {
 
 	@Test
 	public void leerExcel() {
+		try {
+			CLLogger.setup();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
 		ciudadanos = rl.read("src/test/resources/test.xlsx");
