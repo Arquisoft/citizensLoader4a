@@ -1,4 +1,5 @@
 package es.uniovi.asw;
+import es.uniovi.asw.parser.Parser;
 
 /**
  * Main application
@@ -16,7 +17,7 @@ public class LoadUsers {
 
 	// TODO
 	private void run(String... args) {
-
+			new Parser(args).parse();
 	}
 	}
 

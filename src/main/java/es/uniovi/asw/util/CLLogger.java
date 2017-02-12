@@ -17,7 +17,5 @@ public class CLLogger {
         formatter = new SimpleFormatter();
         file.setFormatter(formatter);
         logger.addHandler(file);
-
-
     }
 }
