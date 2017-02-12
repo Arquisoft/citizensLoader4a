@@ -1,8 +1,8 @@
 CitizensLoader TXT
 
-Bienvenido, Paco ¡lvarez GarcÌa
+Bienvenido, Paco √Ålvarez Garc√≠a
 Le comunicamos que ha sido correctamente introducido en el sistema.
 Sus datos de usuario son los siguientes: 
 		-USUARIO : paqueras@correo.com
-		-CONTRASE—A : pacoPAQUETE69
+		-CONTRASE√ëA : pacoPAQUETE69
 	Un saludo, el Ayuntamiento.

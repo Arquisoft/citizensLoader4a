@@ -125,7 +125,6 @@ public class TestGeneracionDocumentos {
 				assertEquals(true, false); // Para que casque
 			}
 		}
-		
 //		mensaje.replace("\n", "");
 //		mensaje.replace("\t", "");
 //		Console.println(mensaje);

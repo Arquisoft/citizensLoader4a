@@ -52,7 +52,8 @@ public class Citizen {
 		this.numero_identificativo = nif;
 	}
 
-	public Citizen(Long id, String nombre, String apellidos, String email, Date fecha_nacimiento, String direccion_postal,
+	//Habria que borrar esto, no se puede crear un ciudadano con un id, el id se genera automaticamente 
+/*	public Citizen(Long id, String nombre, String apellidos, String email, Date fecha_nacimiento, String direccion_postal,
 				   String nacionalidad, String numero_identificativo) {
 		this.id = id;
 		this.nombre = nombre;
@@ -75,7 +76,7 @@ public class Citizen {
 		this.nacionalidad = nacionalidad;
 		this.numero_identificativo = numero_identificativo;
 		this.contrasena = contrasena;
-	}
+	}*/
 
 	public Citizen(String nombre, String apellidos, String email, Date fecha_nacimiento, String direccion_postal, String nacionalidad,
 				   String numero_identificativo) {

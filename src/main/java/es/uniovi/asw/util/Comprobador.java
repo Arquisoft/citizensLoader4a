@@ -71,7 +71,7 @@ public class Comprobador {
 	 * @param prueba
 	 * @return
 	 */
-	public static boolean fechaCorrecta(String prueba){
+/*	public static boolean fechaCorrecta(String prueba){
 		if(prueba == null){
 			return false;
 		}
@@ -92,6 +92,18 @@ public class Comprobador {
 			return false;
 		}
 		return true;
+	}*/
+
+	/**
+	 * 
+	 * @param birth
+	 * @return
+	 */
+	public static boolean esFecha(String birth) {
+		String[] a=birth.split("/");
+		if(a.length==3 && esTodoDigitos(a[0]) && esTodoDigitos(a[1]) && esTodoDigitos(a[2]))
+			return true;
+		return false;
 	}
 
 }
