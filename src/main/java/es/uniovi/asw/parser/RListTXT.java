@@ -1,8 +1,7 @@
 package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.reportWritter.GenerateLogText;
-import es.uniovi.asw.reportWritter.WreportP;
+import es.uniovi.asw.reportwritter.GenerateLogText;
 import es.uniovi.asw.util.Comprobador;
 import es.uniovi.asw.util.Console;
 
@@ -20,7 +19,13 @@ public class RListTXT extends RList implements ReadList {
 	public List<Citizen> readFile(String path) {
 		List<Citizen> ciudadanos = new ArrayList<Citizen>();
 
-		String name = "", surname, email, birth = "", address, nationality, nif;
+		String name;
+		String surname;
+		String email;
+		String birth;
+		String address;
+		String nationality;
+		String nif;
 		int row = 0;
 		StringBuilder logger = new StringBuilder();
 
@@ -78,7 +83,7 @@ public class RListTXT extends RList implements ReadList {
 		// Crear el fichero log
 		String[] cachos = path.split("/");
 		String nombreFich1 = cachos[cachos.length - 1];
-		String nombreFich = nombreFich1.replace(".xlsx", "");
+		/*String nombreFich = nombreFich1.replace(".xlsx", "");
 
 		WreportP reporter = new WreportP();
 		/*

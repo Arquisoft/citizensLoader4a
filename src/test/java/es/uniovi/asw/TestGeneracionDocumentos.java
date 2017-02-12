@@ -1,10 +1,9 @@
 package es.uniovi.asw;
 
 import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.perosnalLetter.MensajePersonalizado;
-import es.uniovi.asw.perosnalLetter.SingletonTextWritter;
-import es.uniovi.asw.perosnalLetter.TextWritter;
-import es.uniovi.asw.util.Console;
+import es.uniovi.asw.personalletter.MensajePersonalizado;
+import es.uniovi.asw.personalletter.SingletonTextWritter;
+import es.uniovi.asw.personalletter.TextWritter;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +13,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -29,7 +27,7 @@ public class TestGeneracionDocumentos {
 		paco.setApellidos("Álvarez García");
 		paco.setEmail("paqueras@correo.com");
 		paco.setContrasena("pacoPAQUETE69");
-		paco.setDireccion_postal("La calle de Paco, 9, 3H");
+		paco.setDireccionPostal("La calle de Paco, 9, 3H");
 		paco.setFecha_nacimiento(new Date());
 		paco.setNacionalidad("España");
 		paco.setNumero_identificativo("569874565g");

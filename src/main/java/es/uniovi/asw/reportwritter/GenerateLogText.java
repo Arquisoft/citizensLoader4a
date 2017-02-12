@@ -1,4 +1,4 @@
-package es.uniovi.asw.reportWritter;
+package es.uniovi.asw.reportwritter;
 
 public class GenerateLogText {
 

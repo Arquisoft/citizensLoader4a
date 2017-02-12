@@ -15,7 +15,7 @@ public class LoadUsers {
 	}
 
 	// TODO
-	void run(String... args) {
+	private void run(String... args) {
 
 	}
 	}

@@ -39,8 +39,8 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(2).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(1).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
-		assertEquals(ciudadanos.get(2).getNumero_identificativo(), "09940449X");
-		assertEquals(ciudadanos.get(2).getDireccion_postal(), "Av. De la Constitución 8");
+		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
+		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
 	}
 
 	@Test
@@ -77,14 +77,14 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(0).getNombre(), "Juan");
 		assertEquals(ciudadanos.get(0).getEmail(), "j@h.es");
 		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
-		assertEquals(ciudadanos.get(0).getFecha_nacimiento(), new SimpleDateFormat("dd/MM/yyyy").parse("10/12/1234"));
-		assertEquals(ciudadanos.get(0).getNumero_identificativo(), "9876543S");
+		assertEquals(ciudadanos.get(0).getFechaNacimiento(), new SimpleDateFormat("dd/MM/yyyy").parse("10/12/1234"));
+		assertEquals(ciudadanos.get(0).getNumeroIdentificativo(), "9876543S");
 		
 		assertEquals(ciudadanos.get(1).getApellidos(), "Bravo");
 		assertEquals(ciudadanos.get(1).getNombre(), "Ana");
 		assertEquals(ciudadanos.get(1).getEmail(), "a@h.es");
 		assertEquals(ciudadanos.get(1).getNacionalidad(), "Español");
-		assertEquals(ciudadanos.get(1).getNumero_identificativo(), "9876599S");
+		assertEquals(ciudadanos.get(1).getNumeroIdentificativo(), "9876599S");
 		assertEquals(ciudadanos.size(), 2);
 		}
 }

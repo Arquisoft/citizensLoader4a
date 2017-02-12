@@ -1,8 +1,8 @@
-package es.uniovi.asw.dbUpdate;
+package es.uniovi.asw.dbupdate;
 
-import es.uniovi.asw.dbUpdate.util.Hibernate_Jpa;
+import es.uniovi.asw.dbupdate.util.Hibernate_Jpa;
 import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.reportWritter.WriteReport;
+import es.uniovi.asw.reportwritter.WriteReport;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -23,7 +23,7 @@ public class InsertP implements Insert {
 		trx.begin();
 		for (Citizen ci : ciudadanos) {
 
-			if (CitizenFinder.findByNif(ci.getNumero_identificativo()) == null) {
+			if (CitizenFinder.findByNif(ci.getNumeroIdentificativo()) == null) {
 				mapper.persist(ci);
 			} else {
 

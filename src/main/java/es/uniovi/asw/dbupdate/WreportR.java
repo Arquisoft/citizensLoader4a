@@ -1,7 +1,7 @@
-package es.uniovi.asw.dbUpdate;
+package es.uniovi.asw.dbupdate;
 
-import es.uniovi.asw.reportWritter.WreportP;
-import es.uniovi.asw.reportWritter.WriteReport;
+import es.uniovi.asw.reportwritter.WreportP;
+import es.uniovi.asw.reportwritter.WriteReport;
 
 /**
  * Created by Pelayo Garcia Lartategui on 10/02/2017.

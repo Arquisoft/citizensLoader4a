@@ -1,6 +1,6 @@
 package es.uniovi.asw.parser;
 
-import es.uniovi.asw.dbUpdate.Insert;
+import es.uniovi.asw.dbupdate.Insert;
 import es.uniovi.asw.model.Citizen;
 
 import java.util.*;
@@ -54,7 +54,7 @@ public abstract class RList implements ReadList {
 		ciudadano.setApellidos(surname);
 		ciudadano.setEmail(email);
 		ciudadano.setFecha_nacimiento(birth);
-		ciudadano.setDireccion_postal(address);
+		ciudadano.setDireccionPostal(address);
 		ciudadano.setNacionalidad(nationality);
 		ciudadano.setNumero_identificativo(nif);
 		// Crea un usuario y contraseña aleatorio

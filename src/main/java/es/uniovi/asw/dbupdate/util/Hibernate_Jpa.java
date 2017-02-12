@@ -1,4 +1,4 @@
-package es.uniovi.asw.dbUpdate.util;
+package es.uniovi.asw.dbupdate.util;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -8,6 +8,7 @@ import org.xml.sax.SAXException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -76,11 +77,12 @@ public class Hibernate_Jpa {
             return ((Element) nl.item(0)).getAttribute("name");
 
         } catch (ParserConfigurationException e1) {
-            throw new RuntimeException(e1);
+            //throw new RuntimeException(e1);
+            throw new PersistenceException();
         } catch (SAXException e1) {
-            throw new RuntimeException(e1);
+            throw new PersistenceException();
         } catch (IOException e1) {
-            throw new RuntimeException(e1);
+            throw new PersistenceException();
         }
     }
 

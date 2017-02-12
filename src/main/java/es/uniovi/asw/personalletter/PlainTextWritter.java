@@ -1,4 +1,4 @@
-package es.uniovi.asw.perosnalLetter;
+package es.uniovi.asw.personalletter;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 class PlainTextWritter implements TextWritter {
-	String notCompletePath = "src/test/resources/";
+	private String notCompletePath = "src/test/resources/";
 
 	@Override
 	public void createDocument(String documentName, String content) {

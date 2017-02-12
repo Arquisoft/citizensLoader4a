@@ -2,7 +2,7 @@ package es.uniovi.asw.parser;
 
 
 import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.reportWritter.GenerateLogText;
+import es.uniovi.asw.reportwritter.GenerateLogText;
 import es.uniovi.asw.util.Comprobador;
 import es.uniovi.asw.util.Console;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;

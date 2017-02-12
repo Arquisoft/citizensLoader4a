@@ -1,4 +1,4 @@
-package es.uniovi.asw.perosnalLetter;
+package es.uniovi.asw.personalletter;
 
 public interface TextWritter {
 	

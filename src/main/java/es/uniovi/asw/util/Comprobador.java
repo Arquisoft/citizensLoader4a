@@ -1,8 +1,6 @@
 package es.uniovi.asw.util;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 public class Comprobador {
 	
@@ -46,11 +44,8 @@ public class Comprobador {
 			return false;
 		}
 		*/
-		if(!parteMail.contains(".")){
-			return false;
-		}
-			
-		return true;
+		return parteMail.contains(".");
+
 		
 	}
 	
@@ -101,9 +96,8 @@ public class Comprobador {
 	 */
 	public static boolean esFecha(String birth) {
 		String[] a=birth.split("/");
-		if(a.length==3 && esTodoDigitos(a[0]) && esTodoDigitos(a[1]) && esTodoDigitos(a[2]))
-			return true;
-		return false;
+		return a.length==3 && esTodoDigitos(a[0]) && esTodoDigitos(a[1]) && esTodoDigitos(a[2]);
+
 	}
 
 }

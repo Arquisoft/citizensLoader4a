@@ -1,4 +1,4 @@
-package es.uniovi.asw.perosnalLetter;
+package es.uniovi.asw.personalletter;
 
 import es.uniovi.asw.model.Citizen;
 
@@ -27,7 +27,7 @@ public class MensajePersonalizado {
 		sb.append(CONTENIDO1);
 		sb.append(CONTENIDO2);
 		sb.append(USUARIO+c.getEmail());
-		sb.append(CONTRASEÑA+c.getContrasena());
+		sb.append(CONTRASEÑA+c.getContrasenaNC());
 		sb.append(DESPEDIDA);
 		message = sb.toString();
 	}

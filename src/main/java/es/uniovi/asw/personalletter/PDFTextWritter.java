@@ -1,4 +1,4 @@
-package es.uniovi.asw.perosnalLetter;
+package es.uniovi.asw.personalletter;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

@@ -1,6 +1,6 @@
-package es.uniovi.asw.dbUpdate;
+package es.uniovi.asw.dbupdate;
 
-import es.uniovi.asw.dbUpdate.util.Hibernate_Jpa;
+import es.uniovi.asw.dbupdate.util.Hibernate_Jpa;
 import es.uniovi.asw.model.Citizen;
 
 import java.util.List;

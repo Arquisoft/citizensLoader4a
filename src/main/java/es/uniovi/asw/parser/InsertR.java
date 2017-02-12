@@ -1,7 +1,7 @@
 package es.uniovi.asw.parser;
 
-import es.uniovi.asw.dbUpdate.Insert;
-import es.uniovi.asw.dbUpdate.InsertP;
+import es.uniovi.asw.dbupdate.Insert;
+import es.uniovi.asw.dbupdate.InsertP;
 import es.uniovi.asw.model.Citizen;
 
 import java.util.List;

@@ -1,6 +1,8 @@
 package es.uniovi.asw.model;
 
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import javax.persistence.*;
 import java.util.Date;
 @Entity
@@ -17,11 +19,29 @@ public class Citizen {
 	private String nacionalidad;
 	private String numero_identificativo; // Clave natural
 	private String contrasena;
+	@Transient
+	private String contrasena_NC;
 
 
-	public Citizen() {
+	public Citizen() {	}
+	public Citizen(String nombre, String apellidos, String email, Date fecha_nacimiento, String direccion_postal, String nacionalidad,
+				   String numero_identificativo) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.direccion_postal = direccion_postal;
+		this.nacionalidad = nacionalidad;
+		this.numero_identificativo = numero_identificativo;
 	}
 
+	public Citizen(String nombre, String apellidos, String email, Date fecha_nacimiento, String direccion_postal,
+				   String nacionalidad, String numero_identificativo, String contrasena) {
+		this(nombre,apellidos,email,fecha_nacimiento,direccion_postal,nacionalidad,numero_identificativo);
+		this.contrasena= DigestUtils.sha512Hex(contrasena);
+		this.contrasena_NC=contrasena;
+	}
 
 
 	public void setNombre(String name) {
@@ -40,7 +60,7 @@ public class Citizen {
 		this.fecha_nacimiento = birthdate;
 	}
 
-	public void setDireccion_postal(String address) {
+	public void setDireccionPostal(String address) {
 		this.direccion_postal = address;
 	}
 
@@ -52,43 +72,8 @@ public class Citizen {
 		this.numero_identificativo = nif;
 	}
 
-	//Habria que borrar esto, no se puede crear un ciudadano con un id, el id se genera automaticamente 
-/*	public Citizen(Long id, String nombre, String apellidos, String email, Date fecha_nacimiento, String direccion_postal,
-				   String nacionalidad, String numero_identificativo) {
-		this.id = id;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.email = email;
-		this.fecha_nacimiento = fecha_nacimiento;
-		this.direccion_postal = direccion_postal;
-		this.nacionalidad = nacionalidad;
-		this.numero_identificativo = numero_identificativo;
-	}
 
-	public Citizen(Long id, String nombre, String apellidos, String email, Date fecha_nacimiento, String direccion_postal,
-				   String nacionalidad, String numero_identificativo, String contrasena) {
-		this.id = id;
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.email = email;
-		this.fecha_nacimiento = fecha_nacimiento;
-		this.direccion_postal = direccion_postal;
-		this.nacionalidad = nacionalidad;
-		this.numero_identificativo = numero_identificativo;
-		this.contrasena = contrasena;
-	}*/
 
-	public Citizen(String nombre, String apellidos, String email, Date fecha_nacimiento, String direccion_postal, String nacionalidad,
-				   String numero_identificativo) {
-		super();
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.email = email;
-		this.fecha_nacimiento = fecha_nacimiento;
-		this.direccion_postal = direccion_postal;
-		this.nacionalidad = nacionalidad;
-		this.numero_identificativo = numero_identificativo;
-	}
 
 	public Long getId() {
 		return id;
@@ -106,11 +91,11 @@ public class Citizen {
 		return email;
 	}
 
-	public Date getFecha_nacimiento() {
+	public Date getFechaNacimiento() {
 		return fecha_nacimiento;
 	}
 
-	public String getDireccion_postal() {
+	public String getDireccionPostal() {
 		return direccion_postal;
 	}
 
@@ -118,7 +103,7 @@ public class Citizen {
 		return nacionalidad;
 	}
 
-	public String getNumero_identificativo() {
+	public String getNumeroIdentificativo() {
 		return numero_identificativo;
 	}
 
@@ -126,9 +111,15 @@ public class Citizen {
 		return contrasena;
 	}
 
-	public void setContrasena(String password) {
-		this.contrasena = password;
+	public String getContrasenaNC() {
+		return contrasena_NC;
 	}
+
+	public void setContrasena(String password) {
+		this.contrasena= DigestUtils.sha512Hex(contrasena);
+		this.contrasena_NC=contrasena;
+	}
+
 
 	@Override
 	public boolean equals(Object o) {

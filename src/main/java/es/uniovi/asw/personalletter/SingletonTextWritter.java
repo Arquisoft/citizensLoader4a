@@ -1,7 +1,7 @@
-package es.uniovi.asw.perosnalLetter;
+package es.uniovi.asw.personalletter;
 
 public class SingletonTextWritter {
-	static SingletonTextWritter instance;
+	private static SingletonTextWritter instance;
 	private TextWritter generadorDocumentoPDF;
 	private TextWritter generadorDocumentoWord;
 	private TextWritter generadorDocumentoPlainText;
