@@ -116,8 +116,8 @@ public class Citizen {
 	}
 
 	public void setContrasena(String password) {
-		this.contrasena= DigestUtils.sha512Hex(contrasena);
-		this.contrasena_NC=contrasena;
+		this.contrasena= DigestUtils.sha512Hex(password);
+		this.contrasena_NC=password;
 	}
 
 
