@@ -71,7 +71,7 @@ public class Comprobador {
 	 * @param prueba
 	 * @return
 	 */
-	public static boolean fechaCorrecta(String prueba){
+/*	public static boolean fechaCorrecta(String prueba){
 		if(prueba == null){
 			return false;
 		}
@@ -92,7 +92,7 @@ public class Comprobador {
 			return false;
 		}
 		return true;
-	}
+	}*/
 
 	/**
 	 * 

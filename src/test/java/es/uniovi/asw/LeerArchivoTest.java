@@ -8,6 +8,8 @@ import es.uniovi.asw.util.CLLogger;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -62,16 +64,20 @@ public class LeerArchivoTest {
 	}
 	
 	@Test
-	public void leerTXT() {
+	public void leerTXT() throws ParseException {
 		String fileName = "test.txt";
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListTXT();
 		ciudadanos = rl.read("src/test/resources/" + fileName);
+		Citizen c1= ciudadanos.get(0);
+		Citizen c2= ciudadanos.get(1);
 
+		assertEquals(c1.equals(c2), false);
 		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
 		assertEquals(ciudadanos.get(0).getNombre(), "Juan");
 		assertEquals(ciudadanos.get(0).getEmail(), "j@h.es");
 		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(0).getFecha_nacimiento(), new SimpleDateFormat("dd/MM/yyyy").parse("10/12/1234"));
 		assertEquals(ciudadanos.get(0).getNumero_identificativo(), "9876543S");
 		
 		assertEquals(ciudadanos.get(1).getApellidos(), "Bravo");
