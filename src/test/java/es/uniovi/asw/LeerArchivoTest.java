@@ -50,27 +50,29 @@ public class LeerArchivoTest {
 		ReadList rl = new RListExcel();
 		ciudadanos = rl.read("src/test/resources/" + fileName);
 		
-		assertEquals(0,	ciudadanos.size());
+		//Devuelve la lista siempre, aunque estén mal
+		assertEquals(3, ciudadanos.size());
+		
 	}
-	
+
 	@Test
 	public void leerConErroresEnParametrosDeEntrada() {
 		String fileName = "testErrorsParametros.xlsx";
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
 		ciudadanos = rl.read("src/test/resources/" + fileName);
-		
-		assertEquals(0,	ciudadanos.size());
+
+		assertEquals(3, ciudadanos.size());
 	}
-	
+
 	@Test
 	public void leerTXT() throws ParseException {
 		String fileName = "test.txt";
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListTXT();
 		ciudadanos = rl.read("src/test/resources/" + fileName);
-		Citizen c1= ciudadanos.get(0);
-		Citizen c2= ciudadanos.get(1);
+		Citizen c1 = ciudadanos.get(0);
+		Citizen c2 = ciudadanos.get(1);
 
 		assertEquals(c1.equals(c2), false);
 		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
@@ -79,12 +81,83 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(0).getFechaNacimiento(), new SimpleDateFormat("dd/MM/yyyy").parse("10/12/1234"));
 		assertEquals(ciudadanos.get(0).getNumeroIdentificativo(), "9876543S");
-		
+
 		assertEquals(ciudadanos.get(1).getApellidos(), "Bravo");
 		assertEquals(ciudadanos.get(1).getNombre(), "Ana");
 		assertEquals(ciudadanos.get(1).getEmail(), "a@h.es");
 		assertEquals(ciudadanos.get(1).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(1).getNumeroIdentificativo(), "9876599S");
 		assertEquals(ciudadanos.size(), 2);
+	}
+
+	@Test
+	public void forzarExcepcionesExcel() {
+		boolean thrown = false;
+		// Leer un archivo con nombre null
+		String fileName = null;
+		List<Citizen> ciudadanos;
+		ReadList rl = new RListExcel();
+		// Leer un archivo con nombre null
+		ciudadanos = rl.read("src/test/resources/" + fileName);
+
+		if (ciudadanos.size() == 0)
+			thrown = true;
+		assertEquals(true, thrown);
+
+		thrown = false;
+		ciudadanos = null;
+
+		// Formato incorrecto
+		fileName = "test.txt";
+
+		ciudadanos = rl.read("src/test/resources/" + fileName);
+		if (ciudadanos.size() == 0)
+			thrown = true;
+
+		assertEquals(true, thrown);
+	}
+	@Test
+	public void forzarExcepcionesPlainText() {
+		boolean thrown = false;
+		// Leer un archivo con nombre null
+		String fileName = null;
+		List<Citizen> ciudadanos;
+		ReadList rl = new RListTXT();
+		// Leer un archivo con nombre null
+		ciudadanos = rl.read("src/test/resources/" + fileName);
+
+		if (ciudadanos.size() == 0)
+			thrown = true;
+		assertEquals(true, thrown);
+
+		thrown = false;
+		ciudadanos = null;
+
+		// Formato incorrecto
+		fileName = "test.xls";
+
+		ciudadanos = rl.read("src/test/resources/" + fileName);
+		if (ciudadanos.size() == 0)
+			thrown = true;
+
+		assertEquals(true, thrown);
+	}
+	
+	@Test
+	public void camposNull(){
+		try {
+			CLLogger.setup();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+		List<Citizen> ciudadanos;
+		ReadList rl = new RListExcel();
+		ciudadanos = rl.read("src/test/resources/testCamposNull.xlsx");
+
+		assertEquals("", ciudadanos.get(0).getEmail());
+		assertEquals("Juan8", ciudadanos.get(0).getNombre());
+		
+		assertEquals("", ciudadanos.get(3).getNombre());
+		assertEquals("", ciudadanos.get(3).getDireccionPostal());
+	}
 }

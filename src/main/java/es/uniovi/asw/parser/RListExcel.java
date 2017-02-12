@@ -68,13 +68,15 @@ public class RListExcel extends RList  implements ReadList{
                     nif = row.getCell(6) != null ? row.getCell(6).getStringCellValue() : null;
                     nifResult = nif != null ? true : false;
 
-                    // Se carga mas info al logger.
-                    boolean todoOK = GenerateLogText.completeTextForLog(logger, nameResult, surnameResult, emailResult,
-                            birthResult, addressResult, nationalityResult, nifResult, actualrow);
+//                    // Se carga mas info al logger.
+//                    boolean todoOK = GenerateLogText.completeTextForLog(logger, nameResult, surnameResult, emailResult,
+//                            birthResult, addressResult, nationalityResult, nifResult, actualrow);
 
-                    if (todoOK) {
-                        ciudadanos.add(anadirCitizen(name, surname, email, birth, address, nationality, nif));
-                    }
+//                    if (todoOK) {
+//                        ciudadanos.add(anadirCitizen(name, surname, email, birth, address, nationality, nif));
+//                    }
+                  ciudadanos.add(anadirCitizen(name, surname, email, birth, address, nationality, nif));
+
                 }
 
             } catch (InvalidFormatException e) {

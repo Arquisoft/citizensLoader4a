@@ -7,7 +7,7 @@ public class Comprobador {
 	public final static String DATE_FORMAT = "dd/MM/yyyy";
 
 	public static boolean esTodoTexto(String prueba) {
-		if (prueba == null) {
+		if (prueba == null || prueba == "") {
 			return false;
 		}
 		char[] caracteres = prueba.toCharArray();
@@ -19,7 +19,7 @@ public class Comprobador {
 	}
 
 	public static boolean esTodoDigitos(String prueba) {
-		if (prueba == null) {
+		if (prueba == null || prueba == "") {
 			return false;
 		}
 		char[] caracteres = prueba.toCharArray();
@@ -30,7 +30,7 @@ public class Comprobador {
 		return true;
 	}
 	public static boolean esEmailCorrecto(String prueba){
-		if (prueba == null) {
+		if (prueba == null || prueba == "") {
 			return false;
 		}
 		String[] nombreYmail = prueba.split("@");
@@ -49,8 +49,15 @@ public class Comprobador {
 		
 	}
 	
+	public static boolean emailNoVacio(String email){
+		if(email == null || email == ""){
+			return false;
+		}
+		return true;
+	}
+	
 	public static boolean esAddressCorrecto(String prueba){
-		if (prueba == null) {
+		if (prueba == null || prueba == "") {
 			return false;
 		}
 		String[] ad = prueba.split(" ");
