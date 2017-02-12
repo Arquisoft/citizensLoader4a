@@ -35,12 +35,10 @@ public class LeerArchivoTest {
 
 		assertEquals(ciudadanos.get(2).getEmail(), "ana@example.com");
 		assertEquals(ciudadanos.get(2).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(1).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(2).getNumero_identificativo(), "09940449X");
 		assertEquals(ciudadanos.get(2).getDireccion_postal(), "Av. De la Constitución 8");
-
-
-
-
 	}
 
 	@Test
@@ -75,6 +73,12 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(0).getEmail(), "j@h.es");
 		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(0).getNumero_identificativo(), "9876543S");
-		assertEquals(ciudadanos.size(), 1);
+		
+		assertEquals(ciudadanos.get(1).getApellidos(), "Bravo");
+		assertEquals(ciudadanos.get(1).getNombre(), "Ana");
+		assertEquals(ciudadanos.get(1).getEmail(), "a@h.es");
+		assertEquals(ciudadanos.get(1).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(1).getNumero_identificativo(), "9876599S");
+		assertEquals(ciudadanos.size(), 2);
 		}
 }

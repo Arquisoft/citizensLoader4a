@@ -94,4 +94,16 @@ public class Comprobador {
 		return true;
 	}
 
+	/**
+	 * 
+	 * @param birth
+	 * @return
+	 */
+	public static boolean esFecha(String birth) {
+		String[] a=birth.split("/");
+		if(a.length==3 && esTodoDigitos(a[0]) && esTodoDigitos(a[1]) && esTodoDigitos(a[2]))
+			return true;
+		return false;
+	}
+
 }

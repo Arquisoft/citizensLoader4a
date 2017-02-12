@@ -1,1 +1,8 @@
 Juan,Torres Pardo,j@h.es,10/12/1234,Calle mierdecilla,Español,9876543S
+Pepe,Torres Pardo,10/12/1234,Calle mierdecilla,Español,9876543S
+Juan,Torres Pardo,jh.es,10/12/1234,Calle mierdecilla,Español,9876543S
+Juan,Torres Pardo,j@h.es,10/12/1234,mierdecilla,Español,9876543S
+Juan,Torres Pardo,j@h.es,10/12/1234,Calle mierdecilla,Español7,9876543S
+Juan3,Torres Pardo,j@h.es,10/12/1234,Calle mierdecilla,Español,9876543S
+Ana,Bravo,a@h.es,1a/12/1234,Calle cosa,Español,9876599S
+Ana,Bravo,a@h.es,11/12/1234,Calle cosa,Español,9876599S
