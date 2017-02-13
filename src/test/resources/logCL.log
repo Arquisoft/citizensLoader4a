@@ -1,6 +1,73 @@
-feb 13, 2017 6:09:14 PM es.uniovi.asw.reportwritter.WreportP report
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Repetido en la base de datos
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Repetido en la base de datos
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Repetido en la base de datos
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Ciudadano línea -> 1
+	NAME_ERROR column 0
+	EMAIL_ERROR column 2
+	NATIONALITY_ERROR column 5
+	Ciudadano no añadido.
+
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Ciudadano línea -> 2
+	SURNAME_ERROR column 1
+	DATE_ERROR column 3
+	Ciudadano no añadido.
+
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Ciudadano línea -> 3
+	NAME_ERROR column 0
+	SURNAME_ERROR column 1
+	NATIONALITY_ERROR column 5
+	Ciudadano no añadido.
+
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Ciudadano línea -> 4
+	NAME_ERROR column 0
+	Ciudadano no añadido.
+
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Ciudadano línea -> 5
+	SURNAME_ERROR column 1
+	ADDRESS_ERROR column 4
+	Ciudadano no añadido.
+
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Ciudadano línea -> 6
+	NAME_ERROR column 0
+	SURNAME_ERROR column 1
+	NATIONALITY_ERROR column 5
+	Ciudadano no añadido.
+
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
 INFORMACIÓN: 	En la linea 2 faltan datos del ciudadano, no se ha podido añadir a la base de datos
-feb 13, 2017 6:09:14 PM es.uniovi.asw.reportwritter.WreportP report
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
 INFORMACIÓN: Repetido en la base de datos
-feb 13, 2017 6:09:14 PM es.uniovi.asw.reportwritter.WreportP report
+feb 13, 2017 6:24:41 PM es.uniovi.asw.reportwritter.WreportP report
 INFORMACIÓN: Repetido en la base de datos
+feb 13, 2017 6:24:42 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Repetido en la base de datos
+feb 13, 2017 6:24:42 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Repetido en la base de datos
+feb 13, 2017 6:24:42 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Repetido en la base de datos
+feb 13, 2017 6:24:42 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Ciudadano línea -> 1
+	NAME_ERROR column 0
+	Ciudadano no añadido.
+
+feb 13, 2017 6:24:42 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Ciudadano línea -> 2
+	SURNAME_ERROR column 1
+	Ciudadano no añadido.
+
+feb 13, 2017 6:24:42 PM es.uniovi.asw.reportwritter.WreportP report
+INFORMACIÓN: Ciudadano línea -> 3
+	NAME_ERROR column 0
+	SURNAME_ERROR column 1
+	NATIONALITY_ERROR column 5
+	Ciudadano no añadido.
+

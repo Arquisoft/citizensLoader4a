@@ -47,7 +47,7 @@ public class RListExcel extends RList implements ReadList {
 		String nif;
 
 		int colNombre = 0, colApellido = 0, colEmail = 0, colBirth = 0, colAddress = 0, colNacionalidad = 0, colNif = 0;
-		
+
 		try {
 			wb = new XSSFWorkbook(new File(path));
 			sheet = wb.getSheetAt(0);
@@ -56,30 +56,20 @@ public class RListExcel extends RList implements ReadList {
 			row = rowIterator.next();
 			while (columna < 7) {
 				String celda = row.getCell(columna).getStringCellValue();
-				// if (celda.startsWith(CELDA_NOMBRE))
-				// colNombre = columna;
-				// else if (celda.startsWith(CELDA_APELLIDOS))
-				// colApellido = columna;
-				// else if (celda.startsWith(CELDA_CORREO)
-				// || celda.startsWith(CELDA_EMAIL))
-				// colEmail = columna;
-				// else if (celda.startsWith(CELDA_FECHA))
-				// colBirth = columna;
-				// else if (celda.startsWith(CELDA_DIRECCION))
-				// colAddress = columna;
-				// else if (celda.startsWith(CELDA_NACIONALIDAD))
-				// colNacionalidad = columna;
-				// else if (celda.startsWith(CELDA_DNI)
-				// || celda.startsWith(CELDA_NIF))
-				// colNif = columna;
-
-				colNombre = getOrdenColumna(columna, celda);
-				colApellido = getOrdenColumna(columna, celda);
-				colEmail = getOrdenColumna(columna, celda);
-				colBirth = getOrdenColumna(columna, celda);
-				colAddress = getOrdenColumna(columna, celda);
-				colNacionalidad = getOrdenColumna(columna, celda);
-				colNif = getOrdenColumna(columna, celda);
+				if (celda.startsWith("No"))
+					colNombre = columna;
+				else if (celda.startsWith("Ap"))
+					colApellido = columna;
+				else if (celda.startsWith("Cor") || celda.startsWith("Em"))
+					colEmail = columna;
+				else if (celda.startsWith("Fec"))
+					colBirth = columna;
+				else if (celda.startsWith("Dir"))
+					colAddress = columna;
+				else if (celda.startsWith("Nac"))
+					colNacionalidad = columna;
+				else if (celda.startsWith("DNI") || celda.startsWith("NIF"))
+					colNif = columna;
 				columna++;
 			}
 
@@ -108,7 +98,8 @@ public class RListExcel extends RList implements ReadList {
 			Console.print("El fichero no es un .xlsx");
 		} catch (Exception e) {
 			String[] fileName = path.split("/");
-			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
+			Console.print(
+					"Ha ocurrido un error. Asegurate de que el fichero existe y que la fecha de nacimiento está puesta en el formato correcto\n");
 		} finally {
 
 			try {
