@@ -34,15 +34,20 @@ public class RListExcel extends RList  implements ReadList{
             String nif;
 
             boolean nameResult, surnameResult, emailResult, birthResult, addressResult, nationalityResult, nifResult;
-
+     //       int colNombre, colApellido,colEmail, colBirth, colAddress, colNacionalidad, colNif;
             StringBuilder logger = new StringBuilder();
 
             try {
                 wb = new XSSFWorkbook(new File(path));
                 sheet = wb.getSheetAt(0);
                 rowIterator = sheet.iterator();
-
-                rowIterator.next();
+                int columna=0;
+                row=rowIterator.next();
+//                while (columna<7){
+//                	if(row.getCell(columna).getStringCellValue().startsWith("No"))
+//                		colNombre=columna;
+//                	columna++;
+//                }
 
                 int actualrow = 0;
                 while (rowIterator.hasNext()) {
