@@ -43,7 +43,7 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
 	}
 	
-/*	@Test
+	@Test
 	public void leerExcelDiferenteEntrada() {
 		try {
 			CLLogger.setup();
@@ -68,7 +68,7 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
 		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
-	}*/
+	}
 
 	@Test
 	public void leerConErrores() {

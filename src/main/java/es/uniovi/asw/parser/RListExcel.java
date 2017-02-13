@@ -28,9 +28,8 @@ public class RListExcel extends RList implements ReadList {
 	public final static String CELDA_DNI = "DNI";
 	public final static String CELDA_NIF = "nif";
 
-	private String[] listadoColumnas = { CELDA_APELLIDOS, CELDA_CORREO,
-			CELDA_DIRECCION, CELDA_DNI, CELDA_EMAIL, CELDA_FECHA,
-			CELDA_NACIONALIDAD, CELDA_NIF, CELDA_NOMBRE };
+	private String[] listadoColumnas = { CELDA_APELLIDOS, CELDA_CORREO, CELDA_DIRECCION, CELDA_DNI, CELDA_EMAIL,
+			CELDA_FECHA, CELDA_NACIONALIDAD, CELDA_NIF, CELDA_NOMBRE };
 
 	@Override
 	public List<Citizen> readFile(String path) {
@@ -47,10 +46,8 @@ public class RListExcel extends RList implements ReadList {
 		String nationality;
 		String nif;
 
-		boolean nameResult, surnameResult, emailResult, birthResult, addressResult, nationalityResult, nifResult;
 		int colNombre = 0, colApellido = 0, colEmail = 0, colBirth = 0, colAddress = 0, colNacionalidad = 0, colNif = 0;
-		StringBuilder logger = new StringBuilder();
-
+		
 		try {
 			wb = new XSSFWorkbook(new File(path));
 			sheet = wb.getSheetAt(0);
@@ -90,35 +87,20 @@ public class RListExcel extends RList implements ReadList {
 			while (rowIterator.hasNext()) {
 				actualrow++;
 				row = rowIterator.next();
-				name = row.getCell(colNombre) != null ? row.getCell(colNombre)
-						.getStringCellValue() : null;
-				nameResult = Comprobador.esTodoTexto(name);
-				surname = row.getCell(colApellido) != null ? row.getCell(
-						colApellido).getStringCellValue() : null;
-				surnameResult = Comprobador.esTodoTexto(surname);
-				email = row.getCell(colEmail) != null ? row.getCell(colEmail)
-						.getStringCellValue() : null;
-				emailResult = Comprobador.esEmailCorrecto(email);
-				// birthResult =
-				// Comprobador.fechaCorrecta(row.getCell(3).getStringCellValue());
-				// // Orden
-				// importante
-				birthResult = true;
-				birth = row.getCell(colBirth) != null && birthResult ? row
-						.getCell(colBirth).getDateCellValue() : null;
-				address = row.getCell(colAddress) != null ? row.getCell(
-						colAddress).getStringCellValue() : null;
-				addressResult = Comprobador.esAddressCorrecto(address);
-				addressResult = true;
-				nationality = row.getCell(colNacionalidad) != null ? row
-						.getCell(colNacionalidad).getStringCellValue() : null;
-				nationalityResult = Comprobador.esTodoTexto(nationality);
-				nif = row.getCell(colNif) != null ? row.getCell(colNif)
-						.getStringCellValue() : null;
-				nifResult = nif != null ? true : false;
+				name = row.getCell(colNombre) != null ? row.getCell(colNombre).getStringCellValue() : null;
+				surname = row.getCell(colApellido) != null ? row.getCell(colApellido).getStringCellValue() : null;
 
-				ciudadanos.add(anadirCitizen(name, surname, email, birth,
-						address, nationality, nif));
+				email = row.getCell(colEmail) != null ? row.getCell(colEmail).getStringCellValue() : null;
+
+				birth = row.getCell(colBirth) != null ? row.getCell(colBirth).getDateCellValue() : null;
+				address = row.getCell(colAddress) != null ? row.getCell(colAddress).getStringCellValue() : null;
+
+				nationality = row.getCell(colNacionalidad) != null ? row.getCell(colNacionalidad).getStringCellValue()
+						: null;
+
+				nif = row.getCell(colNif) != null ? row.getCell(colNif).getStringCellValue() : null;
+
+				ciudadanos.add(anadirCitizen(name, surname, email, birth, address, nationality, nif));
 
 			}
 
@@ -126,8 +108,7 @@ public class RListExcel extends RList implements ReadList {
 			Console.print("El fichero no es un .xlsx");
 		} catch (Exception e) {
 			String[] fileName = path.split("/");
-			Console.print("El fichero " + fileName[fileName.length - 1]
-					+ " no existe");
+			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
 		} finally {
 
 			try {

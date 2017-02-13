@@ -68,33 +68,6 @@ public class Comprobador {
 		
 	}
 	
-	/**
-	 * Este método hace que salte la excepcion en el parser, asi que no va
-	 * @param prueba
-	 * @return
-	 */
-/*	public static boolean fechaCorrecta(String prueba){
-		if(prueba == null){
-			return false;
-		}
-		Date date;
-		SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-		try {
-			date = sdf.parse(prueba);
-			if(!prueba.equals(sdf.format(date))){
-				date = null;
-			}
-		} catch (ParseException e) {
-			//e.printStackTrace();
-			Console.println("EXCEPCION SALTADA AL COMPROBAR EL FORMATO DE LA FECHA");
-			date = null;
-		}
-		
-		if(date == null){
-			return false;
-		}
-		return true;
-	}*/
 
 	/**
 	 * 
