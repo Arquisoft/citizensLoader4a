@@ -1,0 +1,8 @@
+CitizensLoader TXT
+
+Bienvenido, Paco Álvarez García
+Le comunicamos que ha sido correctamente introducido en el sistema.
+Sus datos de usuario son los siguientes: 
+		-USUARIO : paqueras@correo.com
+		-CONTRASEÑA : pacoPAQUETE69
+	Un saludo, el Ayuntamiento.

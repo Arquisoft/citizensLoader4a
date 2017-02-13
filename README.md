@@ -9,9 +9,8 @@ Citizens Loader module
 
 # Authors
 
-Herminio García González (@herminiogg)
-Jose Emilio Labra Gayo (@labra)
-
-Ana Bravo Mediavilla 
-Javier Castro Fernández 
-Pelayo García Lartategui
+- Herminio García González (@herminiogg)
+- Jose Emilio Labra Gayo (@labra)
+- Ana Bravo Mediavilla 
+- Javier Castro Fernández 
+- Pelayo García Lartategui (@pelayolartategui)

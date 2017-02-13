@@ -1,15 +1,13 @@
 package es.uniovi.asw.util;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 public class Comprobador {
 	
 	public final static String DATE_FORMAT = "dd/MM/yyyy";
 
 	public static boolean esTodoTexto(String prueba) {
-		if (prueba == null) {
+		if (prueba == null || prueba == "") {
 			return false;
 		}
 		char[] caracteres = prueba.toCharArray();
@@ -21,7 +19,7 @@ public class Comprobador {
 	}
 
 	public static boolean esTodoDigitos(String prueba) {
-		if (prueba == null) {
+		if (prueba == null || prueba == "") {
 			return false;
 		}
 		char[] caracteres = prueba.toCharArray();
@@ -32,7 +30,7 @@ public class Comprobador {
 		return true;
 	}
 	public static boolean esEmailCorrecto(String prueba){
-		if (prueba == null) {
+		if (prueba == null || prueba == "") {
 			return false;
 		}
 		String[] nombreYmail = prueba.split("@");
@@ -46,10 +44,26 @@ public class Comprobador {
 			return false;
 		}
 		*/
-		if(!parteMail.contains(".")){
+		return parteMail.contains(".");
+
+		
+	}
+	
+	public static boolean emailNoVacio(String email){
+		if(email == null || email == ""){
 			return false;
 		}
-			
+		return true;
+	}
+	
+	public static boolean esAddressCorrecto(String prueba){
+		if (prueba == null || prueba == "") {
+			return false;
+		}
+		String[] ad = prueba.split(" ");
+		if(ad.length < 2){ //Correo incorrecto, no cumple xxx@xxx
+			return false;
+		}
 		return true;
 		
 	}
@@ -59,7 +73,7 @@ public class Comprobador {
 	 * @param prueba
 	 * @return
 	 */
-	public static boolean fechaCorrecta(String prueba){
+/*	public static boolean fechaCorrecta(String prueba){
 		if(prueba == null){
 			return false;
 		}
@@ -80,6 +94,17 @@ public class Comprobador {
 			return false;
 		}
 		return true;
+	}*/
+
+	/**
+	 * 
+	 * @param birth
+	 * @return
+	 */
+	public static boolean esFecha(String birth) {
+		String[] a=birth.split("/");
+		return a.length==3 && esTodoDigitos(a[0]) && esTodoDigitos(a[1]) && esTodoDigitos(a[2]);
+
 	}
 
 }

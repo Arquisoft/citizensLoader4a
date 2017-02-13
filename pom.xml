@@ -10,7 +10,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+
 	</properties>
 
 
@@ -29,6 +31,7 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.22</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>commons-cli</groupId>
@@ -51,17 +54,17 @@
 		</dependency>
 
 		<dependency>
-		    <groupId>info.cukes</groupId>
-		    <artifactId>cucumber-java8</artifactId>
-		    <version>1.2.5</version>
-		    <scope>test</scope>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java8</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>info.cukes</groupId>
-		    <artifactId>cucumber-java</artifactId>
-		    <version>1.2.5</version>
-		    <scope>test</scope>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>1.2.5</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -102,13 +105,20 @@
 			<version>5.1.39</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.lowagie/itext -->
+		<dependency>
+			<groupId>com.lowagie</groupId>
+			<artifactId>itext</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+
 
 
 
 	</dependencies>
 	<!--Build plugins -->
 	<build>
-	<sourceDirectory>src/main/java</sourceDirectory>
+		<sourceDirectory>src/main/java</sourceDirectory>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -222,6 +232,11 @@
 				</configuration>
 			</plugin>
 
+
+
+
+
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
@@ -319,6 +334,18 @@
 			<id>pelayolartategui</id>
 			<name>Pelayo Garcia Lartategui</name>
 			<email>uo245274@uniovi.es</email>
+			<organization>WESO-University of Oviedo</organization>
+			<organizationUrl>http://www.uniovi.es</organizationUrl>
+			<roles>
+				<role>Developer</role>
+			</roles>
+			<timezone>2</timezone>
+			<properties />
+		</developer>
+		<developer>
+			<id>anabravo</id>
+			<name>Ana Bravo Mediavilla</name>
+			<email>uo239184@uniovi.es</email>
 			<organization>WESO-University of Oviedo</organization>
 			<organizationUrl>http://www.uniovi.es</organizationUrl>
 			<roles>

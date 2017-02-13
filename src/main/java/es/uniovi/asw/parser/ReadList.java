@@ -1,12 +1,14 @@
 package es.uniovi.asw.parser;
 
-import java.util.List;
-
 import es.uniovi.asw.model.Citizen;
 
+import java.util.List;
+
 /**
- * Lee el fichero de Excel con los datos de una lista de ciudadanos.
+ * Lee el fichero con los datos de una lista de ciudadanos.
  */
 public interface ReadList {
-	public List<Citizen> read(String path);
+
+    public List<Citizen> read(String path);
+
 }

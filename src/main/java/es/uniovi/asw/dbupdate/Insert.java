@@ -1,11 +1,14 @@
-package es.uniovi.asw.dbUpdate;
+package es.uniovi.asw.dbupdate;
 
 import es.uniovi.asw.model.Citizen;
+
+import java.util.List;
+
 
 /**
  * Recibe un objeto con la información para insertar en la base de datos.
  */
 public interface Insert {
 	
-	Citizen insertCitizen(Citizen citizen);
+	void insert(List<Citizen> ciudadanos);
 }

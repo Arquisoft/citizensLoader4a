@@ -1,139 +1,125 @@
 package es.uniovi.asw.model;
 
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import javax.persistence.*;
 import java.util.Date;
 @Entity
-@Table(name="citizen")
+@Table(name="USUARIOS")
 public class Citizen {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; // JPA
-	private String name;
-	private String surname;
+	private String nombre;
+	private String apellidos;
 	private String email;
-	private Date birthdate;
-	private String address;
-	private String nationality;
-	private String nif; // Clave natural
-	private String password;
-	private String user;
+	private Date fecha_nacimiento;
+	private String direccion_postal;
+	private String nacionalidad;
+	private String numero_identificativo; // Clave natural
+	private String contrasena;
+	@Transient
+	private String contrasena_NC;
 
-	public Citizen() {
+
+	public Citizen() {	}
+	public Citizen(String nombre, String apellidos, String email, Date fecha_nacimiento, String direccion_postal, String nacionalidad,
+				   String numero_identificativo) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.direccion_postal = direccion_postal;
+		this.nacionalidad = nacionalidad;
+		this.numero_identificativo = numero_identificativo;
 	}
 
-	public String getUser() {
-		return user;
+	public Citizen(String nombre, String apellidos, String email, Date fecha_nacimiento, String direccion_postal,
+				   String nacionalidad, String numero_identificativo, String contrasena) {
+		this(nombre,apellidos,email,fecha_nacimiento,direccion_postal,nacionalidad,numero_identificativo);
+		this.contrasena= DigestUtils.sha512Hex(contrasena);
+		this.contrasena_NC=contrasena;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+
+	public void setNombre(String name) {
+		this.nombre = name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setApellidos(String surname) {
+		this.apellidos = surname;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public void setBirthdate(Date birthdate) {
-		this.birthdate = birthdate;
+	public void setFecha_nacimiento(Date birthdate) {
+		this.fecha_nacimiento = birthdate;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setDireccionPostal(String address) {
+		this.direccion_postal = address;
 	}
 
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
+	public void setNacionalidad(String nationality) {
+		this.nacionalidad = nationality;
 	}
 
-	public void setNif(String nif) {
-		this.nif = nif;
+	public void setNumero_identificativo(String nif) {
+		this.numero_identificativo = nif;
 	}
 
-	public Citizen(Long id, String name, String surname, String email, Date birthdate, String address,
-			String nationality, String nif) {
-		this.id = id;
-		this.name = name;
-		this.surname = surname;
-		this.email = email;
-		this.birthdate = birthdate;
-		this.address = address;
-		this.nationality = nationality;
-		this.nif = nif;
-	}
 
-	public Citizen(Long id, String name, String surname, String email, Date birthdate, String address,
-			String nationality, String nif, String password) {
-		this.id = id;
-		this.name = name;
-		this.surname = surname;
-		this.email = email;
-		this.birthdate = birthdate;
-		this.address = address;
-		this.nationality = nationality;
-		this.nif = nif;
-		this.password = password;
-	}
 
-	public Citizen(String name, String surname, String email, Date birthdate, String address, String nationality,
-			String nif) {
-		super();
-		this.name = name;
-		this.surname = surname;
-		this.email = email;
-		this.birthdate = birthdate;
-		this.address = address;
-		this.nationality = nationality;
-		this.nif = nif;
-	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public String getSurname() {
-		return surname;
+	public String getApellidos() {
+		return apellidos;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public Date getBirthdate() {
-		return birthdate;
+	public Date getFechaNacimiento() {
+		return fecha_nacimiento;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getDireccionPostal() {
+		return direccion_postal;
 	}
 
-	public String getNationality() {
-		return nationality;
+	public String getNacionalidad() {
+		return nacionalidad;
 	}
 
-	public String getNif() {
-		return nif;
+	public String getNumeroIdentificativo() {
+		return numero_identificativo;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getContrasena() {
+		return contrasena;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public String getContrasenaNC() {
+		return contrasena_NC;
 	}
+
+	public void setContrasena(String password) {
+		this.contrasena= DigestUtils.sha512Hex(password);
+		this.contrasena_NC=password;
+	}
+
 
 	@Override
 	public boolean equals(Object o) {
@@ -144,18 +130,18 @@ public class Citizen {
 
 		Citizen citizen = (Citizen) o;
 
-		return nif.equals(citizen.nif);
+		return numero_identificativo.equals(citizen.numero_identificativo);
 	}
 
 	@Override
 	public int hashCode() {
-		return nif.hashCode();
+		return numero_identificativo.hashCode();
 	}
 
 	@Override
 	public String toString() {
-		return "Citizen{" + "id=" + id + ", name='" + name + '\'' + ", surname='" + surname + '\'' + ", email='" + email
-				+ '\'' + ", birthdate=" + birthdate + ", address='" + address + '\'' + ", nationality='" + nationality
-				+ '\'' + ", nif='" + nif + '\'' + ", password='" + password + '\'' + '}';
+		return "Citizen{" + "id=" + id + ", name='" + nombre + '\'' + ", surname='" + apellidos + '\'' + ", email='" + email
+				+ '\'' + ", birthdate=" + fecha_nacimiento + ", address='" + direccion_postal + '\'' + ", nationality='" + nacionalidad
+				+ '\'' + ", nif='" + numero_identificativo + '\'' + ", password='" + contrasena + '\'' + '}';
 	}
 }
