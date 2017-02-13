@@ -33,7 +33,6 @@ public class RListTXT extends RList implements ReadList {
 		int row = 0;
 		StringBuilder logger = new StringBuilder();
 
-		boolean nameResult, surnameResult, emailResult, birthResult, addressResult, nationalityResult, nifResult = true;
 		String cadena;
 
 		try {
@@ -43,48 +42,31 @@ public class RListTXT extends RList implements ReadList {
 			while ((cadena = b.readLine()) != null) {
 				row++;
 				String[] datos = cadena.split(",");
-				if (datos.length != 7)
-					reporter.report("\tEn la linea "
-							+ row
-							+ " faltan datos del ciudadano, no se ha podido añadir a la base de datos");
+				if (datos.length != 7){}
+			//		reporter.report("\tEn la linea " + row
+					//+ " faltan datos del ciudadano, no se ha podido añadir a la base de datos");
 				else {
 					name = datos[0];
-					nameResult = Comprobador.esTodoTexto(name);
 					surname = datos[1];
-					surnameResult = Comprobador.esTodoTexto(name);
 					email = datos[2];
-					emailResult = Comprobador.esEmailCorrecto(email);
 					birth = datos[3];
-					birthResult = Comprobador.esFecha(birth);
 					address = datos[4];
-					addressResult = Comprobador.esAddressCorrecto(address);
 					nationality = datos[5];
-					nationalityResult = Comprobador.esTodoTexto(nationality);
 					nif = datos[6];
-					nifResult = nif != null ? true : false;
-					boolean todoOK = GenerateLogText.completeTextForLog(logger,
-							nameResult, surnameResult, emailResult,
-							birthResult, addressResult, nationalityResult,
-							nifResult, row);
-					if (todoOK) {
-						ciudadanos
-								.add(anadirCitizen(name, surname, email,
-										new SimpleDateFormat("dd/MM/yyyy")
-												.parse(birth), address,
-										nationality, nif));
-					}
+					ciudadanos.add(anadirCitizen(name, surname, email, new SimpleDateFormat("dd/MM/yyyy").parse(birth),
+							address, nationality, nif));
+
 				}
 			}
 			b.close();
 		} catch (ParseException e) {
-			//e.printStackTrace();
+			// e.printStackTrace();
 
 			Console.print("La fecha de nacimiento no tiene el formato correcto");
 		} catch (IOException e) {
 			String[] fileName = path.split("/");
-			//e.printStackTrace();
-			Console.print("El fichero " + fileName[fileName.length - 1]
-					+ " no existe");
+			// e.printStackTrace();
+			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
 
 		} catch (Exception e) {
 			e.printStackTrace();
