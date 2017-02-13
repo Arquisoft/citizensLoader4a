@@ -33,8 +33,9 @@ public class InsertP implements Insert {
 			boolean name = Comprobador.esTodoTexto(ci.getNombre());
 			boolean apellidos = Comprobador.esTodoTexto(ci.getApellidos());
 			boolean email = Comprobador.emailNoVacio(ci.getEmail());
-//			boolean fechaNac = ci.getFechaNacimiento() == null ? false : true;
-			boolean fechaNac = Comprobador.esFecha(ci.getFechaNacimiento().toString());
+			boolean fechaNac = ci.getFechaNacimiento() == null ? false : true;
+			if(fechaNac)
+				fechaNac = Comprobador.esFecha(ci.getFechaNacimiento().toString());
 			boolean direccion = ci.getDireccionPostal() == null ? false : true;
 			boolean nif = ci.getNumeroIdentificativo() == null ? false : true;
 			boolean nacionalidad = Comprobador.esTodoTexto(ci.getNacionalidad());

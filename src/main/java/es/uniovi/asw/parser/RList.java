@@ -3,7 +3,9 @@ package es.uniovi.asw.parser;
 import es.uniovi.asw.dbupdate.Insert;
 import es.uniovi.asw.model.Citizen;
 
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Crea los subcomponentes del parser necesarios para procesar el fichero de
@@ -12,6 +14,7 @@ import java.util.*;
 public abstract class RList implements ReadList {
 
 	private static Insert db = new InsertR();
+
 
 	abstract List<Citizen>readFile(String path);
 

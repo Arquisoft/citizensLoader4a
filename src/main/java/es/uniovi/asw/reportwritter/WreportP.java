@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 public class WreportP implements WriteReport {
 
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-
+	//private static Logger LOGGER = LoggerFactory.getLogger(WreportP.class);
 
 	public WreportP() {
 
