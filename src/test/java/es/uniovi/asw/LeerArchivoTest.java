@@ -42,6 +42,33 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
 		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
 	}
+	
+	@Test
+	public void leerExcelDiferenteEntrada() {
+		try {
+			CLLogger.setup();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		List<Citizen> ciudadanos;
+		ReadList rl = new RListExcel();
+		ciudadanos = rl.read("src/test/resources/testDesorden.xlsx");
+
+		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
+		assertEquals(ciudadanos.get(1).getApellidos(), "López Fernando");
+		assertEquals(ciudadanos.get(2).getApellidos(), "Torres Pardo");
+
+		assertEquals(ciudadanos.get(0).getNombre(), "Juan");
+		assertEquals(ciudadanos.get(1).getNombre(), "Luis");
+		assertEquals(ciudadanos.get(2).getNombre(), "Ana");
+
+		assertEquals(ciudadanos.get(2).getEmail(), "ana@example.com");
+		assertEquals(ciudadanos.get(2).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(1).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
+		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
+	}
 
 	@Test
 	public void leerConErrores() {
