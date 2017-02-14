@@ -5,6 +5,7 @@ public class SingletonTextWritter {
 	private TextWritter generadorDocumentoPDF;
 	private TextWritter generadorDocumentoWord;
 	private TextWritter generadorDocumentoPlainText;
+	private MensajePersonalizado mensajePersonalizadoInstance;
 	
 	private SingletonTextWritter(){
 		
@@ -36,4 +37,10 @@ public class SingletonTextWritter {
 		}
 		return generadorDocumentoPlainText;
 	}
+//	public MensajePersonalizado getCreadorMensaje(){
+//		if(this.mensajePersonalizadoInstance == null){
+//			this.mensajePersonalizadoInstance = new MensajePersonalizado();
+//		}
+//		return this.mensajePersonalizadoInstance;
+//	}
 }
