@@ -18,18 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class RListExcel extends RList implements ReadList {
-	public final static String CELDA_NOMBRE = "No";
-	public final static String CELDA_APELLIDOS = "Ap";
-	public final static String CELDA_EMAIL = "Em";
-	public final static String CELDA_CORREO = "Cor";
-	public final static String CELDA_FECHA = "Fec";
-	public final static String CELDA_DIRECCION = "Dir";
-	public final static String CELDA_NACIONALIDAD = "Nac";
-	public final static String CELDA_DNI = "DNI";
-	public final static String CELDA_NIF = "nif";
 
-	private String[] listadoColumnas = { CELDA_APELLIDOS, CELDA_CORREO, CELDA_DIRECCION, CELDA_DNI, CELDA_EMAIL,
-			CELDA_FECHA, CELDA_NACIONALIDAD, CELDA_NIF, CELDA_NOMBRE };
 
 	@Override
 	public List<Citizen> readFile(String path) {
@@ -42,9 +31,7 @@ public class RListExcel extends RList implements ReadList {
 
 		String name, surname, email;
 		Date birth;
-		String address;
-		String nationality;
-		String nif;
+		String address, nationality,nif;
 
 		int colNombre = 0, colApellido = 0, colEmail = 0, colBirth = 0, colAddress = 0, colNacionalidad = 0, colNif = 0;
 
@@ -120,15 +107,6 @@ public class RListExcel extends RList implements ReadList {
 		 * reporter.createErrorLogFile(); //
 		 */
 		return ciudadanos;
-	}
-
-	private int getOrdenColumna(int columnaActual, String celda) {
-		for (String type : listadoColumnas) {
-			if (celda.startsWith(type)) {
-				return columnaActual;
-			}
-		}
-		return -1;
 	}
 
 }

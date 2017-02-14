@@ -68,6 +68,23 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
 		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
+		
+		ciudadanos = rl.read("src/test/resources/testDesorden2.xlsx");
+
+		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
+		assertEquals(ciudadanos.get(1).getApellidos(), "López Fernando");
+		assertEquals(ciudadanos.get(2).getApellidos(), "Torres Pardo");
+
+		assertEquals(ciudadanos.get(0).getNombre(), "Juan");
+		assertEquals(ciudadanos.get(1).getNombre(), "Luis");
+		assertEquals(ciudadanos.get(2).getNombre(), "Ana");
+
+		assertEquals(ciudadanos.get(2).getEmail(), "ana@example.com");
+		assertEquals(ciudadanos.get(2).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(1).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
+		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
 	}
 
 	@Test

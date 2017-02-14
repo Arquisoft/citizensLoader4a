@@ -16,16 +16,13 @@ public class Parser {
 	private static final Logger log = Logger.getLogger(Parser.class.getName());
 	private String[] args = null;
 	private Options options = new Options();
-	private OptionGroup group =  new OptionGroup();  
 
 	public Parser(String[] args) {
 		this.args = args;
 		options.addOption("h", "help", false, "show help.");
-		options.addOption("v", "var", true, "Here you can set parameter .");
-		group.addOption(new Option("err",     "Salida estándar de errores"));  
-        group.addOption(new Option("console", "Salida estándar"));  
-        options.addOptionGroup(group);  
-          
+		options.addOption("e", "excel",true, "Cargar fichero excel");
+		options.addOption("t", "txt", true, "Cargar fichero txt");
+		
 	}
 
 	public void parse() {
@@ -38,10 +35,12 @@ public class Parser {
 				HelpFormatter formatter = new HelpFormatter();
 				formatter.printHelp("sb server", options);
 			}
-			if (cmd.hasOption("v")) {
-				log.log(Level.INFO, "Using cli argument -v=" + cmd.getOptionValue("v"));
-				 prueba = Integer.parseInt( cmd.getOptionValue("port") );  
-			} else {
+			if (cmd.hasOption("e")) {
+				new RListExcel().read(cmd.getArgList().get(0));
+			} if (cmd.hasOption("t")) {
+				new RListTXT().read(cmd.getArgList().get(0));
+			} 
+			else {
 				log.log(Level.SEVERE, "MIssing v option");
 				help();
 			}
