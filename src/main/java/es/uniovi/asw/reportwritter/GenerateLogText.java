@@ -40,31 +40,31 @@ public class GenerateLogText {
 		boolean todoOK = true;
 		actualLoggingText.append("Ciudadano línea -> " + actualrow + "\n");
 		if (!name) {
-			actualLoggingText.append("\t" + ErrorTypes.NAME_ERROR + " column " + 0 + "\n");
+			actualLoggingText.append("\t" + ErrorTypes.NAME_ERROR  + "\n");
 			todoOK = false;
 		}
 		if (!surname) {
-			actualLoggingText.append("\t" + ErrorTypes.SURNAME_ERROR + " column " + 1 + "\n");
+			actualLoggingText.append("\t" + ErrorTypes.SURNAME_ERROR + "\n");
 			todoOK = false;
 		}
 		if (!email) {
-			actualLoggingText.append("\t" + ErrorTypes.EMAIL_ERROR + " column " + 2 + "\n");
+			actualLoggingText.append("\t" + ErrorTypes.EMAIL_ERROR  + "\n");
 			todoOK = false;
 		}
 		if (!address) {
-			actualLoggingText.append("\t" + ErrorTypes.ADDRESS_ERROR + " column " + 4 + "\n");
+			actualLoggingText.append("\t" + ErrorTypes.ADDRESS_ERROR + "\n");
 			todoOK = false;
 		}
 		if (!birth) {
-			actualLoggingText.append("\t" + ErrorTypes.DATE_ERROR + " column " + 3 + "\n");
+			actualLoggingText.append("\t" + ErrorTypes.DATE_ERROR + "\n");
 			todoOK = false;
 		}
 		if (!nationality) {
-			actualLoggingText.append("\t" + ErrorTypes.NATIONALITY_ERROR + " column " + 5 + "\n");
+			actualLoggingText.append("\t" + ErrorTypes.NATIONALITY_ERROR + "\n");
 			todoOK = false;
 		}
 		if (!nif) {
-			actualLoggingText.append("\t" + ErrorTypes.NIF_ERROR + "column " + 6 + "\n");
+			actualLoggingText.append("\t" + ErrorTypes.NIF_ERROR + "\n");
 			todoOK = false;
 		}
 		if (!todoOK) {

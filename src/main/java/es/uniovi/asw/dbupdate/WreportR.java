@@ -1,6 +1,6 @@
 package es.uniovi.asw.dbupdate;
 
-import es.uniovi.asw.reportwritter.WreportP;
+import es.uniovi.asw.reportwritter.SingletonReporter;
 import es.uniovi.asw.reportwritter.WriteReport;
 
 /**
@@ -10,7 +10,8 @@ public class WreportR implements WriteReport{
 
     @Override
     public void report(String... problemas) {
-        new WreportP().report(problemas);
+        //new WreportP().report(problemas);
+    	SingletonReporter.getInstance().getWreportP().report(problemas);
     }
 }
 
