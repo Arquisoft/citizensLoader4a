@@ -3,21 +3,21 @@ package es.uniovi.asw.util.Exception;
 /**
  * Created by Pelayo Garcia Lartategui on 15/02/2017.
  */
-public class CustomException extends Exception{
+public class CitizenException extends Exception{
     private static final long serialVersionUID = 4001710687990554589L;
 
-    public CustomException() {
+    public CitizenException() {
     }
 
-    public CustomException(String message) {
+    public CitizenException(String message) {
         super(message);
     }
 
-    public CustomException(Throwable cause) {
+    public CitizenException(Throwable cause) {
         super(cause);
     }
 
-    public CustomException(String message, Throwable cause) {
+    public CitizenException(String message, Throwable cause) {
         super(message, cause);
     }
 

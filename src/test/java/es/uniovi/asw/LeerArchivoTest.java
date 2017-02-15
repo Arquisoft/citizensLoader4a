@@ -4,12 +4,9 @@ import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.parser.ReadList;
-import es.uniovi.asw.util.Exception.CustomException;
-import es.uniovi.asw.util.Logger.CLLogger;
-import org.junit.BeforeClass;
+import es.uniovi.asw.util.Exception.CitizenException;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -18,17 +15,9 @@ import static org.junit.Assert.assertEquals;
 
 public class LeerArchivoTest {
 
-	@BeforeClass
-	public static void initLogger(){
-		try {
-			CLLogger.setup();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
 
 	@Test
-	public void leerExcel() throws CustomException {
+	public void leerExcel() throws CitizenException {
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
 		ciudadanos = rl.read("src/test/resources/test.xlsx");
@@ -50,7 +39,7 @@ public class LeerArchivoTest {
 	}
 	
 	@Test
-	public void leerExcelDiferenteEntrada() throws CustomException {
+	public void leerExcelDiferenteEntrada() throws CitizenException {
 
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
@@ -90,7 +79,7 @@ public class LeerArchivoTest {
 	}
 
 	@Test
-	public void leerConErrores() throws CustomException {
+	public void leerConErrores() throws CitizenException {
 		String fileName = "testErrors.xlsx";
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
@@ -102,7 +91,7 @@ public class LeerArchivoTest {
 	}
 
 	@Test
-	public void leerConErroresEnParametrosDeEntrada() throws CustomException {
+	public void leerConErroresEnParametrosDeEntrada() throws CitizenException {
 		String fileName = "testErrorsParametros.xlsx";
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
@@ -112,7 +101,7 @@ public class LeerArchivoTest {
 	}
 
 	@Test
-	public void leerTXT() throws ParseException, CustomException {
+	public void leerTXT() throws ParseException, CitizenException {
 		String fileName = "test.txt";
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListTXT();
@@ -131,24 +120,24 @@ public class LeerArchivoTest {
 
 	}
 
-	@Test(expected = CustomException.class)
-	public void forzarExcepcionesExcel() throws CustomException {
+	@Test(expected = CitizenException.class)
+	public void forzarExcepcionesExcel() throws CitizenException {
 		// Leer un archivo con nombre null
 		String fileName = null;
 		ReadList rl = new RListExcel();
 		rl.read("src/test/resources/" + fileName);
 
 	}
-	@Test(expected = CustomException.class)
-	public void forzarExcepcionesFormatoIncorrectoExcel() throws CustomException {
+	@Test(expected = CitizenException.class)
+	public void forzarExcepcionesFormatoIncorrectoExcel() throws CitizenException {
 		// Formato incorrecto
 		String fileName = "test.txt";
 		ReadList rl = new RListExcel();
 		rl.read("src/test/resources/" + fileName);
 
 	}
-	@Test(expected =  CustomException.class)
-	public void forzarExcepcionesPlainText() throws CustomException {
+	@Test(expected =  CitizenException.class)
+	public void forzarExcepcionesPlainText() throws CitizenException {
 
 		// Leer un archivo con nombre null
 		String fileName = null;
@@ -158,8 +147,8 @@ public class LeerArchivoTest {
 
 
 	}
-	@Test(expected =  CustomException.class)
-	public void forzarExcepcionesFormatoIncorrectoTXT() throws CustomException {
+	@Test(expected =  CitizenException.class)
+	public void forzarExcepcionesFormatoIncorrectoTXT() throws CitizenException {
 		// Formato incorrecto
 		String fileName = "test.xlsx";
 		ReadList rl = new RListTXT();
@@ -171,7 +160,7 @@ public class LeerArchivoTest {
 
 
 	@Test
-	public void camposNull() throws CustomException {
+	public void camposNull() throws CitizenException {
 
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();

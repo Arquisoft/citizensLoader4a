@@ -1,6 +1,7 @@
 package es.uniovi.asw.personalletter;
 
 
+import es.uniovi.asw.util.Exception.CitizenException;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
@@ -15,7 +16,7 @@ class WordTextWritter implements TextWritter {
 
 
 	@Override
-	public void createDocument(String documentName, String content) {
+	public void createDocument(String documentName, String content) throws CitizenException {
 
         XWPFDocument doc = new XWPFDocument();
         XWPFParagraph pg = doc.createParagraph();
@@ -32,7 +33,8 @@ class WordTextWritter implements TextWritter {
             out.close();
             doc.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new CitizenException("Error al generar documento word" +
+                    " ["+ FILE_PATH+documentName+".docx] | ["+this.getClass().getName()+"]");
         }
 
 

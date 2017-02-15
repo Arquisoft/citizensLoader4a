@@ -1,7 +1,7 @@
 package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.util.Exception.CustomException;
+import es.uniovi.asw.util.Exception.CitizenException;
 
 import java.util.List;
 
@@ -10,6 +10,6 @@ import java.util.List;
  */
 public interface ReadList {
 
-    public List<Citizen> read(String path) throws  CustomException;
+    public List<Citizen> read(String path) throws CitizenException;
 
 }

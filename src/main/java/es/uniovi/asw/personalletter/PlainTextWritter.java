@@ -1,15 +1,14 @@
 package es.uniovi.asw.personalletter;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import es.uniovi.asw.util.Exception.CitizenException;
+
+import java.io.*;
 
 class PlainTextWritter implements TextWritter {
 	private String notCompletePath = "src/test/resources/";
 
 	@Override
-	public void createDocument(String documentName, String content) {
+	public void createDocument(String documentName, String content) throws CitizenException {
 		String realPath = notCompletePath + documentName + ".txt";
 
 		new File(realPath);
@@ -21,21 +20,23 @@ class PlainTextWritter implements TextWritter {
 			String realContent = "CitizensLoader TXT\n\n" + content;
 			bf.write(realContent);
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (bf != null) {
-					bf.close();
-				}
-				if (fileWriter != null) {
-					fileWriter.close();
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		}catch (IOException e) {
+				throw new CitizenException("Error al generar documento txt" +
+						" ["+ realPath+"] | ["+this.getClass().getName()+"]");
+
+		}finally {
+			close(bf);
+			close(fileWriter);
+		}
 		}
 
-	}
+		public static void close(Closeable c) {
+			if (c == null) return;
+			try {
+				c.close();
+			} catch (IOException e) {
+				//log the exception
+			}
+		}
 
 }

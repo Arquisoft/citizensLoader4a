@@ -1,12 +1,14 @@
 package es.uniovi.asw.personalletter;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Font;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
+import es.uniovi.asw.util.Exception.CitizenException;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 class PDFTextWritter implements TextWritter {
 
@@ -17,7 +19,7 @@ class PDFTextWritter implements TextWritter {
 	private static Font smallBold = new Font(Font.TIMES_ROMAN, 12, Font.BOLD);
 */
 	@Override
-	public void createDocument(String documentName, String content) {
+	public void createDocument(String documentName, String content) throws CitizenException {
 		String realPath = FILE_PATH + documentName + ".pdf";
 		Document doc = new Document();
 		try {
@@ -26,12 +28,9 @@ class PDFTextWritter implements TextWritter {
 			addMetaData(doc);
 			addTitlePage(doc);
 			addContent(doc, content);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (DocumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (DocumentException | FileNotFoundException e) {
+			throw new CitizenException("Error al generar documento pdf" +
+					" ["+ FILE_PATH+documentName+".pdf] | ["+this.getClass().getName()+"]");
 		} finally {
 			if (doc != null) {
 				doc.close();

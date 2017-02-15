@@ -4,17 +4,11 @@ import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.personalletter.MensajePersonalizado;
 import es.uniovi.asw.personalletter.SingletonTextWritter;
 import es.uniovi.asw.personalletter.TextWritter;
-
-import es.uniovi.asw.util.Logger.CLLogger;
+import es.uniovi.asw.util.Exception.CitizenException;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -22,14 +16,7 @@ import static org.junit.Assert.assertEquals;
 public class TestGeneracionDocumentos {
 	Citizen paco;
 
-	@BeforeClass
-	public static void initLogger(){
-		try {
-			CLLogger.setup();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+
 
 	@Before
 	public void creemosAPaco() {
@@ -45,7 +32,7 @@ public class TestGeneracionDocumentos {
 	}
 
 	@Test
-	public void generarPDFBasico() {
+	public void generarPDFBasico() throws CitizenException {
 		TextWritter generadorPDF = SingletonTextWritter.getInstance().getPDFTextrWitter();
 		generadorPDF.createDocument("PruebaPDF_Basico", "Esto es un pdf muy básico");
 		File myFile = new File("src/test/resources/PruebaPDF_Basico.pdf");
@@ -56,7 +43,7 @@ public class TestGeneracionDocumentos {
 	}
 
 	@Test
-	public void generarPlainTextBasico() {
+	public void generarPlainTextBasico() throws CitizenException {
 		TextWritter generadorPlainText = SingletonTextWritter.getInstance().getPlainTextWritter();
 		generadorPlainText.createDocument("PruebaPlainText_Basico", "Esto es un txt muy básico");
 		File myFile = new File("src/test/resources/PruebaPlainText_Basico.txt");
@@ -67,7 +54,7 @@ public class TestGeneracionDocumentos {
 	}
 
 	@Test
-	public void generarWordBasico() {
+	public void generarWordBasico() throws CitizenException {
 		TextWritter generadorWord = SingletonTextWritter.getInstance().getWordTextWritter();
 		generadorWord.createDocument("PruebaWord_Basico", "Esto es un Wrod muy básico");
 		File myFile = new File("src/test/resources/PruebaWord_Basico.docx");
@@ -78,7 +65,7 @@ public class TestGeneracionDocumentos {
 	}
 
 	@Test
-	public void generarPDFConPaco() {
+	public void generarPDFConPaco() throws CitizenException {
 
 		String mensaje = MensajePersonalizado.getMessage(paco);
 		TextWritter generadorPDF = SingletonTextWritter.getInstance().getPDFTextrWitter();
@@ -94,7 +81,7 @@ public class TestGeneracionDocumentos {
 	}
 
 	@Test
-	public void generarTXTConPaco() {
+	public void generarTXTConPaco() throws CitizenException {
 
 		String mensaje = MensajePersonalizado.getMessage(paco);
 		TextWritter generadorTXT = SingletonTextWritter.getInstance().getPlainTextWritter();

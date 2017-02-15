@@ -2,20 +2,16 @@ package es.uniovi.asw;
 
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.util.Console;
-import es.uniovi.asw.util.Logger.CLLogger;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Date;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 
 
@@ -23,14 +19,6 @@ import static org.junit.Assert.*;
  * Created by Pelayo Garcia Lartategui on 04/02/2017.
  */
 public class ConsoleTest {
-    @BeforeClass
-    public static void initLogger(){
-        try {
-            CLLogger.setup();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private String newLine = System.getProperty("line.separator");//This will retrieve line separator dependent on OS.
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();

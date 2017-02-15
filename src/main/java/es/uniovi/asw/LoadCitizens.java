@@ -2,7 +2,7 @@ package es.uniovi.asw;
 
 import es.uniovi.asw.parser.Parser;
 import es.uniovi.asw.util.Console;
-import es.uniovi.asw.util.Exception.CustomException;
+import es.uniovi.asw.util.Exception.CitizenException;
 
 /**
  * Main application
@@ -22,7 +22,7 @@ public class LoadCitizens {
 	private void run(String... args) {
 		try {
 			new Parser(args).parse();
-		} catch (CustomException e) {
+		} catch (CitizenException e) {
 			Console.println(e.getMessage());
 		}
 	}

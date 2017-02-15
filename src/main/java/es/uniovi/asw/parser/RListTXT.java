@@ -2,7 +2,7 @@ package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.util.Console;
-import es.uniovi.asw.util.Exception.CustomException;
+import es.uniovi.asw.util.Exception.CitizenException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,7 +17,7 @@ public class RListTXT extends RList implements ReadList {
 
 
 	@Override
-	public List<Citizen> readFile(String path) throws CustomException {
+	public List<Citizen> readFile(String path) throws CitizenException {
 		List<Citizen> ciudadanos = new ArrayList<Citizen>();
 
 		String name;
@@ -40,7 +40,8 @@ public class RListTXT extends RList implements ReadList {
 				row++;
 				String[] datos = cadena.split(";");
 				if (datos.length != 7){
-					throw new CustomException("Fichero no válido");
+					throw new CitizenException("En la linea: ["+row+"] faltan" +
+							" datos del ciudadano. No se ha añadido a la base de datos| ["+this.getClass().getName()+"]");
 				}
 			//		reporter.report("\tEn la linea " + row
 					//+ " faltan datos del ciudadano, no se ha podido añadir a la base de datos");
@@ -62,14 +63,14 @@ public class RListTXT extends RList implements ReadList {
 			// e.printStackTrace();
 			reporter.report("La fecha de nacimiento no tiene el formato correcto");
 			Console.print("La fecha de nacimiento no tiene el formato correcto");
-			throw  new CustomException("Error en el formato de fecha");
+			throw  new CitizenException("Error en el formato de fecha | ["+this.getClass().getName()+"]");
 
 		} catch (IOException e) {
 			String[] fileName = path.split("/");
 			// e.printStackTrace();
 			reporter.report("El fichero " + fileName[fileName.length - 1] + " no existe");
 			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
-			throw  new CustomException("Error en el formato del fichero");
+			throw  new CitizenException("El fichero no existe | ["+this.getClass().getName()+"]");
 
 
 

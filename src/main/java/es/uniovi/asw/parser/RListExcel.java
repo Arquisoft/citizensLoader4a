@@ -2,7 +2,7 @@ package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.util.Console;
-import es.uniovi.asw.util.Exception.CustomException;
+import es.uniovi.asw.util.Exception.CitizenException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -19,7 +19,7 @@ public class RListExcel extends RList implements ReadList {
 
 
 	@Override
-	public List<Citizen> readFile(String path) throws CustomException {
+	public List<Citizen> readFile(String path) throws CitizenException {
 
 		XSSFWorkbook wb = null;
 		XSSFSheet sheet = null;
@@ -80,18 +80,18 @@ public class RListExcel extends RList implements ReadList {
 
 			}
 		} catch (org.apache.poi.openxml4j.exceptions.NotOfficeXmlFileException e) {
-			throw  new CustomException("Error en el formato del fichero");
+			throw  new CitizenException("Error en el formato del fichero");
 
 
 		} catch (InvalidFormatException e) {
 			Console.print("El fichero no es un .xlsx");
-			throw  new CustomException();
+			throw  new CitizenException();
 
 		} catch (Exception e) {
 			String[] fileName = path.split("/");
 			Console.print(
 					"Ha ocurrido un error. Asegurate de que el fichero existe y que la fecha de nacimiento está puesta en el formato correcto\n");
-			throw  new CustomException();
+			throw  new CitizenException();
 
 		} finally {
 

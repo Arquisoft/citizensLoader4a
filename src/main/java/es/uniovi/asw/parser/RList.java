@@ -3,7 +3,7 @@ package es.uniovi.asw.parser;
 import es.uniovi.asw.dbupdate.Insert;
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.reportwritter.WriteReport;
-import es.uniovi.asw.util.Exception.CustomException;
+import es.uniovi.asw.util.Exception.CitizenException;
 
 import java.io.File;
 import java.util.Date;
@@ -20,10 +20,10 @@ public abstract class RList implements ReadList {
 	protected static final WriteReport reporter = new WreportR();
 
 
-	abstract List<Citizen>readFile(String path) throws CustomException;
+	abstract List<Citizen>readFile(String path) throws CitizenException;
 
 	@Override
-	public List<Citizen> read(String path) throws CustomException {
+	public List<Citizen> read(String path) throws CitizenException {
 		reporter.report("Iniciando lectura de fichero: ["+path+"]");
 
 		checkFile(path);
@@ -80,11 +80,11 @@ public abstract class RList implements ReadList {
 		return ciudadano;
 	}
 
-	private void checkFile(String path) throws CustomException{
+	private void checkFile(String path) throws CitizenException {
 		File f = new File(path);
 		if(!f.exists() || f.isDirectory()) {
 			reporter.report("No se encuentra el fichero especificado");
-			throw new CustomException("No se encuentra el fichero en la ruta especificada");
+			throw new CitizenException("No se encuentra el fichero en la ruta especificada");
 		}
 
 	}
