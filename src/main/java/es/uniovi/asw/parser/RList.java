@@ -1,9 +1,11 @@
 package es.uniovi.asw.parser;
 
-import es.uniovi.asw.dbupdate.*;
+import es.uniovi.asw.dbupdate.Insert;
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.reportwritter.WriteReport;
+import es.uniovi.asw.util.Exception.CustomException;
 
+import java.io.File;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -18,11 +20,15 @@ public abstract class RList implements ReadList {
 	protected static final WriteReport reporter = new WreportR();
 
 
-	abstract List<Citizen>readFile(String path);
+	abstract List<Citizen>readFile(String path) throws CustomException;
 
 	@Override
-	public List<Citizen> read(String path){
+	public List<Citizen> read(String path) throws CustomException {
 		reporter.report("Iniciando lectura de fichero: ["+path+"]");
+
+		checkFile(path);
+
+
 
 		List<Citizen> citizens = readFile(path);
 		if(citizens.size()!=0)
@@ -72,5 +78,14 @@ public abstract class RList implements ReadList {
 		String con = getCadenaAlfanumAleatoria(4);
 		ciudadano.setContrasena(con);
 		return ciudadano;
+	}
+
+	private void checkFile(String path) throws CustomException{
+		File f = new File(path);
+		if(!f.exists() || f.isDirectory()) {
+			reporter.report("No se encuentra el fichero especificado");
+			throw new CustomException("No se encuentra el fichero en la ruta especificada");
+		}
+
 	}
 }

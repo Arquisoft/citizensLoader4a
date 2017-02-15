@@ -1,10 +1,8 @@
 package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.reportwritter.GenerateLogText;
-import es.uniovi.asw.util.Comprobador;
 import es.uniovi.asw.util.Console;
-
+import es.uniovi.asw.util.Exception.CustomException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -21,7 +19,7 @@ public class RListExcel extends RList implements ReadList {
 
 
 	@Override
-	public List<Citizen> readFile(String path) {
+	public List<Citizen> readFile(String path) throws CustomException {
 
 		XSSFWorkbook wb = null;
 		XSSFSheet sheet = null;
@@ -34,6 +32,7 @@ public class RListExcel extends RList implements ReadList {
 		String address, nationality,nif;
 
 		int colNombre = 0, colApellido = 0, colEmail = 0, colBirth = 0, colAddress = 0, colNacionalidad = 0, colNif = 0;
+
 
 		try {
 			wb = new XSSFWorkbook(new File(path));
@@ -80,13 +79,20 @@ public class RListExcel extends RList implements ReadList {
 				ciudadanos.add(anadirCitizen(name, surname, email, birth, address, nationality, nif));
 
 			}
+		} catch (org.apache.poi.openxml4j.exceptions.NotOfficeXmlFileException e) {
+			throw  new CustomException("Error en el formato del fichero");
+
 
 		} catch (InvalidFormatException e) {
 			Console.print("El fichero no es un .xlsx");
+			throw  new CustomException();
+
 		} catch (Exception e) {
 			String[] fileName = path.split("/");
 			Console.print(
 					"Ha ocurrido un error. Asegurate de que el fichero existe y que la fecha de nacimiento está puesta en el formato correcto\n");
+			throw  new CustomException();
+
 		} finally {
 
 			try {

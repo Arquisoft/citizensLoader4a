@@ -1,21 +1,14 @@
 package es.uniovi.asw.parser;
 
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import org.apache.commons.cli.BasicParser;
-import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.CommandLineParser;
-import org.apache.commons.cli.HelpFormatter;
-import org.apache.commons.cli.Option;
-import org.apache.commons.cli.OptionGroup;
-import org.apache.commons.cli.Options;
-import org.apache.commons.cli.ParseException;
-
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.personalletter.MensajePersonalizado;
 import es.uniovi.asw.personalletter.SingletonTextWritter;
+import es.uniovi.asw.util.Exception.CustomException;
+import org.apache.commons.cli.*;
+
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Parser {
 	private static final Logger log = Logger.getLogger(Parser.class.getName());
@@ -37,7 +30,7 @@ public class Parser {
 		createOptions();
 	}
 
-	public void parse() {
+	public void parse() throws CustomException {
 		CommandLineParser parser = new BasicParser();
 		CommandLine cmd = null;
 		int prueba;

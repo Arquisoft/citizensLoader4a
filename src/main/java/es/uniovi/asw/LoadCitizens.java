@@ -1,5 +1,8 @@
 package es.uniovi.asw;
+
 import es.uniovi.asw.parser.Parser;
+import es.uniovi.asw.util.Console;
+import es.uniovi.asw.util.Exception.CustomException;
 
 /**
  * Main application
@@ -17,7 +20,11 @@ public class LoadCitizens {
 
 	// TODO
 	private void run(String... args) {
+		try {
 			new Parser(args).parse();
+		} catch (CustomException e) {
+			Console.println(e.getMessage());
+		}
 	}
 	}
 

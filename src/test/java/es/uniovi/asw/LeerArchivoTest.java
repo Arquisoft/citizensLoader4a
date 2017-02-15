@@ -4,6 +4,7 @@ import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.parser.ReadList;
+import es.uniovi.asw.util.Exception.CustomException;
 import es.uniovi.asw.util.Logger.CLLogger;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -27,7 +28,7 @@ public class LeerArchivoTest {
 	}
 
 	@Test
-	public void leerExcel() {
+	public void leerExcel() throws CustomException {
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
 		ciudadanos = rl.read("src/test/resources/test.xlsx");
@@ -49,7 +50,7 @@ public class LeerArchivoTest {
 	}
 	
 	@Test
-	public void leerExcelDiferenteEntrada() {
+	public void leerExcelDiferenteEntrada() throws CustomException {
 
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
@@ -69,7 +70,7 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
 		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
-		
+
 		ciudadanos = rl.read("src/test/resources/testDesorden2.xlsx");
 
 		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
@@ -89,7 +90,7 @@ public class LeerArchivoTest {
 	}
 
 	@Test
-	public void leerConErrores() {
+	public void leerConErrores() throws CustomException {
 		String fileName = "testErrors.xlsx";
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
@@ -101,7 +102,7 @@ public class LeerArchivoTest {
 	}
 
 	@Test
-	public void leerConErroresEnParametrosDeEntrada() {
+	public void leerConErroresEnParametrosDeEntrada() throws CustomException {
 		String fileName = "testErrorsParametros.xlsx";
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
@@ -111,7 +112,7 @@ public class LeerArchivoTest {
 	}
 
 	@Test
-	public void leerTXT() throws ParseException {
+	public void leerTXT() throws ParseException, CustomException {
 		String fileName = "test.txt";
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListTXT();
@@ -129,63 +130,48 @@ public class LeerArchivoTest {
 
 
 	}
-/*
-	@Test
-	public void forzarExcepcionesExcel() {
-		boolean thrown = false;
+
+	@Test(expected = CustomException.class)
+	public void forzarExcepcionesExcel() throws CustomException {
 		// Leer un archivo con nombre null
 		String fileName = null;
-		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
-		// Leer un archivo con nombre null
+		rl.read("src/test/resources/" + fileName);
 
-		ciudadanos = rl.read("src/test/resources/" + fileName);
-
-		if (ciudadanos.size() == 0)
-			thrown = true;
-		assertEquals(true, thrown);
-
-		thrown = false;
-		ciudadanos = null;
-
-		// Formato incorrecto
-		fileName = "test.txt";
-
-		ciudadanos = rl.read("src/test/resources/" + fileName);
-		if (ciudadanos.size() == 0)
-			thrown = true;
-
-		assertEquals(true, thrown);
 	}
-	@Test
-	public void forzarExcepcionesPlainText() {
-		boolean thrown = false;
+	@Test(expected = CustomException.class)
+	public void forzarExcepcionesFormatoIncorrectoExcel() throws CustomException {
+		// Formato incorrecto
+		String fileName = "test.txt";
+		ReadList rl = new RListExcel();
+		rl.read("src/test/resources/" + fileName);
+
+	}
+	@Test(expected =  CustomException.class)
+	public void forzarExcepcionesPlainText() throws CustomException {
+
 		// Leer un archivo con nombre null
 		String fileName = null;
-		List<Citizen> ciudadanos;
 		ReadList rl = new RListTXT();
 		// Leer un archivo con nombre null
-		ciudadanos = rl.read("src/test/resources/" + fileName);
+		rl.read("src/test/resources/" + fileName);
 
-		if (ciudadanos.size() == 0)
-			thrown = true;
-		assertEquals(true, thrown);
 
-		thrown = false;
-		ciudadanos = null;
-
-		// Formato incorrecto
-		fileName = "test.xls";
-
-		ciudadanos = rl.read("src/test/resources/" + fileName);
-		if (ciudadanos.size() == 0)
-			thrown = true;
-
-		assertEquals(true, thrown);
 	}
-	*/
+	@Test()
+	public void forzarExcepcionesFormatoIncorrectoTXT() throws CustomException {
+		// Formato incorrecto
+		String fileName = "test.xlsx";
+		ReadList rl = new RListTXT();
+		rl.read("src/test/resources/" + fileName);
+
+	}
+
+
+
+
 	@Test
-	public void camposNull(){
+	public void camposNull() throws CustomException {
 
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();

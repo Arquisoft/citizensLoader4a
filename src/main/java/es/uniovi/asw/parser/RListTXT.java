@@ -2,6 +2,7 @@ package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.util.Console;
+import es.uniovi.asw.util.Exception.CustomException;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -16,7 +17,7 @@ public class RListTXT extends RList implements ReadList {
 
 
 	@Override
-	public List<Citizen> readFile(String path) {
+	public List<Citizen> readFile(String path) throws CustomException {
 		List<Citizen> ciudadanos = new ArrayList<Citizen>();
 
 		String name;
@@ -61,14 +62,16 @@ public class RListTXT extends RList implements ReadList {
 			// e.printStackTrace();
 			reporter.report("La fecha de nacimiento no tiene el formato correcto");
 			Console.print("La fecha de nacimiento no tiene el formato correcto");
+			throw  new CustomException("Error en el formato de fecha");
+
 		} catch (IOException e) {
 			String[] fileName = path.split("/");
 			// e.printStackTrace();
 			reporter.report("El fichero " + fileName[fileName.length - 1] + " no existe");
 			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
+			throw  new CustomException("Error en el formato del fichero");
 
-		} catch (Exception e) {
-			e.printStackTrace();
+
 
 		}
 
