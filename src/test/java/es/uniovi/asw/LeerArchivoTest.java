@@ -158,7 +158,7 @@ public class LeerArchivoTest {
 
 
 	}
-	@Test()
+	@Test(expected =  CustomException.class)
 	public void forzarExcepcionesFormatoIncorrectoTXT() throws CustomException {
 		// Formato incorrecto
 		String fileName = "test.xlsx";

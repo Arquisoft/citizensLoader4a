@@ -40,7 +40,7 @@ public class RListTXT extends RList implements ReadList {
 				row++;
 				String[] datos = cadena.split(";");
 				if (datos.length != 7){
-					//Console.println("Menos de 7");
+					throw new CustomException("Fichero no válido");
 				}
 			//		reporter.report("\tEn la linea " + row
 					//+ " faltan datos del ciudadano, no se ha podido añadir a la base de datos");
