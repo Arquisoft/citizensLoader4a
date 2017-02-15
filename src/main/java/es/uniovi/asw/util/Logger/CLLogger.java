@@ -1,4 +1,4 @@
-package es.uniovi.asw.util;
+package es.uniovi.asw.util.Logger;
 
 import java.io.IOException;
 import java.util.logging.*;
@@ -9,13 +9,15 @@ import java.util.logging.*;
 public class CLLogger {
 
     static private FileHandler file;
-    static private SimpleFormatter formatter;
+    static private Formatter formatter;
 
     static public void setup() throws IOException {
         Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-        file = new FileHandler("src/test/resources/logCL.log");
-        formatter = new SimpleFormatter();
+        file = new FileHandler("src/test/resources/logCL.log",true);
+        formatter = new CustomFormatter();
         file.setFormatter(formatter);
         logger.addHandler(file);
+        logger.setUseParentHandlers(false);
+
     }
 }

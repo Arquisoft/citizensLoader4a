@@ -1,7 +1,8 @@
 package es.uniovi.asw.parser;
 
-import es.uniovi.asw.dbupdate.Insert;
+import es.uniovi.asw.dbupdate.*;
 import es.uniovi.asw.model.Citizen;
+import es.uniovi.asw.reportwritter.WriteReport;
 
 import java.util.Date;
 import java.util.List;
@@ -14,14 +15,21 @@ import java.util.Random;
 public abstract class RList implements ReadList {
 
 	private static Insert db = new InsertR();
+	protected static final WriteReport reporter = new WreportR();
 
 
 	abstract List<Citizen>readFile(String path);
 
 	@Override
 	public List<Citizen> read(String path){
+		reporter.report("Iniciando lectura de fichero: ["+path+"]");
+
 		List<Citizen> citizens = readFile(path);
-		db.insert(citizens);
+		if(citizens.size()!=0)
+			db.insert(citizens);
+		else{
+			reporter.report("No se ha encontrado ningun citizen válido en fichero: ["+path+"]");
+		}
 		return citizens;
 	}
 

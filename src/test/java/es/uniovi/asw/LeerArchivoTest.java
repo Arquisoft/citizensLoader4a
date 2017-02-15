@@ -4,7 +4,8 @@ import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.parser.ReadList;
-import es.uniovi.asw.util.CLLogger;
+import es.uniovi.asw.util.Logger.CLLogger;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -16,13 +17,17 @@ import static org.junit.Assert.assertEquals;
 
 public class LeerArchivoTest {
 
-	@Test
-	public void leerExcel() {
+	@BeforeClass
+	public static void initLogger(){
 		try {
 			CLLogger.setup();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Test
+	public void leerExcel() {
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
 		ciudadanos = rl.read("src/test/resources/test.xlsx");
@@ -45,11 +50,7 @@ public class LeerArchivoTest {
 	
 	@Test
 	public void leerExcelDiferenteEntrada() {
-		try {
-			CLLogger.setup();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
 		ciudadanos = rl.read("src/test/resources/testDesorden.xlsx");
@@ -185,11 +186,7 @@ public class LeerArchivoTest {
 	*/
 	@Test
 	public void camposNull(){
-		try {
-			CLLogger.setup();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
 		ciudadanos = rl.read("src/test/resources/testCamposNull.xlsx");

@@ -1,8 +1,6 @@
 package es.uniovi.asw.parser;
 
-import es.uniovi.asw.dbupdate.WreportR;
 import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.reportwritter.WriteReport;
 import es.uniovi.asw.util.Console;
 
 import java.io.BufferedReader;
@@ -15,7 +13,7 @@ import java.util.List;
 
 public class RListTXT extends RList implements ReadList {
 
-	private static final WriteReport reporter = new WreportR();
+
 
 	@Override
 	public List<Citizen> readFile(String path) {
@@ -61,11 +59,12 @@ public class RListTXT extends RList implements ReadList {
 			b.close();
 		} catch (ParseException e) {
 			// e.printStackTrace();
-
+			reporter.report("La fecha de nacimiento no tiene el formato correcto");
 			Console.print("La fecha de nacimiento no tiene el formato correcto");
 		} catch (IOException e) {
 			String[] fileName = path.split("/");
 			// e.printStackTrace();
+			reporter.report("El fichero " + fileName[fileName.length - 1] + " no existe");
 			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
 
 		} catch (Exception e) {

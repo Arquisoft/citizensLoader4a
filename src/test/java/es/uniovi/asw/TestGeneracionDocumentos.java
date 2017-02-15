@@ -5,7 +5,9 @@ import es.uniovi.asw.personalletter.MensajePersonalizado;
 import es.uniovi.asw.personalletter.SingletonTextWritter;
 import es.uniovi.asw.personalletter.TextWritter;
 
+import es.uniovi.asw.util.Logger.CLLogger;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.BufferedReader;
@@ -19,6 +21,15 @@ import static org.junit.Assert.assertEquals;
 
 public class TestGeneracionDocumentos {
 	Citizen paco;
+
+	@BeforeClass
+	public static void initLogger(){
+		try {
+			CLLogger.setup();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Before
 	public void creemosAPaco() {

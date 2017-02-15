@@ -7,10 +7,10 @@ import es.uniovi.asw.parser.Parser;
  * @author Labra
  *
  */
-public class LoadUsers {
+public class LoadCitizens {
 
 	public static void main(String... args) {
-		final LoadUsers runner = new LoadUsers();
+		final LoadCitizens runner = new LoadCitizens();
 
 		runner.run(args);
 	}

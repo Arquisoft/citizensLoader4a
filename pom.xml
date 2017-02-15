@@ -181,7 +181,7 @@
 					<!-- MainClass in mainfest make a executable jar -->
 					<archive>
 						<manifest>
-							<mainClass>es.uniovi.asw.LoadUsers</mainClass>
+							<mainClass>es.uniovi.asw.LoadCitizens</mainClass>
 						</manifest>
 					</archive>
 
