@@ -116,22 +116,17 @@ public class LeerArchivoTest {
 		ReadList rl = new RListTXT();
 		ciudadanos = rl.read("src/test/resources/" + fileName);
 		Citizen c1 = ciudadanos.get(0);
-		Citizen c2 = ciudadanos.get(1);
+
 
 		//assertEquals(c1.equals(c2), false);
 		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
 		assertEquals(ciudadanos.get(0).getNombre(), "Juan");
-		assertEquals(ciudadanos.get(0).getEmail(), "j@h.es");
+		assertEquals(ciudadanos.get(0).getEmail(), "h@h.es");
 		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(0).getFechaNacimiento(), new SimpleDateFormat("dd/MM/yyyy").parse("10/12/1234"));
 		assertEquals(ciudadanos.get(0).getNumeroIdentificativo(), "9876543S");
 
-		assertEquals(ciudadanos.get(1).getApellidos(), "Bravo");
-		assertEquals(ciudadanos.get(1).getNombre(), "Ana");
-		assertEquals(ciudadanos.get(1).getEmail(), "a@h.es");
-		assertEquals(ciudadanos.get(1).getNacionalidad(), "Español");
-		assertEquals(ciudadanos.get(1).getNumeroIdentificativo(), "9876599S");
-		assertEquals(ciudadanos.size(), 2);
+
 	}
 /*
 	@Test

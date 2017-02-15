@@ -2,9 +2,7 @@ package es.uniovi.asw.parser;
 
 import es.uniovi.asw.dbupdate.WreportR;
 import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.reportwritter.GenerateLogText;
 import es.uniovi.asw.reportwritter.WriteReport;
-import es.uniovi.asw.util.Comprobador;
 import es.uniovi.asw.util.Console;
 
 import java.io.BufferedReader;
@@ -41,8 +39,10 @@ public class RListTXT extends RList implements ReadList {
 
 			while ((cadena = b.readLine()) != null) {
 				row++;
-				String[] datos = cadena.split(",");
-				if (datos.length != 7){}
+				String[] datos = cadena.split(";");
+				if (datos.length != 7){
+					//Console.println("Menos de 7");
+				}
 			//		reporter.report("\tEn la linea " + row
 					//+ " faltan datos del ciudadano, no se ha podido añadir a la base de datos");
 				else {

@@ -9,10 +9,10 @@
 
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/usuarios" />
-            <property name="javax.persistence.jdbc.user" value="sa" />
-            <property name="javax.persistence.jdbc.password" value="" />
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://46.101.138.38:3306/asw" />
+            <property name="javax.persistence.jdbc.user" value="aswuser" />
+            <property name="javax.persistence.jdbc.password" value="temporal" />
         </properties>
     </persistence-unit>
 
