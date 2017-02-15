@@ -1,5 +1,7 @@
 package es.uniovi.asw.util;
 
+import es.uniovi.asw.util.exception.CitizenException;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
@@ -29,14 +31,14 @@ public class Console{
         System.out.printf(format, args);
     }
 
-        public static String readString() {
+        public static String readString() throws CitizenException {
         try {
             return kbd.readLine();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new CitizenException("Error de lectura de String");
         }
     }
-    public static String readString(String msg) {
+    public static String readString(String msg) throws CitizenException {
         print(msg + ": ");
         return readString();
     }

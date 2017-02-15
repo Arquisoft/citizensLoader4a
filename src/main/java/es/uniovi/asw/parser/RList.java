@@ -3,7 +3,7 @@ package es.uniovi.asw.parser;
 import es.uniovi.asw.dbupdate.Insert;
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.reportwritter.WriteReport;
-import es.uniovi.asw.util.Exception.CitizenException;
+import es.uniovi.asw.util.exception.CitizenException;
 
 import java.io.File;
 import java.util.Date;
@@ -70,10 +70,10 @@ public abstract class RList implements ReadList {
 		ciudadano.setNombre(name);
 		ciudadano.setApellidos(surname);
 		ciudadano.setEmail(email);
-		ciudadano.setFecha_nacimiento(birth);
+		ciudadano.setFechaNacimiento(birth);
 		ciudadano.setDireccionPostal(address);
 		ciudadano.setNacionalidad(nationality);
-		ciudadano.setNumero_identificativo(nif);
+		ciudadano.setNumeroIdentificativo(nif);
 		// Crea un usuario y contraseña aleatorio
 		String con = getCadenaAlfanumAleatoria(4);
 		ciudadano.setContrasena(con);

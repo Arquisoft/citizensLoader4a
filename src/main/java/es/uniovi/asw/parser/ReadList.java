@@ -1,7 +1,7 @@
 package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.util.Exception.CitizenException;
+import es.uniovi.asw.util.exception.CitizenException;
 
 import java.util.List;
 

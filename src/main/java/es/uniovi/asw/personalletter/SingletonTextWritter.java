@@ -5,8 +5,7 @@ public class SingletonTextWritter {
 	private TextWritter generadorDocumentoPDF;
 	private TextWritter generadorDocumentoWord;
 	private TextWritter generadorDocumentoPlainText;
-	private MensajePersonalizado mensajePersonalizadoInstance;
-	
+
 	private SingletonTextWritter(){
 		
 	}

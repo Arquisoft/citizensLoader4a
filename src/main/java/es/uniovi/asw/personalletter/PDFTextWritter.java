@@ -5,7 +5,7 @@ import com.lowagie.text.DocumentException;
 import com.lowagie.text.Font;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
-import es.uniovi.asw.util.Exception.CitizenException;
+import es.uniovi.asw.util.exception.CitizenException;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

@@ -3,7 +3,7 @@ package es.uniovi.asw.parser;
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.personalletter.MensajePersonalizado;
 import es.uniovi.asw.personalletter.SingletonTextWritter;
-import es.uniovi.asw.util.Exception.CitizenException;
+import es.uniovi.asw.util.exception.CitizenException;
 import org.apache.commons.cli.*;
 
 import java.util.List;
@@ -33,7 +33,7 @@ public class Parser {
 	public void parse() throws CitizenException {
 		CommandLineParser parser = new BasicParser();
 		CommandLine cmd = null;
-		int prueba;
+
 		try {
 			cmd = parser.parse(options, args);
 			if (cmd.hasOption(HELP_KEY)) {

@@ -7,7 +7,7 @@ public class Comprobador {
 	public final static String DATE_FORMAT = "dd/MM/yyyy";
 
 	public static boolean esTodoTexto(String prueba) {
-		if (prueba == null || prueba == "") {
+		if (prueba == null || prueba.equals("")) {
 			return false;
 		}
 		char[] caracteres = prueba.toCharArray();
@@ -50,7 +50,7 @@ public class Comprobador {
 	}
 	
 	public static boolean emailNoVacio(String email){
-		if(email == null || email == ""){
+		if(email == null || email.equals("")){
 			return false;
 		}
 		return true;

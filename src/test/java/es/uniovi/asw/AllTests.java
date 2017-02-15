@@ -1,6 +1,6 @@
 package es.uniovi.asw;
 
-import es.uniovi.asw.util.Logger.CLLogger;
+import es.uniovi.asw.util.logger.CLLogger;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

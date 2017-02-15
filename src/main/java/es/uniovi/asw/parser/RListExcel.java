@@ -2,7 +2,7 @@ package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.util.Console;
-import es.uniovi.asw.util.Exception.CitizenException;
+import es.uniovi.asw.util.exception.CitizenException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -27,11 +27,19 @@ public class RListExcel extends RList implements ReadList {
 		Row row = null;
 		List<Citizen> ciudadanos = new ArrayList<Citizen>();
 
-		String name, surname, email;
+		String name;
+		String surname;
+		String email;
 		Date birth;
 		String address, nationality,nif;
 
-		int colNombre = 0, colApellido = 0, colEmail = 0, colBirth = 0, colAddress = 0, colNacionalidad = 0, colNif = 0;
+		int colNombre = 0;
+		int colApellido = 0;
+		int colEmail = 0;
+		int colBirth = 0;
+		int colAddress = 0;
+		int colNacionalidad = 0;
+		int colNif = 0;
 
 
 		try {
@@ -59,9 +67,8 @@ public class RListExcel extends RList implements ReadList {
 				columna++;
 			}
 
-			int actualrow = 0;
 			while (rowIterator.hasNext()) {
-				actualrow++;
+
 				row = rowIterator.next();
 				name = row.getCell(colNombre) != null ? row.getCell(colNombre).getStringCellValue() : null;
 				surname = row.getCell(colApellido) != null ? row.getCell(colApellido).getStringCellValue() : null;

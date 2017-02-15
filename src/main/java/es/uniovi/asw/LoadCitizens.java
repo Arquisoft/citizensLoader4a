@@ -2,7 +2,7 @@ package es.uniovi.asw;
 
 import es.uniovi.asw.parser.Parser;
 import es.uniovi.asw.util.Console;
-import es.uniovi.asw.util.Exception.CitizenException;
+import es.uniovi.asw.util.exception.CitizenException;
 
 /**
  * Main application

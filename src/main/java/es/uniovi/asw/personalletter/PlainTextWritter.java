@@ -1,6 +1,6 @@
 package es.uniovi.asw.personalletter;
 
-import es.uniovi.asw.util.Exception.CitizenException;
+import es.uniovi.asw.util.exception.CitizenException;
 
 import java.io.*;
 

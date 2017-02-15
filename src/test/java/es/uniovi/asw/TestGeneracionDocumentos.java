@@ -4,7 +4,7 @@ import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.personalletter.MensajePersonalizado;
 import es.uniovi.asw.personalletter.SingletonTextWritter;
 import es.uniovi.asw.personalletter.TextWritter;
-import es.uniovi.asw.util.Exception.CitizenException;
+import es.uniovi.asw.util.exception.CitizenException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ import java.util.Date;
 import static org.junit.Assert.assertEquals;
 
 public class TestGeneracionDocumentos {
-	Citizen paco;
+	private Citizen paco;
 
 
 
@@ -26,9 +26,9 @@ public class TestGeneracionDocumentos {
 		paco.setEmail("paqueras@correo.com");
 		paco.setContrasena("pacoPAQUETE69");
 		paco.setDireccionPostal("La calle de Paco, 9, 3H");
-		paco.setFecha_nacimiento(new Date());
+		paco.setFechaNacimiento(new Date());
 		paco.setNacionalidad("España");
-		paco.setNumero_identificativo("569874565g");
+		paco.setNumeroIdentificativo("569874565g");
 	}
 
 	@Test

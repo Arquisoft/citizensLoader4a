@@ -9,12 +9,8 @@ import java.util.logging.Logger;
 class WreportP implements WriteReport {
 
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	//private static Logger LOGGER = LoggerFactory.getLogger(WreportP.class);
+	//private static logger LOGGER = LoggerFactory.getLogger(WreportP.class);
 
-	public WreportP() {
-
-
-	}
 
 	@Override
 	public void report(String... problemas) {

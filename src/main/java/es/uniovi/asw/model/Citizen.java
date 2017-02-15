@@ -56,7 +56,7 @@ public class Citizen {
 		this.email = email;
 	}
 
-	public void setFecha_nacimiento(Date birthdate) {
+	public void setFechaNacimiento(Date birthdate) {
 		this.fecha_nacimiento = birthdate;
 	}
 
@@ -68,7 +68,7 @@ public class Citizen {
 		this.nacionalidad = nationality;
 	}
 
-	public void setNumero_identificativo(String nif) {
+	public void setNumeroIdentificativo(String nif) {
 		this.numero_identificativo = nif;
 	}
 

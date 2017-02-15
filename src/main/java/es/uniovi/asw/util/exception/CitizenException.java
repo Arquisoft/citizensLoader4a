@@ -1,4 +1,4 @@
-package es.uniovi.asw.util.Exception;
+package es.uniovi.asw.util.exception;
 
 /**
  * Created by Pelayo Garcia Lartategui on 15/02/2017.

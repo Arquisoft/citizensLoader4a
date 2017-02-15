@@ -10,7 +10,7 @@ public class MensajePersonalizado {
 	public final static String USUARIO = "\n\t\t-USUARIO : ";
 	public final static String CONTRASEÑA = "\n\t\t-CONTRASEÑA : ";
 	public final static String DESPEDIDA = "\n\tUn saludo, el Ayuntamiento.";
-	static String message;
+	private static String message;
 	
 
 	public static String getMessage(Citizen c){

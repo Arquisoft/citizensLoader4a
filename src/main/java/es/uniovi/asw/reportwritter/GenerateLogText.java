@@ -4,7 +4,7 @@ public class GenerateLogText {
 
 	/**
 	 * Metodo sobre cargado que comprueba los siguientes atributos del Citizen y
-	 * genera un mensaje para un Logger.
+	 * genera un mensaje para un logger.
 	 * 
 	 * Éste método se puede utilizar en un Excel o similar ya que pide la fila
 	 * en la que se está leyendo el ciudadano.

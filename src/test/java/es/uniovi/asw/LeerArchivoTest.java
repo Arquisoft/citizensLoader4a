@@ -4,7 +4,7 @@ import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.parser.ReadList;
-import es.uniovi.asw.util.Exception.CitizenException;
+import es.uniovi.asw.util.exception.CitizenException;
 import org.junit.Test;
 
 import java.text.ParseException;
@@ -106,7 +106,6 @@ public class LeerArchivoTest {
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListTXT();
 		ciudadanos = rl.read("src/test/resources/" + fileName);
-		Citizen c1 = ciudadanos.get(0);
 
 
 		//assertEquals(c1.equals(c2), false);

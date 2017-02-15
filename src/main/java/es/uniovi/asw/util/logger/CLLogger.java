@@ -1,4 +1,4 @@
-package es.uniovi.asw.util.Logger;
+package es.uniovi.asw.util.logger;
 
 import java.io.IOException;
 import java.util.logging.*;
