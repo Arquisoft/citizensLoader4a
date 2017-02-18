@@ -5,6 +5,8 @@ import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.parser.ReadList;
 import es.uniovi.asw.util.exception.CitizenException;
+
+import org.assertj.core.api.AssertDelegateTarget;
 import org.junit.Test;
 
 import java.text.ParseException;
@@ -14,7 +16,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class LeerArchivoTest {
-
 
 	@Test
 	public void leerExcel() throws CitizenException {
@@ -36,8 +37,26 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
 		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
+
+		// Hace lo mismo pero con otros nombres de las columnas
+		ciudadanos = rl.read("src/test/resources/testColumnasOtroNombre.xlsx");
+
+		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
+		assertEquals(ciudadanos.get(1).getApellidos(), "López Fernando");
+		assertEquals(ciudadanos.get(2).getApellidos(), "Torres Pardo");
+
+		assertEquals(ciudadanos.get(0).getNombre(), "Juan");
+		assertEquals(ciudadanos.get(1).getNombre(), "Luis");
+		assertEquals(ciudadanos.get(2).getNombre(), "Ana");
+
+		assertEquals(ciudadanos.get(2).getEmail(), "ana@example.com");
+		assertEquals(ciudadanos.get(2).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(1).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
+		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
+		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
 	}
-	
+
 	@Test
 	public void leerExcelDiferenteEntrada() throws CitizenException {
 
@@ -84,10 +103,10 @@ public class LeerArchivoTest {
 		List<Citizen> ciudadanos;
 		ReadList rl = new RListExcel();
 		ciudadanos = rl.read("src/test/resources/" + fileName);
-		
-		//Devuelve la lista siempre, aunque estén mal
+
+		// Devuelve la lista siempre, aunque estén mal
 		assertEquals(3, ciudadanos.size());
-		
+
 	}
 
 	@Test
@@ -107,8 +126,7 @@ public class LeerArchivoTest {
 		ReadList rl = new RListTXT();
 		ciudadanos = rl.read("src/test/resources/" + fileName);
 
-
-		//assertEquals(c1.equals(c2), false);
+		// assertEquals(c1.equals(c2), false);
 		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
 		assertEquals(ciudadanos.get(0).getNombre(), "Juan");
 		assertEquals(ciudadanos.get(0).getEmail(), "h@h.es");
@@ -116,17 +134,40 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(0).getFechaNacimiento(), new SimpleDateFormat("dd/MM/yyyy").parse("10/12/1234"));
 		assertEquals(ciudadanos.get(0).getNumeroIdentificativo(), "9876543S");
 
-
 	}
 
-	@Test(expected = CitizenException.class)
+	@Test
 	public void forzarExcepcionesExcel() throws CitizenException {
-		// Leer un archivo con nombre null
-		String fileName = null;
+		boolean salto = false;
+		String fileName = "";
 		ReadList rl = new RListExcel();
-		rl.read("src/test/resources/" + fileName);
+		try {
+			// Leer un archivo con nombre null
+			fileName = null;
+			rl.read("src/test/resources/" + fileName);
+		} catch (CitizenException e) {
+			salto = true;
+		}
+		assertEquals(true, salto);
+
+		salto = false;
+		try {
+			fileName = "test.txt";
+			rl.read("src/test/resources/" + fileName);
+		} catch (CitizenException e) {
+			salto = true;
+		}
+		assertEquals(true, salto);
+		salto = false;
+		try {
+			rl.read("src/test/resources"); //Le paso un directorio, que hara?
+		} catch (CitizenException e) {
+			salto = true;
+		}
+		assertEquals(true, salto);
 
 	}
+
 	@Test(expected = CitizenException.class)
 	public void forzarExcepcionesFormatoIncorrectoExcel() throws CitizenException {
 		// Formato incorrecto
@@ -135,7 +176,8 @@ public class LeerArchivoTest {
 		rl.read("src/test/resources/" + fileName);
 
 	}
-	@Test(expected =  CitizenException.class)
+
+	@Test(expected = CitizenException.class)
 	public void forzarExcepcionesPlainText() throws CitizenException {
 
 		// Leer un archivo con nombre null
@@ -144,9 +186,9 @@ public class LeerArchivoTest {
 		// Leer un archivo con nombre null
 		rl.read("src/test/resources/" + fileName);
 
-
 	}
-	@Test(expected =  CitizenException.class)
+
+	@Test(expected = CitizenException.class)
 	public void forzarExcepcionesFormatoIncorrectoTXT() throws CitizenException {
 		// Formato incorrecto
 		String fileName = "test.xlsx";
@@ -154,9 +196,6 @@ public class LeerArchivoTest {
 		rl.read("src/test/resources/" + fileName);
 
 	}
-
-
-
 
 	@Test
 	public void camposNull() throws CitizenException {
@@ -167,8 +206,23 @@ public class LeerArchivoTest {
 
 		assertEquals("", ciudadanos.get(0).getEmail());
 		assertEquals("Juan8", ciudadanos.get(0).getNombre());
-		
+
 		assertEquals(null, ciudadanos.get(3).getNombre());
 		assertEquals(null, ciudadanos.get(4).getDireccionPostal());
+	}
+
+	@Test
+	public void vacios() throws CitizenException {
+
+		List<Citizen> ciudadanos;
+		ReadList rl = new RListExcel();
+		ciudadanos = rl.read("src/test/resources/testVacios.xlsx");
+
+		assertEquals(true, ciudadanos.size() == 0);
+
+		rl = new RListTXT();
+		ciudadanos = rl.read("src/test/resources/testVacio.txt");
+		assertEquals(true, ciudadanos.size() == 0);
+
 	}
 }
