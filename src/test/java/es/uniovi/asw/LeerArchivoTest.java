@@ -136,35 +136,32 @@ public class LeerArchivoTest {
 
 	}
 
-	@Test
+	@Test(expected = CitizenException.class)
 	public void forzarExcepcionesExcel() throws CitizenException {
-		boolean salto = false;
 		String fileName = "";
 		ReadList rl = new RListExcel();
-		try {
-			// Leer un archivo con nombre null
-			fileName = null;
-			rl.read("src/test/resources/" + fileName);
-		} catch (CitizenException e) {
-			salto = true;
-		}
-		assertEquals(true, salto);
 
-		salto = false;
-		try {
-			fileName = "test.txt";
-			rl.read("src/test/resources/" + fileName);
-		} catch (CitizenException e) {
-			salto = true;
-		}
-		assertEquals(true, salto);
-		salto = false;
-		try {
-			rl.read("src/test/resources"); //Le paso un directorio, que hara?
-		} catch (CitizenException e) {
-			salto = true;
-		}
-		assertEquals(true, salto);
+		// Leer un archivo con nombre null
+		fileName = null;
+		rl.read("src/test/resources/" + fileName);
+
+	}
+
+	@Test(expected = CitizenException.class)
+	public void forzarExcepcionesExcelDirectorio() throws CitizenException {
+
+		ReadList rl = new RListExcel();
+		rl.read("src/test/resources"); // Le paso un directorio, que hara?
+
+	}
+
+	@Test(expected = CitizenException.class)
+	public void forzarExcepcionesExcelFormat() throws CitizenException {
+		String fileName = "";
+		ReadList rl = new RListExcel();
+
+		fileName = "test.txt";
+		rl.read("src/test/resources/" + fileName);
 
 	}
 
