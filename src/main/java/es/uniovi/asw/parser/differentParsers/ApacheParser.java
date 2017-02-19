@@ -1,6 +1,8 @@
-package es.uniovi.asw.parser;
+package es.uniovi.asw.parser.differentParsers;
 
 import es.uniovi.asw.model.Citizen;
+import es.uniovi.asw.parser.RListExcel;
+import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.personalletter.MensajePersonalizado;
 import es.uniovi.asw.personalletter.SingletonTextWritter;
 import es.uniovi.asw.util.exception.CitizenException;
@@ -10,43 +12,44 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Parser {
-	private static final Logger log = Logger.getLogger(Parser.class.getName());
+public class ApacheParser {
+	private static final Logger log = Logger.getLogger(ApacheParser.class.getName());
 	private String[] args = null;
 	private Options options = new Options();
 
-	private final static String HELP_KEY = "h";
-	private final static String READ_EXCEL_KEY = "e";
-	private final static String READ_TXT_KEY = "t";
-	private final static String SEND_PDF_KEY = "spdf";
-	private final static String SEND_PLAIN_TEXT_KEY = "spt";
-	private final static String SEND_WORD_KEY = "sword";
+	public final static String HELP_KEY = "h";
+	public final static String READ_EXCEL_KEY = "e";
+	public final static String READ_TXT_KEY = "t";
+	public final static String SEND_PDF_KEY = "spdf";
+	public final static String SEND_PLAIN_TEXT_KEY = "spt";
+	public final static String SEND_WORD_KEY = "sword";
 
 	private List<Citizen> ciudadanosLeidos = null;
 	private String docummentName = "";
 
-	public Parser(String[] args) {
+	public ApacheParser(String[] args) {
 		this.args = args;
 		createOptions();
 	}
 
-	public void parse() throws CitizenException {
+	public void parse(){
 		CommandLineParser parser = new BasicParser();
 		CommandLine cmd = null;
-
+		String var = args[0];
+		String[] newArgs = var.split(" ");
 		try {
-			cmd = parser.parse(options, args);
+			cmd = parser.parse(options, newArgs);
 			if (cmd.hasOption(HELP_KEY)) {
 				HelpFormatter formatter = new HelpFormatter();
 				formatter.printHelp("sb server", options);
 			}
 			if (cmd.hasOption(READ_EXCEL_KEY)) {
-				docummentName = getDocumentName(cmd.getArgList().get(0));
-				ciudadanosLeidos = new RListExcel().read(cmd.getArgList().get(0));
+				docummentName = getDocumentName(newArgs[1]);
+				ciudadanosLeidos = new RListExcel().read(newArgs[1]);
 			}
 			if (cmd.hasOption(READ_TXT_KEY)) {
-				docummentName = getDocumentName(cmd.getArgList().get(0));
-				ciudadanosLeidos = new RListTXT().read(cmd.getArgList().get(0));
+				docummentName =  getDocumentName(newArgs[1]);
+				ciudadanosLeidos = new RListTXT().read(newArgs[1]);
 			}
 			if (cmd.hasOption(SEND_PDF_KEY)) {
 				if (docummentName != "" && ciudadanosLeidos != null) {
@@ -81,6 +84,8 @@ public class Parser {
 		} catch (ParseException e) {
 			log.log(Level.SEVERE, "Failed to parse comand line properties", e);
 			help();
+		} catch (CitizenException ce){
+			log.log(Level.WARNING, "Ha ocurrido un error al cargar el fichero.", ce);
 		}
 		docummentName = "";
 		ciudadanosLeidos = null;
@@ -103,12 +108,15 @@ public class Parser {
 		// This prints out some help
 		HelpFormatter formater = new HelpFormatter();
 		formater.printHelp("Main", options);
-		System.exit(0);
+		//System.exit(0);
 	}
 	
 	private String getDocumentName(String n){
-		String[] cachos = n.split(".");
-		return cachos[0];
+		String[] fueraRuta = n.split("/");
+		String myFile = fueraRuta[fueraRuta.length -1 ];
+		//String[] cachos = myFile.split(".");
+		String name = myFile.replaceAll("[.]+[a-z-A-Z]+", "");
+		return name;
 	}
 
 }

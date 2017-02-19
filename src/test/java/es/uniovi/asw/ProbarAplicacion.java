@@ -25,7 +25,8 @@ public class ProbarAplicacion {
 	}
 	@Test
 	public void leerTxt() {
-		args = "readtxt " + filesLocation + "test.txt";
+		args = "readTxt " + filesLocation + "test.txt";
+		
 		Console.println("A leer un txt con el comando: "+args);
 		LoadCitizens.main(args);
 	}
