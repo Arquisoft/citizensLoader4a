@@ -12,9 +12,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class LeerArchivoTest {
 
@@ -57,6 +55,29 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
 		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
 	}
+
+	@Test
+	public void testEqualsCitizen(){
+		Citizen c = new Citizen();
+		Citizen b = c;
+		assertTrue(b.equals(c));
+		c.setNumeroIdentificativo("3553");
+		b= new Citizen();
+		b.setNumeroIdentificativo("56");
+		assertFalse(b.equals(c));
+	}
+
+	@Test
+	public void testHashCode(){
+		Citizen c = new Citizen();
+		c.setNumeroIdentificativo("3553");
+		int hash = c.hashCode();
+		assertEquals(hash,c.hashCode());
+	}
+
+	
+
+
 
 	@Test
 	public void leerExcelDiferenteEntrada() throws CitizenException {
@@ -274,5 +295,7 @@ public class LeerArchivoTest {
 
 
 	}
+
+
 
 }
