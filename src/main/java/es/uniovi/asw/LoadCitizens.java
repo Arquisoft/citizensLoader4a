@@ -1,12 +1,7 @@
 package es.uniovi.asw;
 
-import es.uniovi.asw.parser.adapter.ApacheParserAdapter;
 import es.uniovi.asw.parser.adapter.GeneralParser;
 import es.uniovi.asw.parser.adapter.MyParserAdapter;
-import es.uniovi.asw.parser.differentParsers.ApacheParser;
-import es.uniovi.asw.parser.differentParsers.MyParser;
-import es.uniovi.asw.util.Console;
-import es.uniovi.asw.util.exception.CitizenException;
 
 /**
  * Main application
@@ -28,7 +23,7 @@ public class LoadCitizens {
 		
 		//Escoge el parser:
 		//GeneralParser parser = new MyParserAdapter();
-		GeneralParser parser = new ApacheParserAdapter();
+		GeneralParser parser = new MyParserAdapter();
 		parser.parse(args);
 	}
 }

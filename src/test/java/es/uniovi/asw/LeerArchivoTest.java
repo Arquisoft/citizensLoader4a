@@ -4,9 +4,8 @@ import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.parser.ReadList;
+import es.uniovi.asw.util.Comprobador;
 import es.uniovi.asw.util.exception.CitizenException;
-
-import org.assertj.core.api.AssertDelegateTarget;
 import org.junit.Test;
 
 import java.text.ParseException;
@@ -14,6 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class LeerArchivoTest {
 
@@ -222,4 +223,56 @@ public class LeerArchivoTest {
 		assertEquals(true, ciudadanos.size() == 0);
 
 	}
+
+	@Test (expected = CitizenException.class)
+	public void testException() throws CitizenException{
+
+		throw new CitizenException();
+	}
+	@Test (expected = CitizenException.class)
+	public void testException2() throws CitizenException{
+
+		throw new CitizenException(new Exception());
+	}
+
+	@Test (expected = CitizenException.class)
+	public void testException3() throws CitizenException{
+
+		throw new CitizenException("Lanzamiento de prueba",new Exception());
+	}
+	@Test
+	public void testComprobadorDigitos() throws CitizenException{
+
+		assertFalse(Comprobador.esTodoDigitos(""));
+		assertFalse(Comprobador.esTodoDigitos("242424a2424"));
+		assertTrue(Comprobador.esTodoDigitos("938958358"));
+
+	}
+	@Test
+	public void testComprobadorEmail() throws CitizenException{
+
+		assertFalse(Comprobador.esEmailCorrecto(""));
+		assertFalse(Comprobador.esEmailCorrecto("@"));
+		assertTrue(Comprobador.esEmailCorrecto("pela@gmail.com"));
+
+	}
+
+	@Test
+	public void testComprobadorAddress() throws CitizenException{
+
+		assertFalse(Comprobador.esAddressCorrecto(""));
+		assertFalse(Comprobador.esAddressCorrecto("hola"));
+		assertTrue(Comprobador.esAddressCorrecto("calle leon"));
+
+
+	}
+	@Test
+	public void testComprobadorFecha() throws CitizenException{
+
+		assertTrue(Comprobador.esFecha("12/09/1994"));
+
+
+
+	}
+
 }
