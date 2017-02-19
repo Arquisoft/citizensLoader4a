@@ -14,31 +14,35 @@ import es.uniovi.asw.util.Console;
 public class ProbarAplicacion {
 
 	LoadCitizens app;
-	String args;
+	String[] args;
 	String filesLocation;
 	
 	@Before
 	public void setUp(){
 		filesLocation  = "src/test/resources/";
+		args=new String[2];
+		args[1]=filesLocation;
 	}
 	@Test
 	public void leerExcel() {
-		args = "readExcel " + filesLocation + "test.xlsx";
+		args[0] = "readExcel";
+		args[1]= args[1]+"test.xlsx";
 		Console.println("A leer un excel con el comando: "+args);
 		
 		LoadCitizens.main(args);
 	}
 	@Test
 	public void leerTxt() {
-		args = "readTxt " + filesLocation + "test.txt";
-		
+		args[0] = "readTxt";
+		args[1]= args[1]+"test.txt";
 		Console.println("A leer un txt con el comando: "+args);
 		LoadCitizens.main(args);
 	}
 	
 	@Test
 	public void leerTxtMal() {
-		args = "readTxtdvs " + filesLocation + "test.txt";
+		args[0] = "readTxtAD";
+		args[1]= args[1]+"test.txt";
 		
 		Console.println("A leer un txt con el comando: "+args);
 		LoadCitizens.main(args);

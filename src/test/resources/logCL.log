@@ -1382,3 +1382,191 @@
 19/02/2017 08:25:20.872 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.xlsx]
 19/02/2017 08:25:20.879 - [INFO] - Iniciando lectura de fichero: [src/test/resources]
 19/02/2017 08:25:20.879 - [INFO] - No se encuentra el fichero especificado
+19/02/2017 09:57:37.330 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testErrors.xlsx]
+19/02/2017 09:57:40.463 - [INFO] - Ciudadano línea -> 1
+	NAME_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:40.463 - [INFO] - Ciudadano línea -> 2
+	SURNAME_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:40.463 - [INFO] - Ciudadano línea -> 3
+	NAME_ERROR
+	SURNAME_ERROR
+	NATIONALITY_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:40.577 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testDesorden.xlsx]
+19/02/2017 09:57:40.830 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:40.894 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:40.957 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:41.072 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testDesorden2.xlsx]
+19/02/2017 09:57:41.274 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:41.334 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:41.393 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:41.516 - [INFO] - Iniciando lectura de fichero: [src/test/resources/null]
+19/02/2017 09:57:41.516 - [INFO] - No se encuentra el fichero especificado
+19/02/2017 09:57:41.516 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testCamposNull.xlsx]
+19/02/2017 09:57:41.663 - [INFO] - Ciudadano línea -> 1
+	NAME_ERROR
+	EMAIL_ERROR
+	NATIONALITY_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:41.663 - [INFO] - Ciudadano línea -> 2
+	SURNAME_ERROR
+	DATE_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:41.663 - [INFO] - Ciudadano línea -> 3
+	NAME_ERROR
+	SURNAME_ERROR
+	NATIONALITY_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:41.663 - [INFO] - Ciudadano línea -> 4
+	NAME_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:41.663 - [INFO] - Ciudadano línea -> 5
+	SURNAME_ERROR
+	ADDRESS_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:41.663 - [INFO] - Ciudadano línea -> 6
+	NAME_ERROR
+	SURNAME_ERROR
+	NATIONALITY_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:41.776 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testVacios.xlsx]
+19/02/2017 09:57:41.797 - [INFO] - No se ha encontrado ningun citizen válido en fichero: [src/test/resources/testVacios.xlsx]
+19/02/2017 09:57:41.797 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testVacio.txt]
+19/02/2017 09:57:41.798 - [INFO] - No se ha encontrado ningun citizen válido en fichero: [src/test/resources/testVacio.txt]
+19/02/2017 09:57:41.798 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.txt]
+19/02/2017 09:57:41.974 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:42.092 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.txt]
+19/02/2017 09:57:42.094 - [INFO] - Iniciando lectura de fichero: [src/test/resources/null]
+19/02/2017 09:57:42.094 - [INFO] - No se encuentra el fichero especificado
+19/02/2017 09:57:42.094 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.xlsx]
+19/02/2017 09:57:42.293 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:42.353 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:42.414 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:42.532 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testColumnasOtroNombre.xlsx]
+19/02/2017 09:57:42.737 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:42.798 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:42.858 - [INFO] - Repetido en la base de datos
+19/02/2017 09:57:42.972 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.txt]
+19/02/2017 09:57:42.973 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testErrorsParametros.xlsx]
+19/02/2017 09:57:43.111 - [INFO] - Ciudadano línea -> 1
+	NAME_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:43.111 - [INFO] - Ciudadano línea -> 2
+	SURNAME_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:43.112 - [INFO] - Ciudadano línea -> 3
+	NAME_ERROR
+	SURNAME_ERROR
+	NATIONALITY_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:57:43.224 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.xlsx]
+19/02/2017 09:57:43.226 - [INFO] - Iniciando lectura de fichero: [src/test/resources]
+19/02/2017 09:57:43.226 - [INFO] - No se encuentra el fichero especificado
+19/02/2017 09:59:42.037 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testErrors.xlsx]
+19/02/2017 09:59:44.663 - [INFO] - Ciudadano línea -> 1
+	NAME_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:44.663 - [INFO] - Ciudadano línea -> 2
+	SURNAME_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:44.663 - [INFO] - Ciudadano línea -> 3
+	NAME_ERROR
+	SURNAME_ERROR
+	NATIONALITY_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:44.775 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testDesorden.xlsx]
+19/02/2017 09:59:45.013 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:45.075 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:45.135 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:45.249 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testDesorden2.xlsx]
+19/02/2017 09:59:45.451 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:45.507 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:45.563 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:45.677 - [INFO] - Iniciando lectura de fichero: [src/test/resources/null]
+19/02/2017 09:59:45.678 - [INFO] - No se encuentra el fichero especificado
+19/02/2017 09:59:45.678 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testCamposNull.xlsx]
+19/02/2017 09:59:45.826 - [INFO] - Ciudadano línea -> 1
+	NAME_ERROR
+	EMAIL_ERROR
+	NATIONALITY_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:45.826 - [INFO] - Ciudadano línea -> 2
+	SURNAME_ERROR
+	DATE_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:45.826 - [INFO] - Ciudadano línea -> 3
+	NAME_ERROR
+	SURNAME_ERROR
+	NATIONALITY_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:45.826 - [INFO] - Ciudadano línea -> 4
+	NAME_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:45.826 - [INFO] - Ciudadano línea -> 5
+	SURNAME_ERROR
+	ADDRESS_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:45.826 - [INFO] - Ciudadano línea -> 6
+	NAME_ERROR
+	SURNAME_ERROR
+	NATIONALITY_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:45.938 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testVacios.xlsx]
+19/02/2017 09:59:45.964 - [INFO] - No se ha encontrado ningun citizen válido en fichero: [src/test/resources/testVacios.xlsx]
+19/02/2017 09:59:45.965 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testVacio.txt]
+19/02/2017 09:59:45.965 - [INFO] - No se ha encontrado ningun citizen válido en fichero: [src/test/resources/testVacio.txt]
+19/02/2017 09:59:45.965 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.txt]
+19/02/2017 09:59:46.135 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:46.246 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.txt]
+19/02/2017 09:59:46.248 - [INFO] - Iniciando lectura de fichero: [src/test/resources/null]
+19/02/2017 09:59:46.248 - [INFO] - No se encuentra el fichero especificado
+19/02/2017 09:59:46.248 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.xlsx]
+19/02/2017 09:59:46.443 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:46.500 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:46.555 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:46.666 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testColumnasOtroNombre.xlsx]
+19/02/2017 09:59:46.859 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:46.916 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:46.972 - [INFO] - Repetido en la base de datos
+19/02/2017 09:59:47.086 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.txt]
+19/02/2017 09:59:47.087 - [INFO] - Iniciando lectura de fichero: [src/test/resources/testErrorsParametros.xlsx]
+19/02/2017 09:59:47.227 - [INFO] - Ciudadano línea -> 1
+	NAME_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:47.227 - [INFO] - Ciudadano línea -> 2
+	SURNAME_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:47.227 - [INFO] - Ciudadano línea -> 3
+	NAME_ERROR
+	SURNAME_ERROR
+	NATIONALITY_ERROR
+	Ciudadano no añadido.
+
+19/02/2017 09:59:47.338 - [INFO] - Iniciando lectura de fichero: [src/test/resources/test.xlsx]
+19/02/2017 09:59:47.340 - [INFO] - Iniciando lectura de fichero: [src/test/resources]
+19/02/2017 09:59:47.340 - [INFO] - No se encuentra el fichero especificado
