@@ -57,27 +57,23 @@ public class LeerArchivoTest {
 	}
 
 	@Test
-	public void testEqualsCitizen(){
+	public void testEqualsCitizen() {
 		Citizen c = new Citizen();
 		Citizen b = c;
 		assertTrue(b.equals(c));
 		c.setNumeroIdentificativo("3553");
-		b= new Citizen();
+		b = new Citizen();
 		b.setNumeroIdentificativo("56");
 		assertFalse(b.equals(c));
 	}
 
 	@Test
-	public void testHashCode(){
+	public void testHashCode() {
 		Citizen c = new Citizen();
 		c.setNumeroIdentificativo("3553");
 		int hash = c.hashCode();
-		assertEquals(hash,c.hashCode());
+		assertEquals(hash, c.hashCode());
 	}
-
-
-
-
 
 	@Test
 	public void leerExcelDiferenteEntrada() throws CitizenException {
@@ -152,7 +148,7 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(0).getApellidos(), "Torres Pardo");
 		assertEquals(ciudadanos.get(0).getNombre(), "Juan");
 		assertEquals(ciudadanos.get(0).getEmail(), "h@h.es");
-		//assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
+		// assertEquals(ciudadanos.get(0).getNacionalidad(), "Español");
 		assertEquals(ciudadanos.get(0).getFechaNacimiento(), new SimpleDateFormat("dd/MM/yyyy").parse("10/12/1234"));
 		assertEquals(ciudadanos.get(0).getNumeroIdentificativo(), "9876543S");
 
@@ -173,7 +169,8 @@ public class LeerArchivoTest {
 	public void forzarExcepcionesExcelDirectorio() throws CitizenException {
 
 		ReadList rl = new RListExcel();
-		rl.read("src/test/resources"); // Le paso un directorio, que hara? Pues peta
+		rl.read("src/test/resources"); // Le paso un directorio, que hara? Pues
+										// peta
 
 	}
 
@@ -245,57 +242,68 @@ public class LeerArchivoTest {
 
 	}
 
-	@Test (expected = CitizenException.class)
-	public void testException() throws CitizenException{
+	@Test(expected = CitizenException.class)
+	public void testException() throws CitizenException {
 
 		throw new CitizenException();
 	}
-	@Test (expected = CitizenException.class)
-	public void testException2() throws CitizenException{
+
+	@Test(expected = CitizenException.class)
+	public void testException2() throws CitizenException {
 
 		throw new CitizenException(new Exception());
 	}
 
-	@Test (expected = CitizenException.class)
-	public void testException3() throws CitizenException{
+	@Test(expected = CitizenException.class)
+	public void testException3() throws CitizenException {
 
-		throw new CitizenException("Lanzamiento de prueba",new Exception());
+		throw new CitizenException("Lanzamiento de prueba", new Exception());
 	}
+
 	@Test
-	public void testComprobadorDigitos() throws CitizenException{
+	public void testComprobadorDigitos() throws CitizenException {
 
 		assertFalse(Comprobador.esTodoDigitos(""));
 		assertFalse(Comprobador.esTodoDigitos("242424a2424"));
 		assertTrue(Comprobador.esTodoDigitos("938958358"));
 
 	}
+
 	@Test
-	public void testComprobadorEmail() throws CitizenException{
+	public void testComprobadorEmail() throws CitizenException {
 
 		assertFalse(Comprobador.esEmailCorrecto(""));
 		assertFalse(Comprobador.esEmailCorrecto("@"));
 		assertTrue(Comprobador.esEmailCorrecto("pela@gmail.com"));
-
 	}
 
 	@Test
-	public void testComprobadorAddress() throws CitizenException{
+	public void testComprobadorAddress() throws CitizenException {
 
 		assertFalse(Comprobador.esAddressCorrecto(""));
 		assertFalse(Comprobador.esAddressCorrecto("hola"));
 		assertTrue(Comprobador.esAddressCorrecto("calle leon"));
-
-
 	}
+
 	@Test
-	public void testComprobadorFecha() throws CitizenException{
+	public void testComprobadorFecha() throws CitizenException {
 
 		assertTrue(Comprobador.esFecha("12/09/1994"));
 
-
-
 	}
-
-
+	
+	@Test(expected = CitizenException.class)
+	public void forzarExcepcionesExcelFechaNacimiento() throws CitizenException {
+		String fileName = "testFechaNacimientoErronea.xlsx";
+		ReadList rl = new RListExcel();
+		rl.read("src/test/resources/" + fileName);
+	}
+	/*
+	@Test(expected = CitizenException.class)
+	public void forzarExcepcionesTXTFechaNacimiento() throws CitizenException {
+		String fileName = "testFechaNacimientoErronea.txt";
+		ReadList rl = new RListTXT();
+		rl.read("src/test/resources/" + fileName);
+	}*/
 
 }

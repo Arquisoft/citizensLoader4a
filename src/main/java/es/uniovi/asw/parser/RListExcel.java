@@ -90,11 +90,11 @@ public class RListExcel extends RList implements ReadList {
 			throw  new CitizenException("Error en el formato del fichero");
 
 
-		} catch (InvalidFormatException e) {
+		} /*catch (InvalidFormatException e) {
 			Console.print("El fichero no es un .xlsx");
 			throw  new CitizenException();
 
-		} catch (Exception e) {
+		}*/ catch (Exception e) {
 			String[] fileName = path.split("/");
 			Console.print(
 					"Ha ocurrido un error. Asegurate de que el fichero existe y que la fecha de nacimiento está puesta en el formato correcto\n");
