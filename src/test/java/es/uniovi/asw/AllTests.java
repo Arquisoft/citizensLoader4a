@@ -14,7 +14,7 @@ import java.io.IOException;
         LeerArchivoTest.class,
         TestGeneracionDocumentos.class,
         CalculatorTest.class,
-        ProbarAplicacion.class
+        TestAplicacion.class
 })
 
 public class AllTests {

@@ -12,7 +12,7 @@ import es.uniovi.asw.util.Console;
  * @author Javier Castro
  *
  */
-public class ProbarAplicacion {
+public class TestAplicacion {
 
 	final LoadCitizens runner = new LoadCitizens();
 
