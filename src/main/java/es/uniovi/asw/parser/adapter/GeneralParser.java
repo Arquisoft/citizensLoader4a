@@ -18,6 +18,12 @@ import es.uniovi.asw.util.exception.CitizenException;
  * 
  *         - sendPDF -> Manda una carta en PDF a todos los ciudadanos leidos. Es
  *         necesario poner la lectura antes, es decir: readXXX filename sendPDF
+ *         
+ *         - sendTXT -> Manda una carta en TXT a todos los ciudadanos leidos. Es
+ *         necesario poner la lectura antes, es decir: readXXX filename sendTXT
+ *         
+ *         - sendDOC -> Manda una carta en DOC a todos los ciudadanos leidos. Es
+ *         necesario poner la lectura antes, es decir: readXXX filename sendDOC
  */
 public interface GeneralParser {
 	/*

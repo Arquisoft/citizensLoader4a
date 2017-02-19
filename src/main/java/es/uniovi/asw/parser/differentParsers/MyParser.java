@@ -43,7 +43,7 @@ public class MyParser {
 		boolean admitido = false;
 		Console.println("\nMyParser informa:\n\t"+argsToString());
 		try {
-			if (args.length > 1) { // Al menos dos parametros.
+			if (args.length >= 1) { // Al menos dos parametros.
 				for (int i = 0; i < args.length; i++) {
 					String command = args[i];
 					switch (command) {
@@ -60,9 +60,19 @@ public class MyParser {
 						i++;
 						admitido = true;
 						break;
-					case "senPDF":
+					case "sendPDF":
 						if((ciudadanos == null || ciudadanos.size() == 0) && admitido){
 							sendPdf();
+						}
+						break;
+					case "sendTXT":
+						if((ciudadanos == null || ciudadanos.size() == 0) && admitido){
+							sendTXT();
+						}
+						break;
+					case "sendDOC":
+						if((ciudadanos == null || ciudadanos.size() == 0) && admitido){
+							sendDOC();
 						}
 						break;
 					}
@@ -92,6 +102,18 @@ public class MyParser {
 	private void sendPdf() throws CitizenException{
 		for(Citizen c : ciudadanos){
 			SingletonTextWritter.getInstance().getPDFTextrWitter().createDocument(docName, MensajePersonalizado.getMessage(c));
+		}
+	}
+
+	private void sendTXT() throws CitizenException{
+		for(Citizen c : ciudadanos){
+			SingletonTextWritter.getInstance().getPlainTextWritter().createDocument(docName, MensajePersonalizado.getMessage(c));
+		}
+	}
+
+	private void sendDOC() throws CitizenException{
+		for(Citizen c : ciudadanos){
+			SingletonTextWritter.getInstance().getWordTextWritter().createDocument(docName, MensajePersonalizado.getMessage(c));
 		}
 	}
 

@@ -55,4 +55,32 @@ public class ProbarAplicacion {
 		Assert.assertEquals(1,runner.run(args));
 
 	}
+	
+	@Test
+	public void sendPDF() {
+		args[0] = "sendPDF";
+		args[1]= args[1]+"test.txt";
+		
+		Console.println("A leer un txt con el comando: "+args);
+		LoadCitizens.main(args);
+	}
+	
+	@Test
+	public void sendDOC() {
+		args[0] = "sendDOC";
+		args[1]= args[1]+"test.txt";
+		
+		Console.println("A leer un txt con el comando: "+args);
+		LoadCitizens.main(args);
+	}
+	
+	@Test
+	public void sendDOCMal() {
+		args[0] = "sendDOCMOCHO";
+		args[1]= args[1]+"test.txt";
+		
+		Console.println("A leer un txt con el comando: "+args);
+		LoadCitizens.main(args);
+	}
+	
 }

@@ -8,7 +8,7 @@ import es.uniovi.asw.util.Console;
  *
  */
 public class ParserDePrueber {
-	public ParserDePrueber() {
+	/*public ParserDePrueber() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -18,5 +18,5 @@ public class ParserDePrueber {
 			Console.println("\tHe leido: " + s);
 		}
 
-	}
+	}*/
 }
