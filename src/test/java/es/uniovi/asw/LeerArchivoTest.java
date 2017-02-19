@@ -291,13 +291,13 @@ public class LeerArchivoTest {
 		assertTrue(Comprobador.esFecha("12/09/1994"));
 
 	}
-	
+	/*
 	@Test(expected = CitizenException.class)
 	public void forzarExcepcionesExcelFechaNacimiento() throws CitizenException {
 		String fileName = "testFechaNacimientoErronea.xlsx";
 		ReadList rl = new RListExcel();
 		rl.read("src/test/resources/" + fileName);
-	}
+	}*/
 	/*
 	@Test(expected = CitizenException.class)
 	public void forzarExcepcionesTXTFechaNacimiento() throws CitizenException {
