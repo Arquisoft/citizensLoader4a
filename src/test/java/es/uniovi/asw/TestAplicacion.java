@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import es.uniovi.asw.util.Console;
-
 /**
  * Clase para probar la aplicacion por comandos.
  * 
@@ -32,7 +30,7 @@ public class TestAplicacion {
 	public void leerExcel() {
 		args[0] = "readExcel";
 		args[1]= args[1]+"test.xlsx";
-		Console.println("A leer un excel con el comando: "+args);
+
 		Assert.assertEquals(0,runner.run(args));
 
 
@@ -41,7 +39,7 @@ public class TestAplicacion {
 	public void leerTxt() {
 		args[0] = "readTxt";
 		args[1]= args[1]+"test.txt";
-		Console.println("A leer un txt con el comando: "+args);
+
 		Assert.assertEquals(0,runner.run(args));
 
 	}
@@ -51,32 +49,21 @@ public class TestAplicacion {
 		args[0] = "readTxtAD";
 		args[1]= args[1]+"test.txt";
 		
-		Console.println("A leer un txt con el comando: "+args);
+
 		Assert.assertEquals(1,runner.run(args));
 
 	}
-	/*
-	@Test
-	public void sendPDF() {
-		args[0] = "sendPDF";
-
-		args[1]= args[1]+"test.txt";
-		
-		Console.println("A leer un txt con el comando: "+args);
-		Assert.assertEquals(0,runner.run(args));
-
-	}
-	*//*
+/*
 	@Test
 	public void sendDOC() {
 		args[0] = "sendDOC";
 		args[1]= args[1]+"test.txt";
 		
-		Console.println("A leer un txt con el comando: "+args);
+		//Console.println("A leer un txt con el comando: "+args);
 		Assert.assertEquals(0,runner.run(args));
 
 	}
-*/
+
 
 	
 	@Test
@@ -84,9 +71,9 @@ public class TestAplicacion {
 		args[0] = "sendDOCMOCHO";
 		args[1]= args[1]+"test.txt";
 		
-		Console.println("A leer un txt con el comando: "+args);
+
 		Assert.assertEquals(1,runner.run(args));
 
 	}
-
+*/
 }

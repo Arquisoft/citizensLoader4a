@@ -6,7 +6,6 @@ import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.personalletter.MensajePersonalizado;
 import es.uniovi.asw.personalletter.SingletonTextWritter;
 import es.uniovi.asw.reportwritter.SingletonReporter;
-import es.uniovi.asw.util.Console;
 import es.uniovi.asw.util.exception.CitizenException;
 
 import java.util.List;
@@ -41,7 +40,7 @@ public class MyParser {
 
 	public void parse() throws CitizenException {
 		boolean admitido = false;
-		Console.println("\nMyParser informa:\n\t"+argsToString());
+		//Console.println("\nMyParser informa:\n\t"+argsToString());
 		try {
 			if (args.length >= 1) { // Al menos dos parametros.
 				for (int i = 0; i < args.length; i++) {

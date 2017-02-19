@@ -1,7 +1,6 @@
 package es.uniovi.asw.parser.adapter;
 
 import es.uniovi.asw.parser.differentParsers.MyParser;
-import es.uniovi.asw.util.Console;
 import es.uniovi.asw.util.exception.CitizenException;
 
 public class MyParserAdapter implements GeneralParser {
@@ -18,7 +17,7 @@ public class MyParserAdapter implements GeneralParser {
 		 * falta converisones. De momento
 		 */
 		for (Object s : args) {
-			Console.println(s.toString() + " ");
+			//Console.println(s.toString() + " ");
 		}
 		parser = new MyParser(args);
 		parser.parse();
