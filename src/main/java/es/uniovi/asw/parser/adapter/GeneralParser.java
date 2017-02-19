@@ -1,5 +1,7 @@
 package es.uniovi.asw.parser.adapter;
 
+import es.uniovi.asw.util.exception.CitizenException;
+
 /**
  * Clase adaptadora de parsers.
  * 
@@ -27,5 +29,5 @@ public interface GeneralParser {
 	/*
 	 * 
 	 */
-	public void parse(String... args);
+	 void parse(String... args) throws CitizenException;
 }

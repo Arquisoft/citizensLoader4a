@@ -1,5 +1,6 @@
 package es.uniovi.asw;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,6 +13,10 @@ import es.uniovi.asw.util.Console;
  *
  */
 public class ProbarAplicacion {
+
+	final LoadCitizens runner = new LoadCitizens();
+
+
 
 	LoadCitizens app;
 	String[] args;
@@ -28,15 +33,17 @@ public class ProbarAplicacion {
 		args[0] = "readExcel";
 		args[1]= args[1]+"test.xlsx";
 		Console.println("A leer un excel con el comando: "+args);
-		
-		LoadCitizens.main(args);
+		Assert.assertEquals(0,runner.run(args));
+
+
 	}
 	@Test
 	public void leerTxt() {
 		args[0] = "readTxt";
 		args[1]= args[1]+"test.txt";
 		Console.println("A leer un txt con el comando: "+args);
-		LoadCitizens.main(args);
+		Assert.assertEquals(0,runner.run(args));
+
 	}
 	
 	@Test
@@ -45,7 +52,8 @@ public class ProbarAplicacion {
 		args[1]= args[1]+"test.txt";
 		
 		Console.println("A leer un txt con el comando: "+args);
-		LoadCitizens.main(args);
+		Assert.assertEquals(1,runner.run(args));
+
 	}
 	
 	@Test

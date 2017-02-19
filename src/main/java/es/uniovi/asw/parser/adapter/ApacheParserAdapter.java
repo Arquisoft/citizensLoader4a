@@ -7,9 +7,7 @@ public class ApacheParserAdapter{/* implements GeneralParser {
 	ApacheParser parser;
 	String[] args;
 
-	public ApacheParserAdapter() {
 
-	}
 
 	@Override
 	public void parse(String... args) {

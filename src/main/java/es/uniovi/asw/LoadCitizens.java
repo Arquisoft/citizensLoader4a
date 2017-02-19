@@ -2,6 +2,9 @@ package es.uniovi.asw;
 
 import es.uniovi.asw.parser.adapter.GeneralParser;
 import es.uniovi.asw.parser.adapter.MyParserAdapter;
+import es.uniovi.asw.util.exception.CitizenException;
+
+import java.util.logging.Logger;
 
 
 /**
@@ -11,6 +14,8 @@ import es.uniovi.asw.parser.adapter.MyParserAdapter;
  *
  */
 public class LoadCitizens {
+	private static final Logger log = Logger.getLogger(LoadCitizens.class.getName());
+
 
 	public static void main(String... args) {
 		final LoadCitizens runner = new LoadCitizens();
@@ -19,7 +24,7 @@ public class LoadCitizens {
 	}
 
 	// TODO
-	private void run(String... args) {
+	public int run(String... args) {
 		
 		
 		//Escoge el parser:
@@ -28,6 +33,13 @@ public class LoadCitizens {
 		//GeneralParser parser = new ApacheParserAdapter();
 		//GeneralParser parser = new ParserDePrueberAdapter();
 
-		parser.parse(args);
+		try {
+			parser.parse(args);
+		} catch (CitizenException e) {
+			log.info("Exit 1");
+			return 1;
+		}
+		log.info("Exit 0");
+		return 0;
 	}
 }

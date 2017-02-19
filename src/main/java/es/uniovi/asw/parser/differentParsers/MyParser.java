@@ -1,8 +1,5 @@
 package es.uniovi.asw.parser.differentParsers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;
@@ -11,6 +8,8 @@ import es.uniovi.asw.personalletter.SingletonTextWritter;
 import es.uniovi.asw.reportwritter.SingletonReporter;
 import es.uniovi.asw.util.Console;
 import es.uniovi.asw.util.exception.CitizenException;
+
+import java.util.List;
 
 /**
  * Parser creado a gusto.
@@ -40,7 +39,7 @@ public class MyParser {
 		ciudadanos = null;
 	}
 
-	public void parse() {
+	public void parse() throws CitizenException {
 		boolean admitido = false;
 		Console.println("\nMyParser informa:\n\t"+argsToString());
 		try {
@@ -82,10 +81,13 @@ public class MyParser {
 		} catch (CitizenException e) {
 			SingletonReporter.getInstance().getWreportP()
 					.report("MyParser informa:\n-" + "Ha ocurrido un error interno al ejecutar los comandos");
+			throw new CitizenException();
 		}
 		if (!admitido) {
 			SingletonReporter.getInstance().getWreportP()
 					.report("MyParser informa:\n-" + "Comando incorrecto! Se ha leido:\n\t" + argsToString());
+			throw new CitizenException();
+
 		}
 	}
 
