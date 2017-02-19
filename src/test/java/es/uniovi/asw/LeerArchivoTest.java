@@ -1,5 +1,6 @@
 package es.uniovi.asw;
 
+import es.uniovi.asw.dbupdate.CitizenFinder;
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;
@@ -298,12 +299,19 @@ public class LeerArchivoTest {
 		ReadList rl = new RListExcel();
 		rl.read("src/test/resources/" + fileName);
 	}
-	/*
+	
 	@Test(expected = CitizenException.class)
 	public void forzarExcepcionesTXTFechaNacimiento() throws CitizenException {
 		String fileName = "testFechaNacimientoErronea.txt";
 		ReadList rl = new RListTXT();
 		rl.read("src/test/resources/" + fileName);
-	}*/
-
+	}
+	
+	@Test(expected = CitizenException.class)
+	public void forzarExcepcionesTXTFicheroInexistente() throws CitizenException {
+		String fileName = "testHola.txt";
+		ReadList rl = new RListTXT();
+		rl.read("src/test/resources/" + fileName);
+	}
+	
 }
