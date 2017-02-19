@@ -3,7 +3,7 @@ package es.uniovi.asw.parser.adapter;
 import es.uniovi.asw.parser.differentParsers.ApacheParser;
 import es.uniovi.asw.util.Console;
 
-public class ApacheParserAdapter implements GeneralParser {
+public class ApacheParserAdapter{/* implements GeneralParser {
 	ApacheParser parser;
 	String[] args;
 
@@ -35,5 +35,5 @@ public class ApacheParserAdapter implements GeneralParser {
 			sb.append(s + " ");
 		}
 		return sb.toString();
-	}
+	}*/
 }

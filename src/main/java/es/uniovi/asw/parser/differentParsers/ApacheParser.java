@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class ApacheParser {
-	private static final Logger log = Logger.getLogger(ApacheParser.class.getName());
+	/*private static final Logger log = Logger.getLogger(ApacheParser.class.getName());
 	private String[] args = null;
 	private Options options = new Options();
 
@@ -118,5 +118,5 @@ public class ApacheParser {
 		String name = myFile.replaceAll("[.]+[a-z-A-Z]+", "");
 		return name;
 	}
-
+*/
 }
