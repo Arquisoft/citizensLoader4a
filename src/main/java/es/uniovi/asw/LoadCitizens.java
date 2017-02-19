@@ -1,6 +1,7 @@
 package es.uniovi.asw;
 
 import es.uniovi.asw.parser.Parser;
+import es.uniovi.asw.parser.Parser2;
 import es.uniovi.asw.util.Console;
 import es.uniovi.asw.util.exception.CitizenException;
 
@@ -20,11 +21,11 @@ public class LoadCitizens {
 
 	// TODO
 	private void run(String... args) {
-		try {
-			new Parser(args).parse();
-		} catch (CitizenException e) {
-			Console.println(e.getMessage());
-		}
+		// try {
+		// new Parser(args).parse();
+		// } catch (CitizenException e) {
+		// Console.println(e.getMessage());
+		// }
+		new Parser2(args).parse();
 	}
-	}
-
+}

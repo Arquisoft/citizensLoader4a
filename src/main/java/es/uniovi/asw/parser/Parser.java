@@ -87,6 +87,8 @@ public class Parser {
 	}
 
 	private void createOptions() {
+//		Option excelRead = OptionBuilder.hasArgs(1).withArgName("Excel file to read").withDescription("Leer el archivo excel especificado.").create(READ_EXCEL_KEY);
+//		options.addOption(excelRead);
 		options.addOption(HELP_KEY, "help", false, "Mostrar ayuda.");
 		options.addOption(READ_EXCEL_KEY, "excel", true, "Cargar fichero excel");
 		options.addOption(READ_TXT_KEY, "txt", true, "Cargar fichero txt");
