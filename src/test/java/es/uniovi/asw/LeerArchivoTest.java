@@ -4,16 +4,15 @@ import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;
 import es.uniovi.asw.parser.ReadList;
+import es.uniovi.asw.util.Comprobador;
 import es.uniovi.asw.util.exception.CitizenException;
-
-import org.assertj.core.api.AssertDelegateTarget;
 import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class LeerArchivoTest {
 
@@ -56,6 +55,29 @@ public class LeerArchivoTest {
 		assertEquals(ciudadanos.get(2).getNumeroIdentificativo(), "09940449X");
 		assertEquals(ciudadanos.get(2).getDireccionPostal(), "Av. De la Constitución 8");
 	}
+
+	@Test
+	public void testEqualsCitizen(){
+		Citizen c = new Citizen();
+		Citizen b = c;
+		assertTrue(b.equals(c));
+		c.setNumeroIdentificativo("3553");
+		b= new Citizen();
+		b.setNumeroIdentificativo("56");
+		assertFalse(b.equals(c));
+	}
+
+	@Test
+	public void testHashCode(){
+		Citizen c = new Citizen();
+		c.setNumeroIdentificativo("3553");
+		int hash = c.hashCode();
+		assertEquals(hash,c.hashCode());
+	}
+
+	
+
+
 
 	@Test
 	public void leerExcelDiferenteEntrada() throws CitizenException {
@@ -222,4 +244,58 @@ public class LeerArchivoTest {
 		assertEquals(true, ciudadanos.size() == 0);
 
 	}
+
+	@Test (expected = CitizenException.class)
+	public void testException() throws CitizenException{
+
+		throw new CitizenException();
+	}
+	@Test (expected = CitizenException.class)
+	public void testException2() throws CitizenException{
+
+		throw new CitizenException(new Exception());
+	}
+
+	@Test (expected = CitizenException.class)
+	public void testException3() throws CitizenException{
+
+		throw new CitizenException("Lanzamiento de prueba",new Exception());
+	}
+	@Test
+	public void testComprobadorDigitos() throws CitizenException{
+
+		assertFalse(Comprobador.esTodoDigitos(""));
+		assertFalse(Comprobador.esTodoDigitos("242424a2424"));
+		assertTrue(Comprobador.esTodoDigitos("938958358"));
+
+	}
+	@Test
+	public void testComprobadorEmail() throws CitizenException{
+
+		assertFalse(Comprobador.esEmailCorrecto(""));
+		assertFalse(Comprobador.esEmailCorrecto("@"));
+		assertTrue(Comprobador.esEmailCorrecto("pela@gmail.com"));
+
+	}
+
+	@Test
+	public void testComprobadorAddress() throws CitizenException{
+
+		assertFalse(Comprobador.esAddressCorrecto(""));
+		assertFalse(Comprobador.esAddressCorrecto("hola"));
+		assertTrue(Comprobador.esAddressCorrecto("calle leon"));
+
+
+	}
+	@Test
+	public void testComprobadorFecha() throws CitizenException{
+
+		assertTrue(Comprobador.esFecha("12/09/1994"));
+
+
+
+	}
+
+
+
 }
