@@ -12,7 +12,7 @@ import es.uniovi.asw.util.Console;
  * @author Javier Castro
  *
  */
-public class ProbarAplicacion {
+public class TestAplicacion {
 
 	final LoadCitizens runner = new LoadCitizens();
 
@@ -55,24 +55,29 @@ public class ProbarAplicacion {
 		Assert.assertEquals(1,runner.run(args));
 
 	}
-	
+	/*
 	@Test
 	public void sendPDF() {
 		args[0] = "sendPDF";
+
 		args[1]= args[1]+"test.txt";
 		
 		Console.println("A leer un txt con el comando: "+args);
-		LoadCitizens.main(args);
+		Assert.assertEquals(0,runner.run(args));
+
 	}
-	
+	*//*
 	@Test
 	public void sendDOC() {
 		args[0] = "sendDOC";
 		args[1]= args[1]+"test.txt";
 		
 		Console.println("A leer un txt con el comando: "+args);
-		LoadCitizens.main(args);
+		Assert.assertEquals(0,runner.run(args));
+
 	}
+*/
+
 	
 	@Test
 	public void sendDOCMal() {
@@ -80,7 +85,8 @@ public class ProbarAplicacion {
 		args[1]= args[1]+"test.txt";
 		
 		Console.println("A leer un txt con el comando: "+args);
-		LoadCitizens.main(args);
+		Assert.assertEquals(1,runner.run(args));
+
 	}
-	
+
 }
