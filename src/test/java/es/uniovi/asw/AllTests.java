@@ -13,7 +13,8 @@ import java.io.IOException;
         ConsoleTest.class,
         LeerArchivoTest.class,
         TestGeneracionDocumentos.class,
-        CalculatorTest.class
+        CalculatorTest.class,
+        ProbarAplicacion.class
 })
 
 public class AllTests {
