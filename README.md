@@ -12,5 +12,5 @@ Citizens Loader module
 - Herminio García González (@herminiogg)
 - Jose Emilio Labra Gayo (@labra)
 - Ana Bravo Mediavilla 
-- Javier Castro Fernández 
+- Javier Castro Fernández (@javiercasfer95 || @javitxu1995)
 - Pelayo García Lartategui (@pelayolartategui)
