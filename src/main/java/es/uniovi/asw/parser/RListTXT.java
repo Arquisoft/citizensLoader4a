@@ -5,11 +5,13 @@ import es.uniovi.asw.util.Console;
 import es.uniovi.asw.util.exception.CitizenException;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class RListTXT extends RList implements ReadList {
@@ -23,7 +25,7 @@ public class RListTXT extends RList implements ReadList {
 		String name;
 		String surname;
 		String email;
-		String birth;
+		Date birth;
 		String address;
 		String nationality;
 		String nif;
@@ -49,13 +51,12 @@ public class RListTXT extends RList implements ReadList {
 					name = datos[0];
 					surname = datos[1];
 					email = datos[2];
-					birth = datos[3];
+					birth = new SimpleDateFormat("dd/MM/yyyy").parse(datos[3]);
 					address = datos[4];
 					nationality = datos[5];
 					nif = datos[6];
-					ciudadanos.add(anadirCitizen(name, surname, email, new SimpleDateFormat("dd/MM/yyyy").parse(birth),
+					ciudadanos.add(anadirCitizen(name, surname, email, birth,
 							address, nationality, nif));
-
 				}
 			}
 			b.close();
@@ -68,12 +69,9 @@ public class RListTXT extends RList implements ReadList {
 		} catch (IOException e) {
 			String[] fileName = path.split("/");
 			// e.printStackTrace();
-			reporter.report("El fichero " + fileName[fileName.length - 1] + " no existe");
-			Console.print("El fichero " + fileName[fileName.length - 1] + " no existe");
-			throw  new CitizenException("El fichero no existe | ["+this.getClass().getName()+"]");
-
-
-
+			reporter.report("Error al cerrar BufferedReader en " + fileName[fileName.length - 1]);
+			Console.print("Error al cerrar BufferedReader en " + fileName[fileName.length - 1]);
+			throw  new CitizenException("Error al cerrar BufferedReader | ["+this.getClass().getName()+"]");
 		}
 
 		// Crear el fichero log
