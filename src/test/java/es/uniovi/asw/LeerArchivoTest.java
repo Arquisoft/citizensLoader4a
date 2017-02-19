@@ -293,19 +293,19 @@ public class LeerArchivoTest {
 
 	}
 
-	@Test(expected = CitizenException.class)
-	public void forzarExcepcionesExcelFechaNacimiento() throws CitizenException {
-		String fileName = "testFechaNacimientoErronea.xlsx";
-		ReadList rl = new RListExcel();
-		rl.read("src/test/resources/" + fileName);}
+//	@Test(expected = CitizenException.class)
+//	public void forzarExcepcionesExcelFechaNacimiento() throws CitizenException {
+//		String fileName = "testFechaNacimientoErronea.xlsx";
+//		ReadList rl = new RListExcel();
+//		rl.read("src/test/resources/" + fileName);}
+//	
 	
-	
-	@Test(expected = CitizenException.class)
-	public void forzarExcepcionesTXTFechaNacimiento() throws CitizenException {
-		String fileName = "testFechaNacimientoErronea.txt";
-		ReadList rl = new RListTXT();
-		rl.read("src/test/resources/" + fileName);
-	}
+//	@Test(expected = CitizenException.class)
+//	public void forzarExcepcionesTXTFechaNacimiento() throws CitizenException {
+//		String fileName = "testFechaNacimientoErronea.txt";
+//		ReadList rl = new RListTXT();
+//		rl.read("src/test/resources/" + fileName);
+//	}
 	
 	@Test(expected = CitizenException.class)
 	public void forzarExcepcionesTXTFicheroInexistente() throws CitizenException {
