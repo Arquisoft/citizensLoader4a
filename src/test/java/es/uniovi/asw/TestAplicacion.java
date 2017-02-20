@@ -1,10 +1,11 @@
 package es.uniovi.asw;
 
-import java.io.IOException;
 import es.uniovi.asw.util.logger.CLLogger;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
 
 import static junit.framework.TestCase.assertTrue;
 
@@ -20,9 +21,9 @@ public class TestAplicacion {
 
 
 
-	LoadCitizens app;
-	String[] args;
-	String filesLocation;
+	private LoadCitizens app;
+	private String[] args;
+	private String filesLocation;
 	
 	@Before
 	public void setUp(){
@@ -102,7 +103,7 @@ public class TestAplicacion {
 		//Console.println("A leer un txt con el comando: "+args);
 		Assert.assertEquals(0,runner.run(args));
 	}
-	
+	/*
 	@Test
 	public void sendDOCMal() {
 		/*args=new String[3];
@@ -111,9 +112,10 @@ public class TestAplicacion {
 		args[1]= args[1]+"test.xlsx";
 		args[2]= "sendDOCMAL";
 		
-		Assert.assertEquals(1,runner.run(args));*/
+		Assert.assertEquals(1,runner.run(args));
 	}
-	
+	*/
+
 	@Test
 	public void cllogger() throws IOException {
 		CLLogger c= new CLLogger();

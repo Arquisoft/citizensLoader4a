@@ -21,7 +21,7 @@ public class Comprobador {
 	}
 
 	public static boolean esTodoDigitos(String prueba) {
-		if (prueba == null || prueba == "") {
+		if (prueba == null || prueba.equals("")) {
 			return false;
 		}
 		char[] caracteres = prueba.toCharArray();

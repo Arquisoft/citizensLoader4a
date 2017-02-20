@@ -21,9 +21,9 @@ import java.util.List;
  *
  */
 public class MyParser {
-	String[] args;
-	List<Citizen> ciudadanos;
-	String docName;
+	private String[] args;
+	private List<Citizen> ciudadanos;
+	private String docName;
 
 	public MyParser(String realArgs) {
 		realArgs.replace("([-])\\1+", "");// Para borrar las rayas.
