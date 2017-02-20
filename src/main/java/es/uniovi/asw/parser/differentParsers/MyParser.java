@@ -21,9 +21,9 @@ import java.util.List;
  *
  */
 public class MyParser {
-	private String[] args;
-	private List<Citizen> ciudadanos;
-	private String docName;
+	String[] args;
+	List<Citizen> ciudadanos;
+	String docName;
 
 	public MyParser(String realArgs) {
 		realArgs.replace("([-])\\1+", "");// Para borrar las rayas.
@@ -41,7 +41,7 @@ public class MyParser {
 	public void parse() throws CitizenException {
 		boolean admitido = false;
 		//Console.println("\nMyParser informa:\n\t"+argsToString());
-		try {
+		//try {
 			if (args.length >= 1) { // Al menos dos parametros.
 				for (int i = 0; i < args.length; i++) {
 					String command = args[i];
@@ -60,28 +60,31 @@ public class MyParser {
 						admitido = true;
 						break;
 					case "sendPDF":
-						if((ciudadanos == null || ciudadanos.size() == 0) && admitido){
+						if(!(ciudadanos == null || ciudadanos.size() == 0) && admitido){
+							docName = getDocumentName(args[ i + 1]);
 							sendPdf();
 						}
 						break;
 					case "sendTXT":
-						if((ciudadanos == null || ciudadanos.size() == 0) && admitido){
+						if(!(ciudadanos == null || ciudadanos.size() == 0) && admitido){
+							docName = getDocumentName(args[ i + 1]);
 							sendTXT();
 						}
 						break;
 					case "sendDOC":
-						if((ciudadanos == null || ciudadanos.size() == 0) && admitido){
+						if(!(ciudadanos == null || ciudadanos.size() == 0) && admitido){
+							docName = getDocumentName(args[ i + 1]);
 							sendDOC();
 						}
 						break;
 					}
 				}
 			}
-		} catch (CitizenException e) {
+		/*} catch (CitizenException e) {
 			SingletonReporter.getInstance().getWreportP()
 					.report("MyParser informa:\n-" + "Ha ocurrido un error interno al ejecutar los comandos");
 			throw new CitizenException();
-		}
+		}*/
 		if (!admitido) {
 			SingletonReporter.getInstance().getWreportP()
 					.report("MyParser informa:\n-" + "Comando incorrecto! Se ha leido:\n\t" + argsToString());
