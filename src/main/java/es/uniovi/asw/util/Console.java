@@ -9,6 +9,7 @@ import java.io.IOException;
 
 /**
  * Created by Pelayo García Lartategui on 04/02/2017.
+ * Gestion de salidas por pantalla
  */
 public class Console{
 

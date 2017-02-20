@@ -5,6 +5,7 @@ import java.util.logging.*;
 
 /**
  * Created by pelay on 11/02/2017.
+ * Creacion y setup de logger
  */
 public class CLLogger {
 

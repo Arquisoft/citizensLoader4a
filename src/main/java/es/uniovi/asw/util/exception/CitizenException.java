@@ -2,6 +2,7 @@ package es.uniovi.asw.util.exception;
 
 /**
  * Created by Pelayo Garcia Lartategui on 15/02/2017.
+ * Clase encapsuladora de excepciones
  */
 public class CitizenException extends Exception{
     private static final long serialVersionUID = 4001710687990554589L;

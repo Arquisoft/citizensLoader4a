@@ -1,5 +1,8 @@
 package es.uniovi.asw.personalletter;
 
+/**
+ * Creacion de cartas
+ */
 public class SingletonTextWritter {
 	private static SingletonTextWritter instance;
 	private TextWritter generadorDocumentoPDF;

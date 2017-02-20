@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Created by Pelayo Garcia Lartategui on 10/02/2017.
+ * Clase con consultas Hibernate
  */
 public class CitizenFinder {
 

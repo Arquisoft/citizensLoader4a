@@ -3,7 +3,6 @@ package es.uniovi.asw.parser;
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.util.Console;
 import es.uniovi.asw.util.exception.CitizenException;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -15,6 +14,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Implementación de lector excel
+ */
 public class RListExcel extends RList implements ReadList {
 
 

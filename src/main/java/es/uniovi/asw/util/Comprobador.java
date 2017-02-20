@@ -1,7 +1,9 @@
 package es.uniovi.asw.util;
 
 
-
+/**
+ * Clase comprobadora de entradas
+ */
 public class Comprobador {
 	
 	public final static String DATE_FORMAT = "dd/MM/yyyy";

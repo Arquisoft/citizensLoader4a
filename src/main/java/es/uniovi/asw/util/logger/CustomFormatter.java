@@ -10,6 +10,7 @@ import java.util.logging.LogRecord;
 
 /**
  * Created by Pelayo García Lartategui on 15/02/2017.
+ * Formatter de logger
  */
 public class CustomFormatter extends Formatter {
 

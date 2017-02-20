@@ -9,6 +9,9 @@ import org.apache.poi.xwpf.usermodel.XWPFRun;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+/**
+ * Implementacion de escritor de word
+ */
 class WordTextWritter implements TextWritter {
 
 	private static String FILE_PATH = "src/test/resources/";

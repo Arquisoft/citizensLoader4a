@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Created by Pelayo García Lartategui on 09/02/2017.
+ * Implementacion puerto R insersción base de datos
  */
 public class InsertR implements Insert {
 

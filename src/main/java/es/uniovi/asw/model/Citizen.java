@@ -5,6 +5,10 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.persistence.*;
 import java.util.Date;
+
+/**
+ * Clase del modelo Citizen
+ */
 @Entity
 @Table(name="USUARIOS")
 public class Citizen {

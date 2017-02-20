@@ -2,6 +2,9 @@ package es.uniovi.asw.personalletter;
 
 import es.uniovi.asw.model.Citizen;
 
+/**
+ * Creción de contenido de cartas
+ */
 public class MensajePersonalizado {
 	
 	public final static String SALUDO = "Bienvenido, ";

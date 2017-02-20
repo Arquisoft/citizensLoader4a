@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Lee el fichero con los datos de una lista de ciudadanos.
+ * Interfaz de lectura de fichero
  */
 public interface ReadList {
 

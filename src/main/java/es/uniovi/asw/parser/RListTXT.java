@@ -5,7 +5,6 @@ import es.uniovi.asw.util.Console;
 import es.uniovi.asw.util.exception.CitizenException;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
@@ -14,6 +13,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Implementacion de lector TXT
+ */
 public class RListTXT extends RList implements ReadList {
 
 

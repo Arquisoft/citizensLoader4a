@@ -1,17 +1,8 @@
 package es.uniovi.asw.parser.differentParsers;
 
-import es.uniovi.asw.model.Citizen;
-import es.uniovi.asw.parser.RListExcel;
-import es.uniovi.asw.parser.RListTXT;
-import es.uniovi.asw.personalletter.MensajePersonalizado;
-import es.uniovi.asw.personalletter.SingletonTextWritter;
-import es.uniovi.asw.util.exception.CitizenException;
-import org.apache.commons.cli.*;
-
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+/**
+ * Implementacion de paser Apache
+ */
 public class ApacheParser {
 	/*private static final Logger log = Logger.getLogger(ApacheParser.class.getName());
 	private String[] args = null;

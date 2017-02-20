@@ -1,8 +1,8 @@
 package es.uniovi.asw.parser.adapter;
 
-import es.uniovi.asw.parser.differentParsers.ApacheParser;
-import es.uniovi.asw.util.Console;
-
+/**
+ * Adaptador de parser Apache
+ */
 public class ApacheParserAdapter{/* implements GeneralParser {
 	ApacheParser parser;
 	String[] args;

@@ -1,5 +1,8 @@
 package es.uniovi.asw.reportwritter;
 
+/**
+ * Clase singleton para la crecion de instancias de reporte
+ */
 public class SingletonReporter {
 	private static SingletonReporter instance = null;
 	private WriteReport reporter;

@@ -1,8 +1,13 @@
 package es.uniovi.asw;
 
+import es.uniovi.asw.util.logger.CLLogger;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
+
+import static junit.framework.TestCase.assertTrue;
 
 /**
  * Clase para probar la aplicacion por comandos.
@@ -51,6 +56,14 @@ public class TestAplicacion {
 		
 
 		Assert.assertEquals(1,runner.run(args));
+
+	}
+
+	@Test
+	public void logtest() throws IOException {
+		CLLogger cl = new CLLogger();
+		cl.setup();
+		assertTrue(true);
 
 	}
 /*

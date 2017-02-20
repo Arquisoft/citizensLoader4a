@@ -10,6 +10,9 @@ import es.uniovi.asw.util.exception.CitizenException;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
+/**
+ * Escritor de cartas PDF
+ */
 class PDFTextWritter implements TextWritter {
 
 	private static String FILE_PATH = "src/test/resources/";
