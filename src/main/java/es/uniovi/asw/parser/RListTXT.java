@@ -32,7 +32,6 @@ public class RListTXT extends RList implements ReadList {
 		String nationality;
 		String nif;
 		int row = 0;
-		StringBuilder logger = new StringBuilder();
 
 		String cadena;
 
@@ -76,9 +75,7 @@ public class RListTXT extends RList implements ReadList {
 			throw  new CitizenException("Error al cerrar BufferedReader | ["+this.getClass().getName()+"]");
 		}
 
-		// Crear el fichero log
-		String[] cachos = path.split("/");
-		String nombreFich1 = cachos[cachos.length - 1];
+
 
 		return ciudadanos;
 	}

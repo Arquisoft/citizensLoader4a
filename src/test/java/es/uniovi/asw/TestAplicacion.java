@@ -19,9 +19,6 @@ public class TestAplicacion {
 
 	final LoadCitizens runner = new LoadCitizens();
 
-
-
-	private LoadCitizens app;
 	private String[] args;
 	private String filesLocation;
 	
