@@ -14,3 +14,21 @@ Citizens Loader module
 - Ana Bravo Mediavilla 
 - Javier Castro Fernández (@javiercasfer95 || @javitxu1995)
 - Pelayo García Lartategui (@pelayolartategui)
+
+# Comandos soportados
+/*
+ *         - readExcel fichname -> permite cargar y leer el fichero "fichname"
+ *         .xlsx
+ * 
+ *         - readTxt filename -> permite cargar y leer el fichero "fichname"
+ *         .txt
+ * 
+ *         - sendPDF -> Manda una carta en PDF a todos los ciudadanos leidos. Es
+ *         necesario poner la lectura antes, es decir: readXXX filename sendPDF
+ *         
+ *         - sendTXT -> Manda una carta en TXT a todos los ciudadanos leidos. Es
+ *         necesario poner la lectura antes, es decir: readXXX filename sendTXT
+ *         
+ *         - sendDOC -> Manda una carta en DOC a todos los ciudadanos leidos. Es
+ *         necesario poner la lectura antes, es decir: readXXX filename sendDOC
+ */
