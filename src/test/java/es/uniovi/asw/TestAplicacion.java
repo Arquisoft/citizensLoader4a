@@ -17,7 +17,7 @@ import static junit.framework.TestCase.assertTrue;
  */
 public class TestAplicacion {
 
-	final LoadCitizens runner = new LoadCitizens();
+	private final LoadCitizens runner = new LoadCitizens();
 
 	private String[] args;
 	private String filesLocation;

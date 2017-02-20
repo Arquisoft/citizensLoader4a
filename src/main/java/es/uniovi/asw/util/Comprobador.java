@@ -59,7 +59,7 @@ public class Comprobador {
 	}
 	
 	public static boolean esAddressCorrecto(String prueba){
-		if (prueba == null || prueba == "") {
+		if (prueba == null || prueba.equals("")) {
 			return false;
 		}
 		String[] ad = prueba.split(" ");
