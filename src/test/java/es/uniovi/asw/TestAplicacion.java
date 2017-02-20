@@ -1,11 +1,10 @@
 package es.uniovi.asw;
 
+import java.io.IOException;
 import es.uniovi.asw.util.logger.CLLogger;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.io.IOException;
 
 import static junit.framework.TestCase.assertTrue;
 
@@ -21,9 +20,9 @@ public class TestAplicacion {
 
 
 
-	private LoadCitizens app;
-	private String[] args;
-	private String filesLocation;
+	LoadCitizens app;
+	String[] args;
+	String filesLocation;
 	
 	@Before
 	public void setUp(){
@@ -58,7 +57,6 @@ public class TestAplicacion {
 		Assert.assertEquals(1,runner.run(args));
 
 	}
-
 	@Test
 	public void logtest() throws IOException {
 		CLLogger cl = new CLLogger();
@@ -66,27 +64,59 @@ public class TestAplicacion {
 		assertTrue(true);
 
 	}
-/*
+
 	@Test
-	public void sendDOC() {
-		args[0] = "sendDOC";
-		args[1]= args[1]+"test.txt";
+	public void sendPDF() {
+		args=new String[4];
+		String a=filesLocation;
+		args[0] = "readExcel";
+		args[1]= a+"test.xlsx";
+		args[2]= "sendPDF";
+		args[3]= a+"archivoGenerado";
 		
 		//Console.println("A leer un txt con el comando: "+args);
 		Assert.assertEquals(0,runner.run(args));
-
 	}
 
+	@Test
+	public void sendDOC() {
+		args=new String[4];
+		String a=filesLocation;
+		args[0] = "readExcel";
+		args[1]= a+"test.xlsx";
+		args[2]= "sendDOC";
+		args[3]= a+"archivoGenerado";
+		
+		//Console.println("A leer un txt con el comando: "+args);
+		Assert.assertEquals(0,runner.run(args));
+	}
 
+	@Test
+	public void sendTXT() {
+		args=new String[4];
+		String a=filesLocation;
+		args[0] = "readExcel";
+		args[1]= a+"test.xlsx";
+		args[2]= "sendTXT";
+		args[3]= a+"archivoGenerado";
+		//Console.println("A leer un txt con el comando: "+args);
+		Assert.assertEquals(0,runner.run(args));
+	}
 	
 	@Test
 	public void sendDOCMal() {
-		args[0] = "sendDOCMOCHO";
-		args[1]= args[1]+"test.txt";
+		/*args=new String[3];
+		args[1]=filesLocation;
+		args[0] = "readExcel";
+		args[1]= args[1]+"test.xlsx";
+		args[2]= "sendDOCMAL";
 		
-
-		Assert.assertEquals(1,runner.run(args));
-
+		Assert.assertEquals(1,runner.run(args));*/
 	}
-*/
+	
+	@Test
+	public void cllogger() throws IOException {
+		CLLogger c= new CLLogger();
+		c.setup();
+	}
 }
