@@ -4,7 +4,7 @@ import es.uniovi.asw.parser.differentParsers.MyParser;
 import es.uniovi.asw.util.exception.CitizenException;
 
 public class MyParserAdapter implements GeneralParser {
-	MyParser parser;
+	private MyParser parser;
 
 	public MyParserAdapter() {
 

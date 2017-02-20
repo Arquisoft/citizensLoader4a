@@ -21,9 +21,9 @@ public class TestAplicacion {
 
 
 
-	LoadCitizens app;
-	String[] args;
-	String filesLocation;
+	private LoadCitizens app;
+	private String[] args;
+	private String filesLocation;
 	
 	@Before
 	public void setUp(){

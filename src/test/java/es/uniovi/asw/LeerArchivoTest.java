@@ -1,6 +1,5 @@
 package es.uniovi.asw;
 
-import es.uniovi.asw.dbupdate.CitizenFinder;
 import es.uniovi.asw.model.Citizen;
 import es.uniovi.asw.parser.RListExcel;
 import es.uniovi.asw.parser.RListTXT;

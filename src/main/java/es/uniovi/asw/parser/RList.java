@@ -20,7 +20,7 @@ public abstract class RList implements ReadList {
 	protected static final WriteReport reporter = new WreportR();
 
 
-	abstract List<Citizen>readFile(String path) throws CitizenException;
+	public abstract List<Citizen>readFile(String path) throws CitizenException;
 
 	@Override
 	public List<Citizen> read(String path) throws CitizenException {

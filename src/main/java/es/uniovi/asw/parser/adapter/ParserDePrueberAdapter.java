@@ -1,6 +1,5 @@
 package es.uniovi.asw.parser.adapter;
 
-import es.uniovi.asw.parser.differentParsers.ParserDePrueber;
 
 public class ParserDePrueberAdapter {/*implements GeneralParser{
 	

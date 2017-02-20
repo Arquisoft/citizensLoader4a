@@ -32,7 +32,7 @@ public class Comprobador {
 		return true;
 	}
 	public static boolean esEmailCorrecto(String prueba){
-		if (prueba == null || prueba == "") {
+		if (prueba == null || prueba.equals("")) {
 			return false;
 		}
 		String[] nombreYmail = prueba.split("@");
